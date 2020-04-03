@@ -1,0 +1,53 @@
+name: clash-mips
+
+extra-source-files:
+- README.md
+
+dependencies:
+- base >= 4.7 && < 5
+- mtl
+- clash-lib
+- clash-prelude
+- concurrent-supply
+- ghc-typelits-natnormalise
+- ghc-typelits-extra
+- ghc-typelits-knownnat
+
+build-tools:
+- clash-ghc
+
+default-extensions:
+- BinaryLiterals
+- ConstraintKinds
+- DataKinds
+- DeriveAnyClass
+- DeriveGeneric
+- DeriveLift
+- DerivingStrategies
+- ExplicitForAll
+- ExplicitNamespaces
+- FlexibleContexts
+- FlexibleInstances
+- KindSignatures
+- MagicHash
+- MonoLocalBinds
+- QuasiQuotes
+- ScopedTypeVariables
+- TemplateHaskell
+- TemplateHaskellQuotes
+- TypeApplications
+- TypeFamilies
+- TypeOperators
+- NoImplicitPrelude
+- NoMonomorphismRestriction
+- NoStrict
+- NoStrictData
+- PartialTypeSignatures
+
+ghc-options:
+- -fplugin=GHC.TypeLits.Normalise
+- -fplugin=GHC.TypeLits.Extra.Solver
+- -fplugin=GHC.TypeLits.KnownNat.Solver
+
+library:
+  source-dirs: src

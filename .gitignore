@@ -1,0 +1,6 @@
+.stack-work/
+*.cabal
+*~
+verilog/
+systemverilog/
+vhdl/
