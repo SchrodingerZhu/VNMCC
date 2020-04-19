@@ -1,8 +1,8 @@
 module MIPS.PC where
-import Clash.Prelude
-import MIPS.RAM
-import MIPS.Instruction.Type
-import MIPS.Instruction.Format
+import           Clash.Prelude
+import           MIPS.Instruction.Format
+import           MIPS.Instruction.Type
+import           MIPS.RAM
 
 programCounterT :: Unsigned 32 -> Maybe (Unsigned 32) -> (Unsigned 32, (Unsigned 32, Unsigned 32))
 programCounterT state (Just t) = (t, (state, state + 1))

@@ -1,7 +1,7 @@
 module MIPS.RAM where
-import Clash.Prelude
-import MIPS.Instruction.Type
-import MIPS.Instruction.Format
+import           Clash.Prelude
+import           MIPS.Instruction.Format
+import           MIPS.Instruction.Type
 
 type MemAddr = Unsigned 32
 

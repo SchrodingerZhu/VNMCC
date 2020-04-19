@@ -1,11 +1,11 @@
 module MIPS.DecodeModule where
-import Clash.Prelude
-import MIPS.Instruction.Type
-import MIPS.Instruction.Format
-import MIPS.ControlUnit
-import MIPS.RegisterFile
-import Control.Monad.State
-import MIPS.Utils.State
+import           Clash.Prelude
+import           Control.Monad.State
+import           MIPS.ControlUnit
+import           MIPS.Instruction.Format
+import           MIPS.Instruction.Type
+import           MIPS.RegisterFile
+import           MIPS.Utils.State
 
 registerPair :: HiddenClockResetEnable dom
     => Signal dom Instruction
@@ -47,9 +47,9 @@ registerPair = fmap registerPair'
 type DecodeModuleState = ((Maybe (RegNo, Reg)), Instruction, Unsigned 32)
 
 decodeModuleState :: (
-        Bool, 
-        (Maybe (RegNo, Reg)), 
-        Instruction, 
+        Bool,
+        (Maybe (RegNo, Reg)),
+        Instruction,
         Unsigned 32
     ) -> State DecodeModuleState DecodeModuleState
 decodeModuleState (stall,wdata,inst,pc) = do
@@ -61,23 +61,23 @@ decodeModuleState (stall,wdata,inst,pc) = do
         return state
 
 
-        
+
 
 {-# ANN decodeModule (Synthesize {
     t_name = "DecodeModule",
     t_inputs = [
-        PortName "CLOCK", 
-        PortName "RESET", 
-        PortName "ENABLE", 
+        PortName "CLOCK",
+        PortName "RESET",
+        PortName "ENABLE",
         PortName "WRITE_REG",
         PortName "STALL",
         PortName "INSTRUCTION",
         PortName "COUNTER"],
-    t_output = PortProduct "DM" 
-        [PortName "WRITE", 
-         PortName "MEM", 
-         PortName "BRANCH_FLAG", 
-         PortName "ALU", 
+    t_output = PortProduct "DM"
+        [PortName "WRITE",
+         PortName "MEM",
+         PortName "BRANCH_FLAG",
+         PortName "ALU",
          PortName "IMM",
          PortName "RS",
          PortName "RSV",
@@ -85,7 +85,7 @@ decodeModuleState (stall,wdata,inst,pc) = do
          PortName "RTV",
          PortName "COUNTER"
         ]
-}) #-}       
+}) #-}
 decodeModule :: Clock System
     -> Reset System
     -> Enable System
@@ -93,9 +93,9 @@ decodeModule :: Clock System
     -> Signal System Bool                      -- stall
     -> Signal System Instruction               -- instruction
     -> Signal System (Unsigned 32)             -- counter
-    -> Signal System ( 
+    -> Signal System (
          Maybe (Unsigned 5)                    -- write register
-       , MemoryOperation                       -- memory 
+       , MemoryOperation                       -- memory
        , BranchFlag                            -- branch flag
        , ALUOperation                          -- ALU control
        , Maybe (BitVector 32)                  -- immediate value
@@ -105,17 +105,17 @@ decodeModule :: Clock System
        , BitVector 32                          -- rd value
        , Unsigned 32)                          -- output counter
 
-decodeModule clk rst enable wdata stall inst counter = 
-    let 
+decodeModule clk rst enable wdata stall inst counter =
+    let
         stateMachine = exposeClockResetEnable $ asStateM decodeModuleState (Nothing, ADDI 0 0 0, 0)
-        (wdata, rinst, pc) = 
+        (wdata, rinst, pc) =
             unbundle (stateMachine clk rst enable $ bundle (stall, wdata, inst, counter))
         regDecoder   = exposeClockResetEnable registerPair
         (rs, rt)     = unbundle $ regDecoder clk rst enable rinst
         (w, m, b, a, i) = controlUnit clk rst enable rinst
         check flag w' = if flag then Nothing else w'
-        wdata'       = check <$> stall <*> wdata 
+        wdata'       = check <$> stall <*> wdata
         (rsv, rtv)   = unbundle (registerFile clk rst enable $ bundle (rs, rt, wdata'))
     in bundle (w, m, b, a, i, rs, rsv, rt, rtv, pc)
 
-    
+

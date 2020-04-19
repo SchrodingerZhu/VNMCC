@@ -1,7 +1,7 @@
 module MIPS.RegisterFile where
-import Clash.Prelude
-import Control.Monad.State
-import MIPS.Utils.State
+import           Clash.Prelude
+import           Control.Monad.State
+import           MIPS.Utils.State
 type Reg = BitVector 32
 type RegNo = Unsigned 5
 
@@ -15,7 +15,7 @@ registerFileS (reg0, reg1, writePair) = do
         res1 = regs !! reg1
         newS = case writePair of
             Nothing -> regs
-            Just (a, b) -> 
+            Just (a, b) ->
                 if a /= 0
                 then replace a b regs
                 else regs
@@ -24,11 +24,11 @@ registerFileS (reg0, reg1, writePair) = do
 
 {-# ANN registerFile (Synthesize {
     t_name = "RegisterFile",
-    t_inputs = [PortName "CLOCK", PortName "RESET", PortName "ENABLE", 
+    t_inputs = [PortName "CLOCK", PortName "RESET", PortName "ENABLE",
         PortProduct "RF" [PortName "RS", PortName "RT", PortName "WRITE"]],
-    t_output = PortProduct "RF" 
+    t_output = PortProduct "RF"
         [PortName "RSV", PortName "RTV"]
-}) #-}        
+}) #-}
 registerFile :: Clock System
     -> Reset System
     -> Enable System

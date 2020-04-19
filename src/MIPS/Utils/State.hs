@@ -1,6 +1,6 @@
 module MIPS.Utils.State where
-import Clash.Prelude
-import Control.Monad.State
+import           Clash.Prelude
+import           Control.Monad.State
 asStateM
   :: ( HiddenClockResetEnable dom
      , NFDataX s )
