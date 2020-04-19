@@ -11,10 +11,6 @@ data Instruction =
     | ADDIU Register Register (Unsigned 16)
     | SUB   Register Register Register
     | SUBU  Register Register Register
-    | MULT  Register Register
-    | MULTU Register Register
-    | DIV   Register Register
-    | DIVU  Register Register
     | AND   Register Register Register
     | ANDI  Register Register (BitVector 16)
     | NOR   Register Register Register
@@ -36,7 +32,11 @@ data Instruction =
     | SLLV  Register Register Register
     | SRLV  Register Register Register
     | SRAV  Register Register Register
+    | J     (Unsigned 26)
+    | JAL   (Unsigned 26)
     deriving Show
+    deriving Generic
+    deriving NFDataX
 
 
 
@@ -57,13 +57,9 @@ decodeTyped (F.RType 0 rs rt rd sa fn) =
         0b100110 -> (makeType XOR)     (rs, rt, rd)
         0b101010 -> (makeType SLT)     (rs, rt, rd)
         0b101011 -> (makeType SLTU)    (rs, rt, rd)
-        0b000000 -> (makeType' SLL)    (rs, rt, sa)
-        0b000010 -> (makeType' SRL)    (rs, rt, sa)
-        0b000011 -> (makeType' SRA)    (rs, rt, sa)
-        0b011010 -> (makeType2 DIV)    (rs, rt)
-        0b011011 -> (makeType2 DIVU)   (rs, rt)
-        0b011000 -> (makeType2 MULT)   (rs, rt)
-        0b011001 -> (makeType2 MULTU)  (rs, rt)
+        0b000000 -> (makeType' SLL)    (rd, rt, sa)
+        0b000010 -> (makeType' SRL)    (rd, rt, sa)
+        0b000011 -> (makeType' SRA)    (rd, rt, sa)
         0b000100 -> (makeType SLLV)    (rs, rt, rd)
         0b000110 -> (makeType SRLV)    (rs, rt, rd)
         0b000111 -> (makeType SRAV)    (rs, rt, rd)
@@ -93,3 +89,9 @@ decodeTyped (F.IType op rs rt imm) =
         t1 (x, _, _) = x
         t2 (_, y, _) = y
         t3 (_, _, z) = z
+
+decodeTyped (F.JType op target) =
+    case op of
+        0b000010 -> J   (unpack target)
+        0b000011 -> JAL (unpack target)
+

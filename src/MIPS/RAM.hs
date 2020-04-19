@@ -1,9 +1,11 @@
 module MIPS.RAM where
 import Clash.Prelude
-type MemAddr = Unsigned 32
+import MIPS.Instruction.Type
+import MIPS.Instruction.Format
 
+type MemAddr = Unsigned 32
 
 instrRAM :: HiddenClockResetEnable dom
     => Signal dom MemAddr
-    -> Signal dom (BitVector 32)
-instrRAM = flip (blockRam $ (replicate d512 0)) $ pure Nothing
+    -> Signal dom Instruction
+instrRAM x = decodeTyped . decodeFormat <$> ((blockRamFile d512 "instructions.bin") x $ pure Nothing)
