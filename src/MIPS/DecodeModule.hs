@@ -40,28 +40,23 @@ registerPair = fmap registerPair'
             SLLV  x y _ -> (y, x)
             SRLV  x y _ -> (y, x)
             SRAV  x y _ -> (y, x)
+            NOP         -> (0, 0)
             J     _     -> (0, 0)
             JAL   _     -> (0, 0)
+            JR    x     -> (x, 0)
 
 
 type DecodeModuleState = ((Maybe (RegNo, Reg)), Instruction, Unsigned 32)
 
 decodeModuleState :: (
-        Bool,
         (Maybe (RegNo, Reg)),
         Instruction,
         Unsigned 32
     ) -> State DecodeModuleState DecodeModuleState
-decodeModuleState (stall,wdata,inst,pc) = do
+decodeModuleState (wdata,inst,pc) = do
     state <- get
-    if stall then
-        return state
-    else do
-        put (wdata, inst, pc)
-        return state
-
-
-
+    put (wdata, inst, pc)
+    return state
 
 {-# ANN decodeModule (Synthesize {
     t_name = "DecodeModule",
@@ -107,9 +102,9 @@ decodeModule :: Clock System
 
 decodeModule clk rst enable wdata stall inst counter =
     let
-        stateMachine = exposeClockResetEnable $ asStateM decodeModuleState (Nothing, ADDI 0 0 0, 0)
+        stateMachine = exposeClockResetEnable $ asStateM decodeModuleState (Nothing, NOP, 0)
         (wdata, rinst, pc) =
-            unbundle (stateMachine clk rst enable $ bundle (stall, wdata, inst, counter))
+            unbundle (stateMachine clk rst enable $ bundle (wdata, inst, counter))
         regDecoder   = exposeClockResetEnable registerPair
         (rs, rt)     = unbundle $ regDecoder clk rst enable rinst
         (w, m, b, a, i) = controlUnit clk rst enable rinst

@@ -4,7 +4,9 @@ import qualified MIPS.Instruction.Format as F
 
 type Register = Unsigned 5
 
-data Instruction = ADD Register Register Register
+data Instruction =
+      NOP 
+    | ADD Register Register Register
     | ADDI Register Register (Signed 16)
     | ADDU Register Register Register
     | ADDIU Register Register (Unsigned 16)
@@ -33,6 +35,7 @@ data Instruction = ADD Register Register Register
     | SRAV Register Register Register
     | J (Unsigned 26)
     | JAL (Unsigned 26)
+    | JR  (Unsigned 5)
     deriving Show
     deriving Generic
     deriving NFDataX
@@ -44,8 +47,10 @@ decode :: BitVector 32 -> Instruction
 decode vec = decodeTyped $ F.decodeFormat vec
 
 decodeTyped :: F.Format -> Instruction
+decodeTyped  F.NoType                  = NOP
 decodeTyped (F.RType 0 rs rt rd sa fn) =
     case fn of
+        0b001000 -> JR                 (unpack  rs)
         0b100000 -> (makeType ADD)     (rs, rt, rd)
         0b100001 -> (makeType ADDU)    (rs, rt, rd)
         0b100100 -> (makeType AND)     (rs, rt, rd)

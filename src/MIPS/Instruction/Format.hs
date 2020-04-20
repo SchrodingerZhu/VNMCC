@@ -3,13 +3,15 @@
 module MIPS.Instruction.Format where
 import           Clash.Prelude
 
-data Format = RType (BitVector 6) (BitVector 5) (BitVector 5) (BitVector 5)
-        (BitVector 5) (BitVector 6)
+data Format =
+      NoType 
+    | RType (BitVector 6) (BitVector 5) (BitVector 5) (BitVector 5) (BitVector 5) (BitVector 6)
     | IType (BitVector 6) (BitVector 5) (BitVector 5) (BitVector 16)
     | JType (BitVector 6) (BitVector 26)
     deriving Show
 
 decodeFormat :: BitVector 32 -> Format
+decodeFormat 0   = NoType
 decodeFormat vec =
     let opcode = slice d31 d26 vec in
     case opcode of

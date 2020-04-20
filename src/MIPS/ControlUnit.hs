@@ -28,6 +28,7 @@ data ALUOperation = ALUAdd Bool
     | ALUSet Bool
     | ALUShiftL
     | ALUShiftR Bool
+    | ALUNone
     deriving Generic
     deriving NFDataX
 
@@ -83,6 +84,9 @@ branchFlag = fmap branchFlag'
         branchFlag' inst = case inst of
             BEQ _ _ x -> BranchEQ (pack $ extend x)
             BNE _ _ x -> BranchNE (pack $ extend x)
+            JR  _     -> Jump
+            J   _     -> Jump
+            JAL _     -> Jump
             _         -> NoBranch
 
 dispatch :: HiddenClockResetEnable dom
@@ -117,8 +121,10 @@ dispatch = fmap dispatch'
             SRLV  _ _ _ -> ALUShiftR False
             SRA   _ _ _ -> ALUShiftR True
             SRAV  _ _ _ -> ALUShiftR False
+            JR    _     -> ALUOr
             J     _     -> ALUOr
             JAL   _     -> ALUOr
+            _           -> ALUNone
 
 immediateValue :: HiddenClockResetEnable dom
     => Signal dom Instruction
@@ -138,8 +144,8 @@ immediateValue = fmap immediateValue'
             SLL    _ _ x -> Just (pack $ extend x)
             SRL    _ _ x -> Just (pack $ extend x)
             SRA    _ _ x -> Just (pack $ extend x)
-            J      x     -> Just (pack $ extend x)
             JAL    x     -> Just (pack $ extend x)
+            J      x     -> Just (pack $ extend x)
             _            -> Nothing
 
 

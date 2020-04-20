@@ -30,6 +30,7 @@ arithmeticUnit op opr0 opr1 = (res, o, z, n)
         arithmeticUnit' ALUAnd        = (opr0 .&. opr1, False, False)
         arithmeticUnit' ALUNor        = (complement $ opr0 .|. opr1, False, False)
         arithmeticUnit' ALUOr         = (opr0 .|. opr1, False, False)
+        arithmeticUnit' ALUXor        = (opr0 `xor` opr1 , False, False)
         arithmeticUnit' (ALUSet flag) =
             let result = boolToBV $ if flag then
                     (unpack opr0 :: Signed 32) < (unpack opr1 :: Signed 32)
@@ -40,6 +41,7 @@ arithmeticUnit op opr0 opr1 = (res, o, z, n)
         arithmeticUnit' (ALUShiftR True)   =
             (pack $ (unpack opr0 :: Signed 32) `shiftR` (unpack $ extend opr1), False, False)
         arithmeticUnit' (ALUShiftR False)   = (opr0 `unsafeShiftR` (unpack $ extend opr1), False, False)
+        arithmeticUnit' ALUNone             = (0, False, False)
 
 
 
