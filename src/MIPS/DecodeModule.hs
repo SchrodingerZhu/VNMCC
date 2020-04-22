@@ -2,6 +2,7 @@ module MIPS.DecodeModule where
 import           Clash.Prelude
 import           Control.Monad.State
 import           MIPS.ControlUnit
+import           MIPS.HazardUnit
 import           MIPS.Instruction.Format
 import           MIPS.Instruction.Type
 import           MIPS.RegisterFile
@@ -33,7 +34,7 @@ registerPair = fmap registerPair'
             SLTU  x y _ -> (x, y)
             SLTIU x _ _ -> (x, 0)
             LW    x _ _ -> (x, 0)
-            SW    x _ _ -> (x, 0)
+            SW    x y _ -> (x, y)
             SLL   _ x _ -> (x, 0)
             SRL   _ x _ -> (x, 0)
             SRA   _ x _ -> (x, 0)
@@ -51,12 +52,21 @@ type DecodeModuleState = ((Maybe (RegNo, Reg)), Instruction, Unsigned 32)
 decodeModuleState :: (
         (Maybe (RegNo, Reg)),
         Instruction,
-        Unsigned 32
+        Unsigned 32,
+        StallInfo
     ) -> State DecodeModuleState DecodeModuleState
-decodeModuleState (wdata,inst,pc) = do
-    state <- get
-    put (wdata, inst, pc)
-    return state
+decodeModuleState (wdata,inst,pc,stall) = do
+    case stall of
+        Normal -> do
+            state <- get
+            put (wdata, inst, pc)
+            return state
+        StallOnce -> do
+            return (Nothing, NOP, 0)
+        Flush    -> do
+            let res = (Nothing, NOP, 0)
+            put res
+            return res
 
 {-# ANN decodeModule (Synthesize {
     t_name = "DecodeModule",
@@ -85,7 +95,7 @@ decodeModule :: Clock System
     -> Reset System
     -> Enable System
     -> Signal System (Maybe (RegNo, Reg))      -- write data
-    -> Signal System Bool                      -- stall
+    -> Signal System StallInfo                 -- stall
     -> Signal System Instruction               -- instruction
     -> Signal System (Unsigned 32)             -- counter
     -> Signal System (
@@ -103,12 +113,17 @@ decodeModule :: Clock System
 decodeModule clk rst enable wdata stall inst counter =
     let
         stateMachine = exposeClockResetEnable $ asStateM decodeModuleState (Nothing, NOP, 0)
+
         (wdata, rinst, pc) =
-            unbundle (stateMachine clk rst enable $ bundle (wdata, inst, counter))
+            unbundle (stateMachine clk rst enable $ bundle (wdata, inst, counter, stall))
+        
         regDecoder   = exposeClockResetEnable registerPair
         (rs, rt)     = unbundle $ regDecoder clk rst enable rinst
         (w, m, b, a, i) = controlUnit clk rst enable rinst
-        check flag w' = if flag then Nothing else w'
+
+        check Flush      _  = Nothing
+        check _          w' = w'
+
         wdata'       = check <$> stall <*> wdata
         (rsv, rtv)   = unbundle (registerFile clk rst enable $ bundle (rs, rt, wdata'))
     in bundle (w, m, b, a, i, rs, rsv, rt, rtv, pc)

@@ -2,9 +2,21 @@ module MIPS.ArithmeticModule where
 import           Clash.Prelude
 import           MIPS.ALU
 import           MIPS.ControlUnit
+import           MIPS.HazardUnit
 import           MIPS.Forward
 import           MIPS.Instruction.Type
 import           MIPS.RegisterFile
+import           Control.Monad.State
+import           MIPS.Utils.State
+
+data MemoryOperation' = MemNone'
+    | MemLoad'
+    | MemWrite' (BitVector 32)
+    deriving Generic
+    deriving NFDataX
+    deriving Show
+
+
 type ALUState =
   ( Maybe (Unsigned 5)                    -- write register
   , MemoryOperation                       -- memory
@@ -19,13 +31,25 @@ type ALUState =
 
 type ALUOutput =
     ( Maybe (Unsigned 5)                  -- write register
-    , MemoryOperation                     -- memory
+    , MemoryOperation'                    -- memory
     , BitVector 32                        -- ALU result
     , Maybe (Unsigned 32)                 -- branch target
     )
 
-arithmeticModuleState :: HiddenClockResetEnable dom => Signal dom ALUState ->  Signal dom ALUState
-arithmeticModuleState = register (Nothing, MemNone, NoBranch, ALUAdd False, Nothing, 0, 0, 0, 0, 0)
+arithmeticModuleState' :: (ALUState, StallInfo) -> State ALUState ALUState
+arithmeticModuleState' (_, Flush) = do 
+    let res = (Nothing, MemNone, NoBranch, ALUNone, Nothing, 0, 0, 0, 0, 0)
+    put res
+    return res
+
+arithmeticModuleState' (state, _) = do
+    res <- get
+    put state
+    return res
+
+
+arithmeticModuleState :: HiddenClockResetEnable dom => Signal dom (ALUState, StallInfo) ->  Signal dom ALUState
+arithmeticModuleState = asStateM arithmeticModuleState' (Nothing, MemNone, NoBranch, ALUNone, Nothing, 0, 0, 0, 0, 0)
 
 
 {-# ANN arithmeticModule (Synthesize {
@@ -35,6 +59,7 @@ arithmeticModuleState = register (Nothing, MemNone, NoBranch, ALUAdd False, Noth
         PortName "ENABLE",
         PortName "FW_0",
         PortName "FW_1",
+        PortName "STALL",
         PortProduct "AM" [
            PortName "WRITE",
            PortName "MEM",
@@ -55,18 +80,30 @@ arithmeticModule :: Clock System
     -> Enable System
     -> Signal System ForwardInfo -- last
     -> Signal System ForwardInfo -- last last
+    -> Signal System StallInfo
     -> Signal System ALUState           -- input
     -> Signal System ALUOutput           -- output
-arithmeticModule clk rst enable last last' input =
+arithmeticModule clk rst enable last last' stall input =
     let
-        (write, mem, branch, alu, imm, rs, rsv, rt, rtv, counter) = unbundle input
-        (check0, check1) = unbundle $ forwardUnit clk rst enable last last' rs rt
+        (write, mem, branch, alu, imm, rs, rsv, rt, rtv, counter) = 
+            unbundle $ ((exposeClockResetEnable arithmeticModuleState) clk rst enable) $ bundle (input, stall)
+        (check0, check1) = 
+            unbundle $ forwardUnit clk rst enable last last' rs rt
         unwrap (Just a) = a
+
+        memSolver MemWrite value = MemWrite' value
+        memSolver MemLoad  _     = MemLoad'
+        memSolver _        _     = MemNone'
+
+        mem' = memSolver <$> mem <*> rtv
+    
         rsv' =  (<|>) <$> check0 <*> (pure <$> rsv)
         rtv' =  (<|>) <$> imm <*> ((<|>) <$> check1 <*> (pure <$> rsv))
+
         (res, _, z, _) = unbundle $ arithmeticUnit <$> alu <*> (unwrap <$> rsv') <*> (unwrap <$>rtv')
-        check_branch True  (BranchEQ delta) pc = Just (pc + unpack delta)
-        check_branch False (BranchNE delta) pc = Just (pc + unpack delta)
-        check_branch _     _            _      = Nothing
-        branch' = check_branch <$> z <*> branch <*> counter
-    in bundle (write, mem, res, branch')
+        check_branch True  (BranchEQ delta) pc _   = Just (pc + unpack delta)
+        check_branch False (BranchNE delta) pc _   = Just (pc + unpack delta)
+        check_branch _     Jump  _    (Just i)   = Just (unpack $ i `unsafeShiftR` 2)
+        check_branch _     _     _      _   = Nothing
+        branch' = check_branch <$> z <*> branch <*> counter <*> imm
+    in bundle (write, mem', res, branch')

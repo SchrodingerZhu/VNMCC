@@ -4,8 +4,8 @@ import           Clash.Prelude
 type ForwardInfo = Maybe (Unsigned 5, BitVector 32)
 
 forwardUnit' :: HiddenClockResetEnable dom
-    => Signal dom ForwardInfo                                      -- exec register
-    -> Signal dom ForwardInfo                                      -- load register
+    => Signal dom ForwardInfo                                      -- mem register
+    -> Signal dom ForwardInfo                                      -- write-back register
     -> Signal dom (Unsigned 5)                                     -- rs
     -> Signal dom (Unsigned 5)                                     -- rt
     -> Signal dom (Maybe (BitVector 32), Maybe (BitVector 32))
@@ -13,13 +13,13 @@ forwardUnit' a b c d = forwarding <$> a <*> b <*> c <*> d
     where
         forwarding exec load rs rt =
             let rs' = case (exec, load) of
-                    (_, Just (no, res)) | no == rs -> Just res
                     (Just (no, res), _) | no == rs -> Just res
+                    (_, Just (no, res)) | no == rs -> Just res
                     _                              -> Nothing
                 rt' = case (exec, load) of
-                        (_, Just (no, res)) | no == rt -> Just res
-                        (Just (no, res), _) | no == rt -> Just res
-                        _                              -> Nothing
+                    (Just (no, res), _) | no == rt -> Just res
+                    (_, Just (no, res)) | no == rt -> Just res
+                    _                              -> Nothing
                 in (rs', rt')
 
 {-# ANN forwardUnit (Synthesize {
