@@ -2,7 +2,7 @@ module MIPS.DecodeModule where
 import           Clash.Prelude
 import           Control.Monad.State
 import           MIPS.ControlUnit
-import           MIPS.HazardUnit
+import           MIPS.HazardUnit.Class
 import           MIPS.Instruction.Format
 import           MIPS.Instruction.Type
 import           MIPS.RegisterFile
@@ -60,8 +60,6 @@ decodeModuleState (inst,pc,stall) = do
             state <- get
             put (inst, pc)
             return state
-        StallOnce -> do
-            return (NOP, 0)
         Flush    -> do
             let res = (NOP, 0)
             put res

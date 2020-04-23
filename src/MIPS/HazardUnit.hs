@@ -1,7 +1,8 @@
 module MIPS.HazardUnit where
 import Clash.Prelude
 import MIPS.ControlUnit
-
+import MIPS.ArithmeticModule
+import MIPS.HazardUnit.Class
 {-
     We have three kinds of Hazards that require stalling the pipeline:
     - load hazard for 1 cycle only for the PC part
@@ -11,7 +12,7 @@ import MIPS.ControlUnit
 
 type HazardInput = (
       Maybe (Unsigned 5)  -- write  register 
-    , MemoryOperation     -- memory operation
+    , MemoryOperation'     -- memory operation
     , Unsigned 5          -- rs number
     , Unsigned 5          -- rt number
     , Maybe (Unsigned 32) -- branching target    
@@ -31,7 +32,7 @@ type HazardInput = (
 
 -- As for the priority, we will check type A first
 
-data StallInfo = Normal | Flush | StallOnce
+
 
 {-# ANN hazardUnit (Synthesize {
     t_name = "HazardUnit",
@@ -45,8 +46,6 @@ data StallInfo = Normal | Flush | StallOnce
 }) #-}
 hazardUnit :: HazardInput -> StallInfo
 hazardUnit (_, _, _, _, Just _) = Flush
-hazardUnit (Just w, MemLoad, x, y, _) = 
-    if x == w || y == w then StallOnce else Normal
 hazardUnit _                          = Normal
 
 

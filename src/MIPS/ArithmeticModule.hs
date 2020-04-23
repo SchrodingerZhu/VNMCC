@@ -2,7 +2,7 @@ module MIPS.ArithmeticModule where
 import           Clash.Prelude
 import           MIPS.ALU
 import           MIPS.ControlUnit
-import           MIPS.HazardUnit
+import           MIPS.HazardUnit.Class
 import           MIPS.Forward
 import           MIPS.Instruction.Type
 import           MIPS.RegisterFile
@@ -42,7 +42,7 @@ arithmeticModuleState' (_, Flush) = do
     put res
     return res
 
-arithmeticModuleState' (state, _) = do
+arithmeticModuleState' (state, Normal) = do
     res <- get
     put state
     return res
@@ -89,20 +89,22 @@ arithmeticModule clk rst enable last last' stall input =
             unbundle $ ((exposeClockResetEnable arithmeticModuleState) clk rst enable) $ bundle (input, stall)
         (check0, check1) = 
             unbundle $ forwardUnit clk rst enable last last' rs rt
+
         unwrap (Just a) = a
+        unwrap       _  = 0
+        
+        rsv' =  (<|>) <$> check0 <*> (pure <$> rsv)
+        rtv0 =  ((<|>) <$> check1 <*> (pure <$> rsv))
+        rtv' =  (<|>) <$> imm <*> rtv0
 
         memSolver MemWrite value = MemWrite' value
-        memSolver MemLoad  _     = MemLoad'
-        memSolver _        _     = MemNone'
-
-        mem' = memSolver <$> mem <*> rtv
-    
-        rsv' =  (<|>) <$> check0 <*> (pure <$> rsv)
-        rtv' =  (<|>) <$> imm <*> ((<|>) <$> check1 <*> (pure <$> rsv))
+        memSolver MemLoad   _    = MemLoad'
+        memSolver _         _    = MemNone'
+        mem' = memSolver <$> mem <*> (unwrap <$> rtv0)
 
         (res, _, z, _) = unbundle $ arithmeticUnit <$> alu <*> (unwrap <$> rsv') <*> (unwrap <$>rtv')
-        check_branch True  (BranchEQ delta) pc _   = Just (pc + unpack delta)
-        check_branch False (BranchNE delta) pc _   = Just (pc + unpack delta)
+        check_branch True  (BranchEQ delta) pc _   = Just (pc + unpack delta - 1)
+        check_branch False (BranchNE delta) pc _   = Just (pc + unpack delta - 1)
         check_branch _     Jump  _    (Just i)   = Just (unpack $ i `unsafeShiftR` 2)
         check_branch _     _     _      _   = Nothing
         branch' = check_branch <$> z <*> branch <*> counter <*> imm

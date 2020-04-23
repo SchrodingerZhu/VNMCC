@@ -2,7 +2,7 @@ module MIPS.PC where
 import           Clash.Prelude
 import           MIPS.Instruction.Format
 import           MIPS.Instruction.Type
-import           MIPS.HazardUnit
+import           MIPS.HazardUnit.Class
 import           MIPS.RAM
 
 
@@ -13,8 +13,7 @@ type PCInput =
   )
 
 programCounterT :: Unsigned 32 -> PCInput -> (Unsigned 32, (Unsigned 32, Unsigned 32))
-programCounterT state  (_    ,  (Just  t)) =  (t,                             (t, t + 1))
-programCounterT state  (StallOnce,      _) =  (state,                 (state, state + 1))
+programCounterT state  (_    ,  (Just  t)) =  (t + 1,                         (t, t + 1))
 programCounterT state  (_    ,          _) =  (state + 1,             (state, state + 1))
 
 programCounter :: HiddenClockResetEnable dom
@@ -49,7 +48,7 @@ pcModule = exposeClockResetEnable instructor
                 instr' op        ram = 
                   case op of
                     Normal    -> ram
-                    _         -> NOP
+                    Flush     -> NOP
                 instr               = instr' <$> stall <*> instrRAM current
             in  bundle (instr, next)
 

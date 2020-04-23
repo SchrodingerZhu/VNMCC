@@ -8,7 +8,7 @@ wire [32:0] BRANCH;
 wire [30:0] PC_INSTRUCTION;
 wire [31:0] PC_VALUE;
 wire [37:0] WRITE_PAIR;
-wire [1:0]  STALL;
+wire STALL;
 wire [5:0]  DM_WRITE;
 wire [1:0]  DM_MEM;
 wire [33:0] DM_BRANCH_FLAG;
@@ -112,7 +112,6 @@ wire [37:0] WB_WRITE_PAIR;
       // Outputs
     , .MMO_BRANCH(MMO_BRANCH)
     , .MMO_WRITE_PAIR(MMO_WRITE_PAIR)
-    , .MMO_FORWARD(MMO_FORWARD)
     );
 
 
@@ -130,18 +129,19 @@ wire [37:0] WB_WRITE_PAIR;
     , .WB_WRITE_PAIR(WB_WRITE_PAIR)
     );
 
-    assign AM_FW_0 = MMO_FORWARD;
+    assign AM_FW_0 = MMO_WRITE_PAIR;
 
     assign AM_FW_1 = WB_WRITE_PAIR;
 
     assign WRITE_PAIR = WB_WRITE_PAIR;
 
     assign BRANCH  = WB_BRANCH;
+    
 
     HazardUnit HU
     ( // Inputs
-      .HZ_WRITE(DM_WRITE)
-    , .HZ_MEMOP(DM_MEM)
+      .HZ_WRITE(AM_WRITE_REG)
+    , .HZ_MEMOP(AM_MEM_OP)
     , .HZ_RS(DM_RS)
     , .HZ_RT(DM_RT)
     , .HZ_BRANCH(BRANCH)
@@ -149,5 +149,8 @@ wire [37:0] WB_WRITE_PAIR;
       // Outputs
     , .STALL(STALL)
     );
+    
+
+
 
 endmodule
