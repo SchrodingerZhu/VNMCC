@@ -50,7 +50,6 @@ decodeTyped :: F.Format -> Instruction
 decodeTyped  F.NoType                  = NOP
 decodeTyped (F.RType 0 rs rt rd sa fn) =
     case fn of
-        0b001000 -> JR                 (unpack  rs)
         0b100000 -> (makeType ADD)     (rs, rt, rd)
         0b100001 -> (makeType ADDU)    (rs, rt, rd)
         0b100100 -> (makeType AND)     (rs, rt, rd)
@@ -67,6 +66,7 @@ decodeTyped (F.RType 0 rs rt rd sa fn) =
         0b000100 -> (makeType SLLV)    (rs, rt, rd)
         0b000110 -> (makeType SRLV)    (rs, rt, rd)
         0b000111 -> (makeType SRAV)    (rs, rt, rd)
+        0b001000 -> JR                 (unpack  rs)
     where
         makeType func = pure func <*> unpack . t1 <*> unpack . t2 <*> unpack . t3
         makeType' func = pure func <*> unpack . t1 <*> unpack . t2 <*> unpack . t3

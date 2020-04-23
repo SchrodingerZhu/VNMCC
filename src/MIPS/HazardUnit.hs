@@ -31,7 +31,7 @@ type HazardInput = (
 
 -- As for the priority, we will check type A first
 
-data StallInfo = Flush | StallOnce | Normal
+data StallInfo = Normal | Flush | StallOnce
 
 {-# ANN hazardUnit (Synthesize {
     t_name = "HazardUnit",

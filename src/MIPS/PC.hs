@@ -15,7 +15,7 @@ type PCInput =
 programCounterT :: Unsigned 32 -> PCInput -> (Unsigned 32, (Unsigned 32, Unsigned 32))
 programCounterT state  (_    ,  (Just  t)) =  (t,                             (t, t + 1))
 programCounterT state  (StallOnce,      _) =  (state,                 (state, state + 1))
-programCounterT state  (_    ,    Nothing) =  (state + 1,             (state, state + 1))
+programCounterT state  (_    ,          _) =  (state + 1,             (state, state + 1))
 
 programCounter :: HiddenClockResetEnable dom
   => Signal dom PCInput
@@ -41,11 +41,15 @@ pcModule = exposeClockResetEnable instructor
             => Signal dom StallInfo
             -> Signal dom (Maybe (Unsigned 32))
             -> Signal dom (Instruction, (Unsigned 32))
-        instructor stall x =
-            let (current, next)     = unbundle $ programCounter $ bundle (stall, x)
-                instr' StallOnce _ = NOP
-                instr' Flush     _ = NOP
-                instr' _       ram = ram  
+        instructor stall br =
+            let 
+                (current, next)     = unbundle $ programCounter $ bundle (stall, br)
+                ram                 = instrRAM current
+
+                instr' op        ram = 
+                  case op of
+                    Normal    -> ram
+                    _         -> NOP
                 instr               = instr' <$> stall <*> instrRAM current
             in  bundle (instr, next)
 

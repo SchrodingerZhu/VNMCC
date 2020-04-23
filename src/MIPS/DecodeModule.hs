@@ -47,24 +47,23 @@ registerPair = fmap registerPair'
             JR    x     -> (x, 0)
 
 
-type DecodeModuleState = ((Maybe (RegNo, Reg)), Instruction, Unsigned 32)
+type DecodeModuleState = (Instruction, Unsigned 32)
 
 decodeModuleState :: (
-        (Maybe (RegNo, Reg)),
         Instruction,
         Unsigned 32,
         StallInfo
     ) -> State DecodeModuleState DecodeModuleState
-decodeModuleState (wdata,inst,pc,stall) = do
+decodeModuleState (inst,pc,stall) = do
     case stall of
         Normal -> do
             state <- get
-            put (wdata, inst, pc)
+            put (inst, pc)
             return state
         StallOnce -> do
-            return (Nothing, NOP, 0)
+            return (NOP, 0)
         Flush    -> do
-            let res = (Nothing, NOP, 0)
+            let res = (NOP, 0)
             put res
             return res
 
@@ -112,10 +111,10 @@ decodeModule :: Clock System
 
 decodeModule clk rst enable wdata stall inst counter =
     let
-        stateMachine = exposeClockResetEnable $ asStateM decodeModuleState (Nothing, NOP, 0)
+        stateMachine = exposeClockResetEnable $ asStateM decodeModuleState (NOP, 0)
 
-        (wdata, rinst, pc) =
-            unbundle (stateMachine clk rst enable $ bundle (wdata, inst, counter, stall))
+        (rinst, pc) =
+            unbundle (stateMachine clk rst enable $ bundle (inst, counter, stall))
         
         regDecoder   = exposeClockResetEnable registerPair
         (rs, rt)     = unbundle $ regDecoder clk rst enable rinst
