@@ -7,10 +7,18 @@ type MemAddr = Unsigned 32
 type MemoryBlock = BitVector 32
 
 
-instrRAM :: HiddenClockResetEnable dom
+instrRAM' :: HiddenClockResetEnable dom
     => Signal dom MemAddr
-    -> Signal dom Instruction
-instrRAM x = decodeTyped . decodeFormat <$> ((blockRamFile d512 "instructions.bin") x $ pure Nothing)
+    -> Signal dom (BitVector 32)
+instrRAM' =  (flip $ blockRamFile d512 "instructions.bin") $ pure Nothing
+
+instrRAM :: Clock System
+    -> Reset System
+    -> Enable System
+    -> Signal System MemAddr
+    -> Signal System (BitVector 32)
+instrRAM  = exposeClockResetEnable instrRAM' 
+        
 
 
 instantMem :: Vec 512 MemoryBlock -> (MemAddr, Maybe (MemAddr, BitVector 32)) -> (Vec 512 MemoryBlock, MemoryBlock) 

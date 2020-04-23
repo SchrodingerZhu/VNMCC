@@ -33,24 +33,17 @@ pcModule :: Clock System
   -> Signal System StallInfo
   -> Signal System (Maybe (Unsigned 32))
   -> Signal System (Instruction, (Unsigned 32))
-pcModule = exposeClockResetEnable instructor
+pcModule clk rst enable stall br = bundle (instr, next)
     where
-        instructor :: 
-          HiddenClockResetEnable dom
-            => Signal dom StallInfo
-            -> Signal dom (Maybe (Unsigned 32))
-            -> Signal dom (Instruction, (Unsigned 32))
-        instructor stall br =
-            let 
-                (current, next)     = unbundle $ programCounter $ bundle (stall, br)
-                ram                 = instrRAM current
-
-                instr' op        ram = 
-                  case op of
-                    Normal    -> ram
-                    Flush     -> NOP
-                instr               = instr' <$> stall <*> instrRAM current
-            in  bundle (instr, next)
+      programCounter'      = (exposeClockResetEnable programCounter) clk rst enable
+      (current, next)      = unbundle $ programCounter' $ bundle (stall, br)
+      ram                  = instrRAM clk rst enable current
+      ram'                 = decodeTyped . decodeFormat <$>  ram
+      instr' op        ram = 
+        case op of
+           Normal    -> ram
+           Flush     -> NOP
+      instr               = instr' <$> stall <*> ram'
 
 
 

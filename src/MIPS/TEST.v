@@ -8,7 +8,7 @@ module TEST();
         end
     
         always
-            #2000 clk = !clk;
+            #1000 clk = !clk;
 
 
     CPU cpu(clk, reset, enable);
@@ -16,8 +16,39 @@ module TEST();
     
 
     initial begin
-        $monitor("STALL: %b\nPC/4: %b\nINSTURCTION(DECODED) %b\nRS: %b\nRSV: %b\nRT: %b\nRTV: %b\nIMM: %b\nALU_RES: %b\nAM_FW_0: %b\nAM_FW_1: %b\nWDATA: %b\nRDATA: %b\n",  
-        cpu.STALL, cpu.IM.PC_VALUE, cpu.PC_INSTRUCTION, cpu.DM_RS, cpu.DM_RSV, cpu.DM_RT, cpu.DM_RTV, cpu.DM_IMM, cpu.AM_RESULT, cpu.AM_FW_0, cpu.AM_FW_1, cpu.MM.MainMemory_res.EDIT_SERIAL, cpu.MM.MainMemory_res.DATA);
+        $monitor("=======================================================================\n",
+                 "TIME:           %-d\n", $time, 
+                 "STALL:          %b\n", cpu.STALL,
+                 "-------------------------- Instruction --------------------------------\n",
+                 "PC/4 + 1:       %-d\n", cpu.IM.PC_VALUE,
+                 "INSTRUCTION:    %b\n", cpu.IM.result_0,
+                 "INSTRUCTION:    %b [inner form]\n", cpu.IM.PC_INSTRUCTION,
+                 "---------------------------- Decode -----------------------------------\n",
+                 "RS:             %-d\n", cpu.DM_RS,
+                 "RS VALUE:       %b\n", cpu.DM_RSV,
+                 "RT:             %-d\n", cpu.DM_RT,
+                 "RT VALUE:       %b\n", cpu.DM_RTV,
+                 "MEM_OP:         %b\n", cpu.DM_MEM,
+                 "REG_WRITE:      %b\n", cpu.DM_WRITE,
+                 "ALU_CTL:        %b\n", cpu.DM_ALU,
+                 "IMMEDIATE:      %b\n", cpu.DM_IMM,
+                 "STAGE_PC/4 + 1: %-d\n", cpu.DM_COUNTER,
+                 "--------------------------- Arithmetic --------------------------------\n",
+                 "REG_WRITE:      %b\n", cpu.AM_WRITE_REG,
+                 "MEM_OP:         %b\n", cpu.AM_MEM_OP,
+                 "ALU_RESULT:     %b\n", cpu.AM_RESULT,
+                 "BRANCH_TARGET:  %b\n", cpu.AM_BRANCH_TARGET,
+                 "----------------------------- Memory ----------------------------------\n",
+                 "BRANCH_TARGET:  %b\n", cpu.MMO_BRANCH,
+                 "WRITE_BACK:     %b\n", cpu.MMO_WRITE_PAIR,
+                 "FETCH_ADDRESS:  %-x\n", cpu.MM.MainMemory_res.FETCH_ADDRESS,
+                 "FETCH_RESULT:   %-x\n", cpu.MM.MainMemory_res.DATA,
+                 "WRITE_SERIAL:   %b\n",  cpu.MM.MainMemory_res.EDIT_SERIAL,
+                 "--------------------------- Write Back --------------------------------\n",
+                 "BRANCH_TARGET:  %b\n", cpu.WB_BRANCH,
+                 "WRITE_BACK:     %b\n", cpu.WB_WRITE_PAIR,
+                 "=======================================================================\n"
+                 );
         #100000 $finish();
     end
 
