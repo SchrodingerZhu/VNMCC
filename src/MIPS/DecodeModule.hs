@@ -118,11 +118,7 @@ decodeModule clk rst enable wdata stall inst counter =
         (rs, rt)     = unbundle $ regDecoder clk rst enable rinst
         (w, m, b, a, i) = controlUnit clk rst enable rinst
 
-        check Flush      _  = Nothing
-        check _          w' = w'
-
-        wdata'       = check <$> stall <*> wdata
-        (rsv, rtv)   = unbundle (registerFile clk rst enable $ bundle (rs, rt, wdata'))
+        (rsv, rtv)   = unbundle (registerFile clk rst enable $ bundle (rs, rt, wdata))
     in bundle (w, m, b, a, i, rs, rsv, rt, rtv, pc)
 
 

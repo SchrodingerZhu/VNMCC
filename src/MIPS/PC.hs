@@ -6,19 +6,16 @@ import           MIPS.HazardUnit.Class
 import           MIPS.RAM
 
 
-type PCInput = 
-  (  
-          StallInfo           -- stall or not
-  ,       Maybe (Unsigned 32) -- branch or not             
-  )
+type PCInput = Maybe (Unsigned 32) -- branch or not             
 
-programCounterT :: Unsigned 32 -> PCInput -> (Unsigned 32, (Unsigned 32, Unsigned 32))
-programCounterT state  (_    ,  (Just  t)) =  (t + 1,                         (t, t + 1))
-programCounterT state  (_    ,          _) =  (state + 1,             (state, state + 1))
+
+programCounterT :: Unsigned 32 -> PCInput -> (Unsigned 32, Unsigned 32)
+programCounterT state  (Just  t) =  (t + 1,                     t)
+programCounterT state          _ =  (state + 1,             state)
 
 programCounter :: HiddenClockResetEnable dom
   => Signal dom PCInput
-  -> Signal dom (Unsigned 32, Unsigned 32)
+  -> Signal dom (Unsigned 32)
 programCounter = mealy programCounterT 0
 
 {-# ANN pcModule (Synthesize {
@@ -36,8 +33,8 @@ pcModule :: Clock System
 pcModule clk rst enable stall br = bundle (instr, next)
     where
       programCounter'      = (exposeClockResetEnable programCounter) clk rst enable
-      (current, next)      = unbundle $ programCounter' $ bundle (stall, br)
-      ram                  = instrRAM clk rst enable current
+      next                 = programCounter' $ br
+      ram                  = instrRAM clk rst enable next
       ram'                 = decodeTyped . decodeFormat <$>  ram
       instr' op        ram = 
         case op of

@@ -94,7 +94,7 @@ arithmeticModule clk rst enable last last' stall input =
         unwrap       _  = 0
         
         rsv' =  (<|>) <$> check0 <*> (pure <$> rsv)
-        rtv0 =  ((<|>) <$> check1 <*> (pure <$> rsv))
+        rtv0 =  ((<|>) <$> check1 <*> (pure <$> rtv))
         rtv' =  (<|>) <$> imm <*> rtv0
 
         memSolver MemWrite value = MemWrite' value
@@ -103,9 +103,9 @@ arithmeticModule clk rst enable last last' stall input =
         mem' = memSolver <$> mem <*> (unwrap <$> rtv0)
 
         (res, _, z, _) = unbundle $ arithmeticUnit <$> alu <*> (unwrap <$> rsv') <*> (unwrap <$>rtv')
-        check_branch True  (BranchEQ delta) pc _   = Just (pc + unpack delta - 1)
-        check_branch False (BranchNE delta) pc _   = Just (pc + unpack delta - 1)
-        check_branch _     Jump  _    (Just i)   = Just (unpack $ i `unsafeShiftR` 2)
+        check_branch True  (BranchEQ delta) pc _   = Just (pc + unpack delta)
+        check_branch False (BranchNE delta) pc _   = Just (pc + unpack delta)
+        check_branch _     Jump  _    (Just i)     = Just (unpack i)
         check_branch _     _     _      _   = Nothing
         branch' = check_branch <$> z <*> branch <*> counter <*> imm
     in bundle (write, mem', res, branch')
