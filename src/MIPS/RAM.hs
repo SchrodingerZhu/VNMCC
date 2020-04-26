@@ -37,4 +37,4 @@ mainRAM ::
   -> Signal System MemAddr
   -> Signal System (Maybe (MemAddr, MemoryBlock))
   -> Signal System MemoryBlock
-mainRAM = exposeClockResetEnable $ asyncRam d512
+mainRAM = exposeClockResetEnable $ blockRam (replicate d512 0)
