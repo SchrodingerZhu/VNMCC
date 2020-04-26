@@ -1,0 +1,19 @@
+# build_all_args = "MIPS.HazardUnit MIPS.ArithmeticModule MIPS.PC MIPS.WriteBack MIPS.DecodeModule MIPS.RAM"
+stack_args = repl --with-ghc clash
+all_list = MIPS.HazardUnit MIPS.ControlUnit MIPS.RegisterFile MIPS.RAM MIPS.DecodeModule MIPS.WriteBack MIPS.Forward MIPS.PC MIPS.MemoryModule MIPS.ArithmeticModule MIPS.ALU
+
+rule gen-verilog
+    command = echo ":verilog $all_list" | stack $stack_args
+
+rule gen-docs
+    command = stack exec -- haddock --html src/MIPS/*.hs src/MIPS/Utils/*.hs src/MIPS/Instruction/*.hs --hyperlinked-source --odir=docs
+
+rule iverilog
+  command = iverilog verilog/MIPS/*/*.v src/MIPS/TEST.v src/MIPS/CPU.v -o $out
+
+build verilog: gen-verilog
+
+build test: iverilog verilog
+
+default test
+

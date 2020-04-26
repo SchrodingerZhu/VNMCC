@@ -4,3 +4,7 @@
 verilog/
 systemverilog/
 vhdl/
+.ninja_deps
+.ninja_log
+test
+*.hi
