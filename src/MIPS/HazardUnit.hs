@@ -2,7 +2,6 @@ module MIPS.HazardUnit where
 import Clash.Prelude
 import MIPS.ControlUnit
 import MIPS.ArithmeticModule
-import MIPS.HazardUnit.Class
 {-
     We have three kinds of Hazards that require stalling the pipeline:
     - load hazard for 1 cycle only for the PC part
@@ -10,13 +9,8 @@ import MIPS.HazardUnit.Class
     - branch hazard for 3 cycle
 -}
 
-type HazardInput = (
-      Maybe (Unsigned 5)  -- write  register 
-    , MemoryOperation'     -- memory operation
-    , Unsigned 5          -- rs number
-    , Unsigned 5          -- rt number
-    , Maybe (Unsigned 32) -- branching target    
-    )
+type HazardInput = Maybe (Unsigned 32) -- branching target    
+
 
 -- Stall Type A -> for branching problem
 -- If a branch happens in the write back part,
@@ -36,17 +30,12 @@ type HazardInput = (
 
 {-# ANN hazardUnit (Synthesize {
     t_name = "HazardUnit",
-    t_inputs = [PortProduct "HZ" [
-        PortName "WRITE",
-        PortName "MEMOP",
-        PortName "RS",
-        PortName "RT",
-        PortName "BRANCH"]],
+    t_inputs = [PortName "BRANCH"],
     t_output = PortName "STALL"
 }) #-}
-hazardUnit :: HazardInput -> StallInfo
-hazardUnit (_, _, _, _, Just _) = Flush
-hazardUnit _                          = Normal
+hazardUnit :: HazardInput -> Bool
+hazardUnit (Just _) = True
+hazardUnit _        = False
 
 
 

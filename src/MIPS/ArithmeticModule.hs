@@ -2,7 +2,6 @@ module MIPS.ArithmeticModule where
 import           Clash.Prelude
 import           MIPS.ALU
 import           MIPS.ControlUnit
-import           MIPS.HazardUnit.Class
 import           MIPS.Forward
 import           MIPS.Instruction.Type
 import           MIPS.RegisterFile
@@ -36,19 +35,19 @@ type ALUOutput =
     , Maybe (Unsigned 32)                 -- branch target
     )
 
-arithmeticModuleState' :: (ALUState, StallInfo) -> State ALUState ALUState
-arithmeticModuleState' (_, Flush) = do 
+arithmeticModuleState' :: (ALUState, Bool) -> State ALUState ALUState
+arithmeticModuleState' (_,       True) = do 
     let res = (Nothing, MemNone, NoBranch, ALUNone, Nothing, 0, 0, 0, 0, 0)
     put res
     return res
 
-arithmeticModuleState' (state, Normal) = do
+arithmeticModuleState' (state,  False) = do
     res <- get
     put state
     return res
 
 
-arithmeticModuleState :: HiddenClockResetEnable dom => Signal dom (ALUState, StallInfo) ->  Signal dom ALUState
+arithmeticModuleState :: HiddenClockResetEnable dom => Signal dom (ALUState, Bool) ->  Signal dom ALUState
 arithmeticModuleState = asStateM arithmeticModuleState' (Nothing, MemNone, NoBranch, ALUNone, Nothing, 0, 0, 0, 0, 0)
 
 
@@ -80,7 +79,7 @@ arithmeticModule :: Clock System
     -> Enable System
     -> Signal System ForwardInfo -- last
     -> Signal System ForwardInfo -- last last
-    -> Signal System StallInfo
+    -> Signal System Bool
     -> Signal System ALUState           -- input
     -> Signal System ALUOutput           -- output
 arithmeticModule clk rst enable last last' stall input =

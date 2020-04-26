@@ -2,7 +2,6 @@ module MIPS.PC where
 import           Clash.Prelude
 import           MIPS.Instruction.Format
 import           MIPS.Instruction.Type
-import           MIPS.HazardUnit.Class
 import           MIPS.RAM
 
 
@@ -27,7 +26,7 @@ programCounter = mealy programCounterT 0
 pcModule :: Clock System
   -> Reset System
   -> Enable System
-  -> Signal System StallInfo
+  -> Signal System Bool
   -> Signal System (Maybe (Unsigned 32))
   -> Signal System (Instruction, (Unsigned 32))
 pcModule clk rst enable stall br = bundle (instr, next)
@@ -38,8 +37,8 @@ pcModule clk rst enable stall br = bundle (instr, next)
       ram'                 = decodeTyped . decodeFormat <$>  ram
       instr' op        ram = 
         case op of
-           Normal    -> ram
-           Flush     -> NOP
+           False    -> ram
+           True     -> NOP
       instr               = instr' <$> stall <*> ram'
 
 

@@ -2,7 +2,6 @@ module MIPS.DecodeModule where
 import           Clash.Prelude
 import           Control.Monad.State
 import           MIPS.ControlUnit
-import           MIPS.HazardUnit.Class
 import           MIPS.Instruction.Format
 import           MIPS.Instruction.Type
 import           MIPS.RegisterFile
@@ -52,15 +51,15 @@ type DecodeModuleState = (Instruction, Unsigned 32)
 decodeModuleState :: (
         Instruction,
         Unsigned 32,
-        StallInfo
+        Bool
     ) -> State DecodeModuleState DecodeModuleState
 decodeModuleState (inst,pc,stall) = do
     case stall of
-        Normal -> do
+        False    -> do
             state <- get
             put (inst, pc)
             return state
-        Flush    -> do
+        True     -> do
             let res = (NOP, 0)
             put res
             return res
@@ -92,7 +91,7 @@ decodeModule :: Clock System
     -> Reset System
     -> Enable System
     -> Signal System (Maybe (RegNo, Reg))      -- write data
-    -> Signal System StallInfo                 -- stall
+    -> Signal System Bool                      -- stall
     -> Signal System Instruction               -- instruction
     -> Signal System (Unsigned 32)             -- counter
     -> Signal System (

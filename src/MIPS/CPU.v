@@ -140,11 +140,7 @@ wire [37:0] WB_WRITE_PAIR;
 
     HazardUnit HU
     ( // Inputs
-      .HZ_WRITE(AM_WRITE_REG)
-    , .HZ_MEMOP(AM_MEM_OP)
-    , .HZ_RS(DM_RS)
-    , .HZ_RT(DM_RT)
-    , .HZ_BRANCH(BRANCH)
+      .BRANCH(BRANCH)
 
       // Outputs
     , .STALL(STALL)

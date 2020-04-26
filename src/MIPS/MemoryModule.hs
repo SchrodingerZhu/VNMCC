@@ -3,14 +3,13 @@ import Clash.Prelude
 import MIPS.ArithmeticModule
 import MIPS.RAM
 import MIPS.ControlUnit
-import MIPS.HazardUnit.Class
 import MIPS.RegisterFile
 import Control.Monad.State
 import MIPS.Utils.State
 import MIPS.Forward
 import MIPS.RAM
-memState' :: (ALUOutput, StallInfo) -> State ALUOutput ALUOutput
-memState' (_,     Flush) = do
+memState' :: (ALUOutput, Bool) -> State ALUOutput ALUOutput
+memState' (_,     True) = do
     let res = (Nothing, MemNone', 0, Nothing)
     put res
     return res
@@ -21,7 +20,7 @@ memState' (state, _) = do
     return res
 
 
-memState :: HiddenClockResetEnable dom => Signal dom (ALUOutput, StallInfo) ->  Signal dom ALUOutput
+memState :: HiddenClockResetEnable dom => Signal dom (ALUOutput, Bool) ->  Signal dom ALUOutput
 memState = asStateM memState' (Nothing, MemNone', 0, Nothing)
 
 
@@ -50,7 +49,7 @@ memoryModule :: Clock System
    -> Reset System
    -> Enable System
    -> Signal System ALUOutput
-   -> Signal System StallInfo
+   -> Signal System Bool
    -> Signal System MemOutput
 memoryModule clk rst enable aluOut stall = 
     let stateMachine = (exposeClockResetEnable memState) clk rst enable
@@ -58,7 +57,7 @@ memoryModule clk rst enable aluOut stall =
 
 
         
-        writeInfoSolver _       _             Flush = Nothing
+        writeInfoSolver _       _             True = Nothing
         writeInfoSolver address (MemWrite' v) _    = Just (unpack address, v)
         writeInfoSolver _       _     _         = Nothing
         writeInfo                               = writeInfoSolver <$> aluRes <*> memOp <*> stall
@@ -69,7 +68,7 @@ memoryModule clk rst enable aluOut stall =
         writePair _  _  _     _            = Nothing
         writePair' = writePair <$> writeReg <*> aluRes <*> memOp <*> memData
 
-        check Flush _  = (Nothing, Nothing)
+        check True _  = (Nothing, Nothing)
         check _     x  = x
 
     in check <$> stall <*> bundle (br, writePair')
