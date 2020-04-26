@@ -55,8 +55,6 @@ memoryModule clk rst enable aluOut stall =
     let stateMachine = (exposeClockResetEnable memState) clk rst enable
         (writeReg, memOp, aluRes, br) = unbundle $ stateMachine $ bundle (aluOut, stall)
 
-
-        
         writeInfoSolver _       _             True = Nothing
         writeInfoSolver address (MemWrite' v) _    = Just (unpack address, v)
         writeInfoSolver _       _     _         = Nothing
