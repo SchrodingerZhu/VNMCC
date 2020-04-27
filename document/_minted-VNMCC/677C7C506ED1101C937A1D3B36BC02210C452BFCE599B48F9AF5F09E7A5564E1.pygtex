@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{example} \PYG{o+ow}{::} \PYG{k+kt}{HiddenClockResetEnable} \PYG{n}{dom}
+    \PYG{o+ow}{=\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{k+kt}{Bool}
+    \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{k+kt}{Bool}
+\PYG{n+nf}{example} \PYG{o+ow}{=} \PYG{n}{fmap} \PYG{n}{complement}
+
+\PYG{n+nf}{example\PYGZsq{}}
+    \PYG{o+ow}{::} \PYG{k+kt}{Clock} \PYG{k+kt}{System}
+    \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Reset} \PYG{k+kt}{System}
+    \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Enable} \PYG{k+kt}{System}
+    \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{Bool}
+    \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{Bool}
+\PYG{n+nf}{example\PYGZsq{}} \PYG{o+ow}{=} \PYG{n}{exposeClockResetEnable} \PYG{n}{example}
+\end{Verbatim}

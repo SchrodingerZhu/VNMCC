@@ -221,6 +221,8 @@ There are several special functions we are going to use,
 	\item \mintinline{verilog}{$monitor("format string", a, "format string", b)} used the same as display, but it will be triggered everytime a monitored variable updates
 	\item \mintinline{verilog}{$time} gets the current time
 	\item \mintinline{verilog}{$readmemb("file.bin",BLOCK);} initializes a large memory block with a file
+	\item \mintinline{verilog}{$dumpfile("file.vcd")} dumps IEEE standard vcd files. These files are be visualized by a someware like GtkWave to provide handy debugging information.
+	\item \mintinline{verilog}{$dumpvars(0, cpu)} sets the value and module to dump; level 0 will automatically dumps the variables in the module recursively while level 1 will only dumps those manually listed variables.
 \end{itemize}
 \chapter{Journey to the Clash Language}
 \lettrine{C}{lash} will be our main language to write CPU. Clash supports most of Haskell syntax, but yet it cannot support some advanced features like GADT pattern matching. To see the full list of limitations, please check its \href{http://hackage.haskell.org/package/clash-prelude-1.2.0/docs/Clash-Tutorial.html}{official tutorial}
@@ -279,6 +281,436 @@ someGate :: x -> (y, z) -> (o0, o1, o2)
 
 \section{Useful Types}
 \subsection{Bit and BitVector}
+Bit is just bit and BitVector is just a statically sized vector of bits. As a single Bit and Bool are quite the same, \mintinline{haskell}{Clash.Prelude} provides some handy functions for us to convert them from each other.
+\begin{minted}{haskell}
+boolToBit :: Bool -> Bit
+bitToBool :: Bit -> Bool
+boolToBV :: KnownNat n => Bool -> BitVector (n + 1)
+\end{minted}
+BitVector can be sliced and indexed, the following code shows some examples:
+\begin{minted}[breaklines]{haskell}
+(!) :: (BitPack a, Enum i) => a -> i -> Bit
+-- ^ BitVector is within the class of BitPack, so we can use (!) operator to fetch the value
 
+vec ! 0
+-- ^ fetch the lowest bit
 
+slice :: (BitPack a, BitSize a ~ ((m + 1) + i)) 
+    => SNat m -> SNat n -> a -> BitVector ((m + 1) - n)
+-- ^ fetch a slice from the the bit vector
+-- ^ because the vector is defined as a dependent type
+-- ^ this interface is a bit terrifying, but it is handy to use
+
+slice d31 d20 vec
+-- ^ slice from index 31 to index 20
+\end{minted}
+As you can see, \mintinline{haskell}{d0} to \mintinline{haskell}{d1024} are predefined literals for static natural numbers, you can use them for the vector index.
+
+How about the bitwise operations? There is a whole set of operators and functions.
+\begin{minted}{haskell}
+(.|.) :: Bits a => a -> a -> a          -- ^ bitwise or
+(.&.) :: Bits a => a -> a -> a          -- ^ bitwise and
+xor :: Bits a => a -> a -> a            -- ^ bitwise xor
+complement :: Bits a => a -> a          -- ^ bitwise not
+shiftR :: Bits a => a -> Int -> a       -- ^ bitwise shift
+shiftL :: Bits a => a -> Int -> a       -- ^ bitwise shift
+unsafeShiftR :: Bits a => a -> Int -> a -- ^ bitwise shift
+\end{minted}
+\subsection{Sized Integers}
+There are mainly two types of sized integers: \mintinline{haskell}{Unsigned (n :: Nat)} and
+\mintinline{haskell}{Signed (n :: Nat)}. Most bitwise operations can also be applied to sized integers, but please notice that for right shifting, the normal version takes care of the sign bit and the unsafe version just do the logical shifting.
+
+It is also possible to extend sized integers and BitVector,
+\begin{minted}{haskell}
+extend :: (Resize f, KnownNat a, KnownNat b) => f a -> f (b + a)
+\end{minted}
+It is very handy that extensions will handle the changing of the sign bits automatically.
+
+Although BitVector and sized integers are very similar, you cannot treat them as the same thing. However, if you need to convert the types, you can use the following functions:
+\begin{minted}{haskell}
+pack :: BitPack a => a -> BitVector (BitSize a)
+unpack :: BitPack a => BitVector (BitSize a) -> a
+\end{minted}
+\subsection{Remarks on Haskell Types}
+Other Haskell types like \mintinline{haskell}{Maybe} can also be used without problem. For example, \mintinline{haskell}{Maybe Bool} will be represented by 2 bits in Verilog.
+\begin{minted}{Haskell}
+Just True  = 11
+Just False = 10
+Nothong    = 0x
+\end{minted}
+Clash will also find a way to represent your own defined product types, for example,
+\begin{minted}{Haskell}
+data MyEnum = A | B | C | D
+\end{minted}
+will be represented by something like
+\begin{minted}{Haskell}
+A -> 00
+B -> 01
+C -> 10
+D -> 11
+\end{minted}
+
+\section{Step into the Sequential Logic World} 
+The previous parts are mainly talking about combinatorial logic; how about the sequential one? 
+
+In Clash, sequential logic things are wrapped into a type \mintinline{haskell}{Signal (dom :: Symbol) a}.
+The \mintinline{haskell}{dom} stands for the signal domain, which provides some basic configurations such as
+clock, reset, enable, frequency and etc. The default domain is \mintinline{haskell}{System}, which is the standard global domain. It is also possible to define domains on your own and setup some multiple clock domains; these advanced features are not used in this book.
+
+Signal is not Monad, but it provides the interfaces of Functor and Applicative.
+
+To check the content of the signal, you can use a function called \mintinline{haskell}{sampleN}, to sample several signals.
+
+To test the signals, you can also use \mintinline{haskell}{enableGen} to generate enable signals, 
+\mintinline{haskell}{clockGen} to generate clock signals and \mintinline{haskell}{resetGen} to generate reset signals. What's more, these is also a \mintinline{haskell}{simulate} function, which allows you to use a syntax like \mint{haskell}{simulate @System myInterface} to generate the result.
+
+Usually, enable, clock and reset signals are required everywhere within a synchronous circuit. Image writing these three signals repeatedly at every function, it will definitely become tedious. Hence, Clash provides a special way to define a generalized signal domain which hides some global signals, you can simply expose them at those interfaces to synthesize.
+The following example illustrates how to use this feature
+\begin{minted}[breaklines, linenos]{haskell}
+example :: HiddenClockResetEnable dom
+    => Signal dom Bool
+    -> Signal dom Bool
+example = fmap complement
+
+example' 
+    :: Clock System
+    -> Reset System
+    -> Enable System
+    -> Signal System Bool
+    -> Signal System Bool
+example' = exposeClockResetEnable example 
+\end{minted} 
+
+\section{Function Utilities}
+\subsection{ROM and RAM}
+Clash provides some predefined functions for us to define large block of memory. 
+\subsubsection{Asynchronous Memory}
+Let us first have a look at the asynchronous ROM and RAM,
+\begin{minted}{haskell}
+asyncRom :: (KnownNat n, Enum addr) 
+  => Vec n a  -- ^ initial vector 
+  -> addr     -- ^ read address
+  -> a        -- ^ read result         
+
+asyncRam
+  :: (  Enum addr, KnownDomain dom
+     ,  GHC.Classes.IP (AppendSymbol dom "_clk") (Clock dom)
+     ,  GHC.Classes.IP (AppendSymbol dom "_en") (Enable dom)) => SNat n                        -- ^ size
+     -> Signal dom addr               -- ^ read address
+     -> Signal dom (Maybe (addr, a))  -- ^ write data
+     -> Signal dom a                  -- ^ read result
+\end{minted}
+The asynchronous version will output the content in the read address at the same clock cycle. If the read address and the write address conflicts, the default strategy is write-after-read; however, you can use \mintinline{haskell}{readNew . asyncRam} to apply the read-after-write strategy.
+
+\subsubsection{Synchronous Memory}
+Asynchronous memory is handy enough, but it is not the optimal structure: asynchronous memory may require a lot of LUTs in FPGA and the cost must be considered if the memory size if relatively large. Fortunately, there is a synchronous version of RAM, it corresponds to the BRAM structure in FPGA. However, there is a big difference that the read and write operation issued in the current clock cycle will generate outcome in the next cycle; we must take care of this feature when designing circuits.
+\begin{minted}{haskell}
+blockRam
+  :: (  KnownDomain dom
+     ,  GHC.Classes.IP (AppendSymbol dom "_clk") (Clock dom)
+     ,  GHC.Classes.IP (AppendSymbol dom "_en") (Enable dom), NFDataX a
+     ,  Enum addr ) 
+     => Vec n a
+     -> Signal dom addr 
+     -> Signal dom (Maybe (addr, a)) 
+     -> Signal dom a
+\end{minted}
+
+Similarly, you can change the read-write conflict resolution. 
+
+As for asynchronous ROM and synchronous RAM, Clash also provide some functions like \mintinline{haskell}{blockRamFile}, which will be translated into some Verilog code using \mintinline{verilog}{readmemb} function; which is handy for us to initialize the memory field using external files.
+
+\subsection{State Machine}
+There are several ways to handle to stateful procedures.
+\subsubsection{Register}
+Register is the basic state machine; it takes a input as the new state and outputs the previous state.
+\begin{minted}{haskell}
+register
+  :: (  KnownDomain dom
+     ,  GHC.Classes.IP (AppendSymbol dom "_clk") (Clock dom)
+     ,  GHC.Classes.IP (AppendSymbol dom "_rst") (Reset dom)
+     ,  GHC.Classes.IP (AppendSymbol dom "_en") (Enable dom)
+     ,  NFDataX a ) 
+     => a 
+     -> Signal dom a 
+     -> Signal dom a
+
+register 1 -- ^ declare a register with initial value 1
+\end{minted}
+\subsubsection{Mealy}
+Mealy Machine is a sort of state machine whose output is determined by the current input and state.
+\begin{minted}{haskell}
+mealy
+  :: (  KnownDomain dom
+     ,  GHC.Classes.IP (AppendSymbol dom "_clk") (Clock dom)
+     ,  GHC.Classes.IP (AppendSymbol dom "_rst") (Reset dom)
+     ,  GHC.Classes.IP (AppendSymbol dom "_en") (Enable dom), NFDataX s ) 
+     => (s -> i -> (s, o)) 
+     -> s 
+     -> Signal dom i 
+     -> Signal dom o
+\end{minted}
+Let us write a special counter using Mealy Machine: if the outside provides a input, it will set the counting value for the next state, otherwise, it just increase the counter and output the current value.
+
+It seems that we can describe the state transformation with the following function:
+\begin{minted}[breaklines]{haskell}
+counterT 
+  :: Unsigned 32 
+  -> Maybe (Unsigned 32) 
+  -> (Unsigned 32, Unsigned 32)
+counterT state Nothing  = (state + 1, state)
+counterT state (Just x) = (x    , state)
+\end{minted}
+To transform \mintinline{haskell}{counterT} into a state machine, just apply the \mintinline{haskell}{mealy} function together with anz initial value to it
+\begin{minted}[breaklines]{haskell}
+counter 
+  :: HiddenClockResetEnable dom
+  => Signal dom (Maybe (Unsigned 32))
+  => Signal dom (Unsigned 32)
+counter = mealy counterT 0
+\end{minted}
+\subsubsection{Moore}
+Another kind of commonly used finite state machine is the Moore Machine, whose output is determined only by the current state.
+\begin{minted}{haskell}
+moore
+  :: ( HiddenClockResetEnable dom
+     , NFDataX s )
+     => (s -> i -> s)
+     -> (s -> o)
+     -> s
+     -> (Signal dom i -> Signal dom o)
+\end{minted}
+The counter example can also be transformed into a Moore Machine:
+\begin{minted}[breaklines]{haskell}
+counterT 
+  :: Unsigned 32 
+  -> Maybe (Unsigned 32) 
+  -> Unsigned 32
+counterT state Nothing  = state + 1
+counterT _     (Just x) = x + 1
+
+counter 
+  :: HiddenClockResetEnable dom
+  => Signal dom (Maybe (Unsigned 32))
+  -> Signal dom (Unsigned 32)
+counter = moore counterT id 0
+\end{minted}
+\subsubsection{State Monad}
+It is also possible to 
+\subsection{Bundle and Unbundle}
+Consider we have the following functions
+\begin{minted}[breaklines]{haskell}
+foo
+  :: HiddenClockResetEnable dom
+  => Signal dom Input
+  -> Signal dom (TypeA, TypeB)
+
+bar
+  :: HiddenClockResetEnable dom
+  => Signal dom TypeA
+  -> Signal dom TypeB
+  -> Signal dom Result
+\end{minted}
+The problem emerges when we want to combine this too functions: it is hard to take out the value of each part of the tuple wrapped in the signal environment.
+
+Hence, we can use the \mintinline{haskell}{unbundle} function.
+\begin{minted}{haskell}
+let (a, b) = unbundle $ foo input
+in bar a b
+\end{minted}
+The \mintinline{haskell}{bundle} function just does the inverse of \mintinline{haskell}{unbundle}:
+\begin{minted}{haskell}
+a :: Signal System A
+b :: Signal System B
+func :: Signal System (A, B) -> Signal System C
+res  :: Signal System C
+res  =  func $ bundle (a, b)
+\end{minted}
+\chapter{Writing the CPU}
+\lettrine{N}{ow}, we are fully armed with our equipment. It is the time to get our hands dirty and start implementing a very naive MIPS CPU.
+\section{What is CPU}
+CPU, the Central Process Unit, is the most important part of computers. It is in charge of the memory loading and storing, arithmetic operations and lots of other important functions. Most CPUs consist of a register called program counter, which record the current instruction position in the memory; in each cycle, the CPU fetches an instruction according to the program counter and start to handling a series of events encoded in the instruction.
+
+The CPU we are going to implement consists of five parts:
+\begin{enumerate}
+	\item Instruction Module: Fetch the instruction and maintain the value of the program counter.
+	\item Decode Module: Decode the instruction, determine the operations to be executed and get the value of the operands from the register file.
+	\item Arithmetic Unit: Execute the arithmetic operations, determine the branch targets and memory operations.
+	\item Memory Module: Load and store data from and into memory.
+	\item Write Back Module: Act as a transition module before register writing and branching. 
+\end{enumerate}
+\section{Pipeline: Why and How}
+Although the functions of the CPU can be achieved within a single cycle: on each rising edge of the clock, we just fetch a new instruction and wait until all the required operations are finished, it is apparent that the cycle may become too long and inefficient. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{pipeline}
+	\caption{Classical MIPS pipelines (without any hazard handling)}
+\end{figure}
+Hence, many CPUs use a strategy called pipeline which split the execution into multiple stages. Each stage stores the previous input (the output from the predecessor stage) in its register, and when the clock rises, the CPU is handling multiple instructions at different stages. The efficiency is thus largely improved.
+
+However, lots of new problems emerge because of the pipeline:
+\subsection{Control Hazards: Branch and Jump}
+Just consider the CPU shown in Figure 4.1. Without pipeline, a branch instruction triggers the branching in the single cycle and setup the new PC value within the same cycle; the next instruction to execute will always be correct. However, in the pipeline model, if the branch condition fails, everything works fine; nevertheless, when the branch condition checks and the instruction reaches the Write-Back stage, there will be three invalid instructions already accumulated in the pipeline. We must find a way to flush those invalid ones.
+
+This is actually easy, we just check the branch signal; if the branch target is set, we send a signal to all four modules before Write-Back and ask them to clear their instructions. \textbf{Notice that the memory writing should be stopped immediately while the register writing should be allowed}, because there are jumping instructions like \mintinline{asm}{jal} that will store the current PC value into a register and this operation is always valid as it arrives at the Write-Back part at the same time of the branch target.
+
+In most CPUs, the branch cost can be further reduced by apply branch prediction and moving branching checking into an earlier stage. Here, we are not going to care about these strategies and just handle the control hazards with stalling.
+
+\subsection{Data Hazards}
+There are several kinds of data hazards:
+\begin{enumerate}
+\item Consecutive arithmetic operations with data dependency:
+\begin{minted}[linenos]{asm}
+addi $a0, $a0, 1
+addi $a0, $a0, 1
+addi $a0, $a0, 1
+\end{minted}
+Notice that when the second/third instruction reaches the Arithmetic Module, the first/second instruction is at the Memory Part/Write-Back Part; which means the write-back operation is not applied. Hence, we must figure out a way to forward the result stored in Memory Part/Write-Back Part to Arithmetic Module in advance.
+\item Arithmetic Operation followed by SW:
+\begin{minted}[linenos]{asm}
+addi $a0, $a0, 1
+sw   $a0, -4($sp)
+\end{minted}
+In the SW case, the value of register a0 is not ready. We can simplify the handling by moving determination of write value into Arithmetic Part. Hence, using the strategy of forwarding, we can also handle this problem.
+
+\item LW followed by Arithmetic Operation
+\begin{minted}[linenos]{asm}
+lw   $t0, 0($sp)
+addi $t0, $t0, 1
+\end{minted}
+In the pipeline shown in Figure 4.1, the load value will not be ready even with forwarding. In this case, we must stall the pipeline: keep the PC value, the state of Decode Module and the Arithmetic Module unchanged (but accepting register write-back) and insert a NOP state into memory module for the next cycle while handling the current operation of loading. Therefore, in the next cycle, the second instruction is still at the Arithmetic Module while the load result reaches the Write-Back Part which makes it possible to be forwarded to ALU. 
+\end{enumerate}
+
+\subsection{Special Changes}
+We made several special changes to make life easier: 
+\begin{enumerate}
+	\item Because we are using the BRAM structure, which means that there is one cycle delay before we can get the real data, we need to forward the ALU results to the Memory Module in the same cycle so that in the next cycle the Memory Output is exactly what the instruction in the Memory Module requires.
+	\begin{minted}[linenos]{asm}
+j    SOME_PLACE
+sw   $zero, 4($sp)
+sw   $zero, 4($sp)
+	\end{minted}
+	Previously, when the branch target reaches Write-Back Part, the Memory Operation hasn't taken place; however, in our case, the stall caused by branching will only prevent the second Memory Operation after branching; we need to also check the branching before we want to write something into the memory. Fortunately, this is always available since, when the instruction right after branching arrives ALU, the branching instruction is exactly at the Memory Part, we can simply check whether the branching target is set or not.
+	\item There is no need to care about the Load Data Hazards as we will also forward the data together with the memory fetching result. (Thanks to BRAM delay, the extra cost is little)
+\end{enumerate}
+\section{Implementation}
+\subsection{Instruction Module}
+\subsubsection{Instruction Set}
+We will only implement very a small set of MIPS instructions. Let's first write some functions to help us decode the instruction:
+\begin{minted}{haskell}
+
+-- | The Format of MIPS Instructions
+data Format            
+  = NoType             -- ^ NoType (Specialized for NOP Instruction)
+  | RType              -- ^ R-Type Instruction Format
+      (BitVector 6)    -- ^ Operation Code
+      (BitVector 5)    -- ^ Register S
+      (BitVector 5)    -- ^ Register T
+      (BitVector 5)    -- ^ Register D
+      (BitVector 5)    -- ^ Extra Infomation for Shifting Amount
+      (BitVector 6)    -- ^ Function Code
+  | IType              -- ^ I-Type Instruction Format
+      (BitVector 6)    -- ^ Operation Code
+      (BitVector 5)    -- ^ Register S
+      (BitVector 5)    -- ^ Register T
+      (BitVector 16)   -- ^ Immediate Value
+  | JType              -- ^ J-Type Instruction Format 
+      (BitVector 6)    -- ^ Operation Code
+      (BitVector 26)   -- ^ Jump Target
+  deriving Show
+\end{minted}
+We will first recognize the instruction format and then transform it into each recognized instruction.
+\begin{minted}{haskell}
+decodeFormat :: BitVector 32 -> Format
+decodeFormat 0 = NoType
+decodeFormat vec =
+    let opcode = slice d31 d26 vec
+    in case opcode of
+       0 ->
+           pure RType 
+               <*> (slice d31 d26)
+               <*> (slice d25 d21) 
+               <*> (slice d20 d16) 
+               <*> (slice d15 d11) 
+               <*> (slice d10 d6) 
+               <*> (slice d5 d0) 
+                $  vec
+      code | code == 0b000010 || code == 0b000011 ->
+           pure JType 
+               <*> (slice d31 d26) 
+               <*> (slice d25 d0) 
+                $ vec
+      _ ->
+           pure IType 
+               <*> (slice d31 d26) 
+               <*> (slice d25 d21) 
+               <*> (slice d20 d16) 
+               <*> (slice d15 d0) 
+                $  vec
+\end{minted}
+The format decode is trivial:
+\begin{itemize}
+	\item An all-zero instruction is a NOP;
+	\item Otherwise, instructions with 0 opcode will be dispatched into R-Format;
+	\item Instructions with special jumping opcode will be dispatched into J-Format;
+	\item Other instructions are in the I-Format
+\end{itemize}
+After format is determined, we can then transform instructions into our inner forms:
+
+\begin{minted}{haskell}
+type Register = Unsigned 5
+data Instruction
+    = NOP
+    | ADD Register Register Register
+    | ADDI Register Register (Signed 16)
+    | ADDU Register Register Register
+    | ADDIU Register Register (Unsigned 16)
+    | SUB Register Register Register
+    | SUBU Register Register Register
+    | AND Register Register Register
+    | ANDI Register Register (BitVector 16)
+    | NOR Register Register Register
+    | OR Register Register Register
+    | ORI Register Register (BitVector 16)
+    | XOR Register Register Register
+    | XORI Register Register (BitVector 16)
+    | BEQ Register Register (Signed 16)
+    | BNE Register Register (Signed 16)
+    | SLT Register Register Register
+    | SLTI Register Register (Signed 16)
+    | SLTU Register Register Register
+    | SLTIU Register Register (Unsigned 16)
+    | LW Register Register (Signed 16)
+    | SW Register Register (Signed 16)
+    | SLL Register Register (Unsigned 5)
+    | SRL Register Register (Unsigned 5)
+    | SRA Register Register (Unsigned 5)
+    | SLLV Register Register Register
+    | SRLV Register Register Register
+    | SRAV Register Register Register
+    | J (Unsigned 26)
+    | JAL (Unsigned 26)
+    | JR (Unsigned 5)
+    deriving Show
+    deriving Generic
+    deriving NFDataX
+\end{minted}
+We do not provide the function \mint{haskell}{decodeTyped :: Format -> Instruction} here as it should be easy to write and just require some repeated works to recognize the instruction based on the opcode and the function code.
+
+Just mention a small trick: to reduce the repeated code, you can use the Applicative property of Readers (or, more precisely, the isomorphic function structures of Reader):
+\begin{minted}{haskell}
+t1 (x, _, _) = x
+t2 (_, y, _) = y
+t3 (_, _, z) = z
+makeType func = pure func <*> unpack . t1 <*> unpack . t2 <*> unpack . t3
+-- then you can just use something like:
+case fn of
+    0b100000 -> (makeType ADD) (rs, rt, rd)
+    0b100001 -> (makeType ADDU) (rs, rt, rd)
+    0b100100 -> (makeType AND) (rs, rt, rd)
+    -- more cases ...
+\end{minted}
+
+\subsubsection{The Instruction RAM}
+We will use BRAM to implement the instruction memory space. 
 \end{document}

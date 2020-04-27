@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{readNew} \PYG{o}{.} \PYG{n}{asyncRam}
+\end{Verbatim}

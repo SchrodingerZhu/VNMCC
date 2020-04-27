@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{decodeFormat} \PYG{o+ow}{::} \PYG{k+kt}{BitVector} \PYG{l+m+mi}{32} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Format}
+\PYG{n+nf}{decodeFormat} \PYG{l+m+mi}{0} \PYG{o+ow}{=} \PYG{k+kt}{NoType}
+\PYG{n+nf}{decodeFormat} \PYG{n}{vec} \PYG{o+ow}{=}
+    \PYG{k+kr}{let} \PYG{n}{opcode} \PYG{o+ow}{=} \PYG{n}{slice} \PYG{n}{d31} \PYG{n}{d26} \PYG{n}{vec}
+    \PYG{k+kr}{in} \PYG{k+kr}{case} \PYG{n}{opcode} \PYG{k+kr}{of}
+       \PYG{l+m+mi}{0} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}}
+           \PYG{n}{pure} \PYG{k+kt}{RType}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d31} \PYG{n}{d26}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d25} \PYG{n}{d21}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d20} \PYG{n}{d16}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d15} \PYG{n}{d11}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d10} \PYG{n}{d6}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d5} \PYG{n}{d0}\PYG{p}{)}
+                \PYG{o}{\PYGZdl{}}  \PYG{n}{vec}
+      \PYG{n}{code} \PYG{o}{|} \PYG{n}{code} \PYG{o}{==} \PYG{l+m+mb}{0b000010} \PYG{o}{||} \PYG{n}{code} \PYG{o}{==} \PYG{l+m+mb}{0b000011} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}}
+           \PYG{n}{pure} \PYG{k+kt}{JType}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d31} \PYG{n}{d26}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d25} \PYG{n}{d0}\PYG{p}{)}
+                \PYG{o}{\PYGZdl{}} \PYG{n}{vec}
+      \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}}
+           \PYG{n}{pure} \PYG{k+kt}{IType}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d31} \PYG{n}{d26}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d25} \PYG{n}{d21}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d20} \PYG{n}{d16}\PYG{p}{)}
+               \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{p}{(}\PYG{n}{slice} \PYG{n}{d15} \PYG{n}{d0}\PYG{p}{)}
+                \PYG{o}{\PYGZdl{}}  \PYG{n}{vec}
+\end{Verbatim}

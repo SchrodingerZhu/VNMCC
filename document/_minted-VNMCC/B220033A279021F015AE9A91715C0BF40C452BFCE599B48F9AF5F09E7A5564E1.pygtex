@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{a} \PYG{o+ow}{::} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{A}
+\PYG{n+nf}{b} \PYG{o+ow}{::} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{B}
+\PYG{n+nf}{func} \PYG{o+ow}{::} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{p}{(}\PYG{k+kt}{A}\PYG{p}{,} \PYG{k+kt}{B}\PYG{p}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{C}
+\PYG{n+nf}{res}  \PYG{o+ow}{::} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{C}
+\PYG{n+nf}{res}  \PYG{o+ow}{=}  \PYG{n}{func} \PYG{o}{\PYGZdl{}} \PYG{n}{bundle} \PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}
+\end{Verbatim}

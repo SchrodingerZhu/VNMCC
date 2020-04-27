@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{addi} \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n+nf}{sw}   \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{p}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{(}\PYG{n+no}{\PYGZdl{}sp}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{moore}
+  \PYG{o+ow}{::} \PYG{p}{(} \PYG{k+kt}{HiddenClockResetEnable} \PYG{n}{dom}
+     \PYG{p}{,} \PYG{k+kt}{NFDataX} \PYG{n}{s} \PYG{p}{)}
+     \PYG{o+ow}{=\PYGZgt{}} \PYG{p}{(}\PYG{n}{s} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{i} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{s}\PYG{p}{)}
+     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{p}{(}\PYG{n}{s} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{o}\PYG{p}{)}
+     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{s}
+     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{p}{(}\PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{n}{i} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{n}{o}\PYG{p}{)}
+\end{Verbatim}

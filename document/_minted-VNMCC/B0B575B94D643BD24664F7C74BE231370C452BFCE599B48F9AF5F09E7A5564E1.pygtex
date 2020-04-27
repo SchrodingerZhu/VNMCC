@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{pack} \PYG{o+ow}{::} \PYG{k+kt}{BitPack} \PYG{n}{a} \PYG{o+ow}{=\PYGZgt{}} \PYG{n}{a} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{BitVector} \PYG{p}{(}\PYG{k+kt}{BitSize} \PYG{n}{a}\PYG{p}{)}
+\PYG{n+nf}{unpack} \PYG{o+ow}{::} \PYG{k+kt}{BitPack} \PYG{n}{a} \PYG{o+ow}{=\PYGZgt{}} \PYG{k+kt}{BitVector} \PYG{p}{(}\PYG{k+kt}{BitSize} \PYG{n}{a}\PYG{p}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{a}
+\end{Verbatim}

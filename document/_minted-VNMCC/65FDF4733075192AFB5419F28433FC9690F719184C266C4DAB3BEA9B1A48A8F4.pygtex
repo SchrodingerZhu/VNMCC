@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{addi} \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n+nf}{addi} \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n+nf}{addi} \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}a0}\PYG{p}{,} \PYG{l+m+mi}{1}
+\end{Verbatim}

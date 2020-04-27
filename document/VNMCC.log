@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2020.4.27)  27 APR 2020 14:54
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2020.4.27)  28 APR 2020 02:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -763,11 +763,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
-)
-\tf@toc=\write6
  [3
 
-]
+])
+\tf@toc=\write6
+LaTeX Font Info:    Font shape `TU/EBGaramond(0)/m/sl' in size <12> not availab
+le
+(Font)              Font shape `TU/EBGaramond(0)/m/it' tried instead on input l
+ine 39.
+ [4]
 Chapter 1.
 Package lettrine.sty Info: Targeted height = 23.561pt
 (lettrine.sty)             (for loversize=0, accent excluded),
@@ -789,12 +793,7 @@ Package lettrine.sty Info: Targeted height = 23.561pt
 (./_minted-VNMCC/8244B4EFEACBAF96D171AC1023413C59AE300DDB74CC1559314406852EFC52
 56.pygtex)
 (./_minted-VNMCC/5BF23E7A6B5385F3914D3816CA43F53967611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-LaTeX Font Info:    Font shape `TU/EBGaramond(0)/m/sl' in size <12> not availab
-le
-(Font)              Font shape `TU/EBGaramond(0)/m/it' tried instead on input l
-ine 67.
- [2]
+5E.pygtex) [2]
 Chapter 2.
 Package lettrine.sty Info: Targeted height = 23.561pt
 (lettrine.sty)             (for loversize=0, accent excluded),
@@ -871,14 +870,18 @@ Overfull \hbox (1.20404pt too wide) in paragraph at lines 1--222
 (./_minted-VNMCC/97E55C69979FCEE55926072409D7F93FE1F81C7A9F542DE9D2B07EA2661689
 47.pygtex)
 (./_minted-VNMCC/B96D54336E137FC33711BD2D94D1C134E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex) [8]
+47.pygtex)
+(./_minted-VNMCC/194C5220E64DCD6D8ABD4CF3DEB28CF1E1F81C7A9F542DE9D2B07EA2661689
+47.pygtex)
+(./_minted-VNMCC/72E5CAE79A9ADB939A9412505BD0BD55E1F81C7A9F542DE9D2B07EA2661689
+47.pygtex) [8] [9]
 Chapter 3.
 Package lettrine.sty Info: Targeted height = 23.561pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 22.5085pt (C);
-(lettrine.sty)             reported on input line 226.
+(lettrine.sty)             reported on input line 228.
 
-Overfull \hbox (10.46399pt too wide) in paragraph at lines 228--229
+Overfull \hbox (10.46399pt too wide) in paragraph at lines 230--231
 []\TU/EBGaramond(0)/m/n/12 (http://hackage.haskell.org/package/clash-prelude-1.
 2.0/docs/Clash-Tutorial.html).
  []
@@ -892,20 +895,20 @@ E1.pygtex)
 E1.pygtex)
 (./_minted-VNMCC/AA13EE8A8390AB1830E306EC551E4428E1F81C7A9F542DE9D2B07EA2661689
 47.pygtex)
-Overfull \hbox (13.92142pt too wide) in paragraph at lines 237--238
+Overfull \hbox (13.92142pt too wide) in paragraph at lines 239--240
 \TU/EBGaramond(0)/m/n/12 How to generate a verilog module from the code? If you
 r function is named as [],
  []
 
 
-Overfull \hbox (3.3281pt too wide) in paragraph at lines 237--238
+Overfull \hbox (3.3281pt too wide) in paragraph at lines 239--240
 \TU/EBGaramond(0)/m/n/12 just load the clash.clashi on your own or using stack 
 and then input []
  []
 
 
 (./_minted-VNMCC/97BF069AE2FE17DE14E5174108DC2C8CABF098667E3F3C397939F7FF02D3F2
-B5.pygtex [9
+B5.pygtex [10
 
 ])
 (./_minted-VNMCC/F5E7CE3848A83D6DCC5C59B17E8F273BF0F6EECDF0490D300073CE44AE22A2
@@ -914,35 +917,196 @@ B5.pygtex [9
 B5.pygtex)
 (./_minted-VNMCC/E93928046ADC97B96B7EDB609F8F37050C452BFCE599B48F9AF5F09E7A5564
 E1.pygtex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 284.
- [10] [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 284.
+(./_minted-VNMCC/DEE61E2C94044E185FA5C2A8F6BCBCDF0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/5F1589230E95F207FA53D14412849F800C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex [11])
+(./_minted-VNMCC/C0499C80670841BC7E4BBCD6D4A9B4290C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/FECF3047E440101DFEB8EE4E4DED4AD00C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/CC2B57C5ECD9D889D9F3F835F93A33240C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/1863FA18DBB37AD29D3F9C2F0C097A900C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex [12])
+(./_minted-VNMCC/0D0B9A59A558C42D543C7879F7ABF5AE0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/D3C7818C83425C8708F3DC117388B2710C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+Overfull \hbox (47.40404pt too wide) in paragraph at lines 320--322
+\TU/EBGaramond(0)/m/n/12 There are mainly two types of sized integers: [] and [
+].
+ []
+
+
+(./_minted-VNMCC/F3CCC1F614942E6911BEEED5E5E7921D0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/B0B575B94D643BD24664F7C74BE231370C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/9C1CA64A32191EA1ABDFD601EA0049F00C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/5E61487A211BE2D421E97ACE07E1FF3E0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/8EDD11BE80BDF6AD44E6F7849CC4B82BABF098667E3F3C397939F7FF02D3F2
+B5.pygtex
+Overfull \hbox (24.1534pt too wide) in paragraph at lines 335--1
+\TU/EBGaramond(0)/m/n/12 Other Haskell types like [] can also be used without p
+roblem. For example, []
+ []
+
+)
+(./_minted-VNMCC/22C11FF498201DA98B299F49093B557BABF098667E3F3C397939F7FF02D3F2
+B5.pygtex)
+(./_minted-VNMCC/2DC86FE40129A39A9D023C2DC048FC92ABF098667E3F3C397939F7FF02D3F2
+B5.pygtex [13])
+(./_minted-VNMCC/65772C70BFAA9A66B2F0088E0EDD028A0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/3F82B29F5C8223B296100D209BB630C20C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/B48C3588E6CF18B292CC7AF30B5E8F690C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+Overfull \hbox (24.22406pt too wide) in paragraph at lines 356--359
+[]\TU/EBGaramond(0)/m/n/12 In Clash, sequential logic things are wrapped into a
+ type [].
+ []
+
+
+(./_minted-VNMCC/535B6A8C25A689651D283DDAA74FF58B0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/C9BCE574830D632412B19DF61EC16E410C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/EA5A277AB616CE9E0AC8F97F46D766A30C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/47EF9982E672037EAD8491611DBBBA830C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/64F0BE93EC5C6EA4DD938A1F8F9A30560C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/51689D4721EBFD124DAC47D63E5220990C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex
+Overfull \hbox (2.55609pt too wide) in paragraph at lines 364--1
+[]\TU/EBGaramond(0)/m/n/12 To test the signals, you can also use [] to generate
+ enable signals, []
+ []
+
+)
+(./_minted-VNMCC/677C7C506ED1101C937A1D3B36BC02210C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex
+Overfull \hbox (4.73209pt too wide) in paragraph at lines 367--1
+[]\TU/EBGaramond(0)/m/n/12 Usually, enable, clock and reset signals are require
+d everywhere within a synchronous
+ []
+
+[14])
+(./_minted-VNMCC/DFA481693CBA2CDCF89F664CE56A3FEB0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/9E68E1C68D47820558EDEBA9907982190C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex) [15]
+(./_minted-VNMCC/B50B24CCB45757BF51EB81765E52DA370C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/F9593EAD326ED3BDD2A42DAF8EF8926F0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/836CA339104E578698BFD9C612E1E4D0E1F81C7A9F542DE9D2B07EA2661689
+47.pygtex)
+Overfull \hbox (13.51608pt too wide) in paragraph at lines 421--422
+\TU/EBGaramond(0)/m/n/12 tions like [], which will be translated into some Veri
+log code using []
+ []
+
+
+(./_minted-VNMCC/249EEC55F07989E6E77FC9ADF0D0B18E0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex [16])
+(./_minted-VNMCC/9B36B8FA94E42043048C9198034445360C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/FA7908D325AEBEDA70E7E8C3A24029170C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex [17])
+(./_minted-VNMCC/DD97097808BEDB2F2E4852AD7F469E440C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/4D884F5B3927DE0DE09A49A6FB9CE6090C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/838AE6F92BCE4D1BE83621E840429D560C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/25D64A44808B72BE7A7975E1C3DE21150C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/AFDD9947F4E325D7EF60D8D909B973ED0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex [18])
+(./_minted-VNMCC/E3B65D5F947F16F13964B2A3BF017A9C0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/5F1EC86EDE17C5B83A6B7A774EDF74380C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/660DD5DD3FE9279FA3880FBAB1CE9C570C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/71ABE97E2554D37F1D12C5BF4945297F0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/5F1EC86EDE17C5B83A6B7A774EDF74380C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/B220033A279021F015AE9A91715C0BF40C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex) [19] [20]
+Chapter 4.
+Package lettrine.sty Info: Targeted height = 23.561pt
+(lettrine.sty)             (for loversize=0, accent excluded),
+(lettrine.sty)             Lettrine height = 22.33875pt (N);
+(lettrine.sty)             reported on input line 530.
+
+Overfull \hbox (6.31204pt too wide) in paragraph at lines 540--541
+[]\TU/EBGaramond(0)/m/n/12 Write Back Module: Act as a transition module before
+ register writing and branch-
+ []
+
+[21
+
+]
+File: ./image/pipeline.png Graphic file (type bmp)
+<./image/pipeline.png>
+
+Overfull \hbox (6.19476pt too wide) in paragraph at lines 553--554
+\TU/EBGaramond(0)/m/n/12 model, if the branch condition fails, everything works
+ fine; nevertheless, when the branch
+ []
+
+[22]
+(./_minted-VNMCC/B2EAAD0E09F4865C728E2030F0BE515D90F719184C266C4DAB3BEA9B1A48A8
+F4.pygtex)
+(./_minted-VNMCC/65FDF4733075192AFB5419F28433FC9690F719184C266C4DAB3BEA9B1A48A8
+F4.pygtex)
+(./_minted-VNMCC/B790D52469EECD8DE1F191EC157C2CD490F719184C266C4DAB3BEA9B1A48A8
+F4.pygtex) [23]
+(./_minted-VNMCC/CEBB050DBF304232D1D626F65E58000F90F719184C266C4DAB3BEA9B1A48A8
+F4.pygtex)
+(./_minted-VNMCC/D4CA1806B81543BFB87797CA2131AFC990F719184C266C4DAB3BEA9B1A48A8
+F4.pygtex) [24]
+(./_minted-VNMCC/20AD2C503560CBA92A81EEAA4071DEFC0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/3A5D9222F0AB4F6D5B5EC097A7FC09B30C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex [25])
+(./_minted-VNMCC/5702B0CF16FE603A99C98DF36E9FFA3B0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex [26] [27])
+(./_minted-VNMCC/1FC458E7F1AA77A01EAD2F28DF728D600C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+(./_minted-VNMCC/19E95181184C75AA0E39FDAF6A45A1CE0C452BFCE599B48F9AF5F09E7A5564
+E1.pygtex)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 716.
+ [28]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 716.
  (./VNMCC.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 284.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 284.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 716.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 716.
+Package rerunfilecheck Info: File `VNMCC.out' has not changed.
+(rerunfilecheck)             Checksum: 588C609CBF1CFEC8EEA70886202E1262;2060.
 
-
-Package rerunfilecheck Warning: File `VNMCC.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `VNMCC.out':
-(rerunfilecheck)             Before: 39B61CCBEB11F245298C6558456E312B;866
-(rerunfilecheck)             After:  C786D29F1DD685D40D6BC176006629F8;943.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 runsystem(rm VNMCC.pyg)...executed.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 284.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 716.
  ) 
 Here is how much of TeX's memory you used:
- 15491 strings out of 479418
- 310839 string characters out of 5890315
- 658368 words of memory out of 5000000
- 32638 multiletter control sequences out of 15000+600000
+ 15789 strings out of 479418
+ 333692 string characters out of 5890315
+ 672083 words of memory out of 5000000
+ 32769 multiletter control sequences out of 15000+600000
  536643 words of font info for 74 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  44i,8n,82p,957b,603s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on VNMCC.pdf (15 pages).
+Output written on VNMCC.pdf (33 pages).

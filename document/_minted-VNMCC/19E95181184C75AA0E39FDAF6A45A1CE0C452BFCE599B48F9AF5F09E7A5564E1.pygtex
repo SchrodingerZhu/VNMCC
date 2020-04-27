@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{t1} \PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{k+kr}{\PYGZus{}}\PYG{p}{,} \PYG{k+kr}{\PYGZus{}}\PYG{p}{)} \PYG{o+ow}{=} \PYG{n}{x}
+\PYG{n+nf}{t2} \PYG{p}{(}\PYG{k+kr}{\PYGZus{}}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{k+kr}{\PYGZus{}}\PYG{p}{)} \PYG{o+ow}{=} \PYG{n}{y}
+\PYG{n+nf}{t3} \PYG{p}{(}\PYG{k+kr}{\PYGZus{}}\PYG{p}{,} \PYG{k+kr}{\PYGZus{}}\PYG{p}{,} \PYG{n}{z}\PYG{p}{)} \PYG{o+ow}{=} \PYG{n}{z}
+\PYG{n+nf}{makeType} \PYG{n}{func} \PYG{o+ow}{=} \PYG{n}{pure} \PYG{n}{func} \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{n}{unpack} \PYG{o}{.} \PYG{n}{t1} \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{n}{unpack} \PYG{o}{.} \PYG{n}{t2} \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{n}{unpack} \PYG{o}{.} \PYG{n}{t3}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} then you can just use something like:}
+\PYG{k+kr}{case} \PYG{n}{fn} \PYG{k+kr}{of}
+    \PYG{l+m+mb}{0b100000} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{p}{(}\PYG{n}{makeType} \PYG{k+kt}{ADD}\PYG{p}{)} \PYG{p}{(}\PYG{n}{rs}\PYG{p}{,} \PYG{n}{rt}\PYG{p}{,} \PYG{n}{rd}\PYG{p}{)}
+    \PYG{l+m+mb}{0b100001} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{p}{(}\PYG{n}{makeType} \PYG{k+kt}{ADDU}\PYG{p}{)} \PYG{p}{(}\PYG{n}{rs}\PYG{p}{,} \PYG{n}{rt}\PYG{p}{,} \PYG{n}{rd}\PYG{p}{)}
+    \PYG{l+m+mb}{0b100100} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{p}{(}\PYG{n}{makeType} \PYG{k+kt}{AND}\PYG{p}{)} \PYG{p}{(}\PYG{n}{rs}\PYG{p}{,} \PYG{n}{rt}\PYG{p}{,} \PYG{n}{rd}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} more cases ...}
+\end{Verbatim}
