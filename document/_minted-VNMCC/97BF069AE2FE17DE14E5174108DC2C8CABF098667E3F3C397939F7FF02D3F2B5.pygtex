@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{\PYGZob{}\PYGZhy{}\PYGZsh{} ANN orGate}
+\PYG{c+cm}{    (Synthesize\PYGZob{}}
+\PYG{c+cm}{        t\PYGZus{}name = \PYGZdq{}OrGate\PYGZdq{},}
+\PYG{c+cm}{        t\PYGZus{}inputs = [PortName \PYGZdq{}X\PYGZdq{}, PortName \PYGZdq{}Y\PYGZdq{}],}
+\PYG{c+cm}{        t\PYGZus{}output = PortName \PYGZdq{}RESULT\PYGZdq{} \PYGZcb{})\PYGZsh{}\PYGZhy{}\PYGZcb{}}
+\end{Verbatim}

@@ -1,3 +1,4 @@
+`timescale 100fs/100fs
 module TEST();
     reg clk, reset, enable;
     initial 
@@ -16,6 +17,8 @@ module TEST();
     
 
     initial begin
+        $dumpfile("test.vcd");
+        $dumpvars(0, cpu);
         $monitor("=======================================================================================\n",
                  "TIME:                %-d\n",             $time, 
                  "STALL:               %b\n",              cpu.STALL,

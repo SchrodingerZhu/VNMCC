@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{module} \PYG{n+nn}{Example} \PYG{k+kr}{where}
+\PYG{n+nf}{orGate} \PYG{o+ow}{::} \PYG{k+kt}{Bool} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Bool} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Bool}
+\PYG{n+nf}{orGate} \PYG{o+ow}{=} \PYG{p}{(}\PYG{o}{||}\PYG{p}{)}
+\end{Verbatim}

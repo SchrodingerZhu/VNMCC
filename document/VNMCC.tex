@@ -1,0 +1,284 @@
+\documentclass[a4paper,12pt, oneside]{book}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{lettrine}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{fontspec}
+\setmainfont{EB Garamond}
+\setmonofont{inconsolata}
+\graphicspath{{./image/}}
+\linespread{1.25}
+\title{Very Naive MIPS CPU using Clash}
+\author{ZHU Yifan (118010469) <i@zhuyi.fan>}
+\begin{document}
+\frontmatter
+\maketitle
+\chapter*{}
+\vspace*{\fill}
+In memory of Carl Quinn, for his great contributions to the field of Programming Languages.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{cquinn}
+\end{figure}
+\vspace*{\fill}
+\chapter{Introduction}
+In CUHK(SZ) and many other universities, writing an MIPS CPU with pipelines is a required work for the  architecture courses. However, most teaching materials just provide students with some basic concepts of CPUs and do not give essential introductions on languages or the potential difficulties of the implementation.
+Writing this book, we want to achieve the following goals:
+\begin{itemize}
+	\item Give a detailed description on each part of the MIPS CPU.
+	\item Clarify how we can write a sequential logic circuit, avoiding oscillations and other problems.  
+	\item Introduce Clash, a higher level HDL that can generate synthesizable Verilog files and reduce the complexity of development. 
+\end{itemize} 
+
+We are \textbf{NOT} going to implement a fully functional MIPS CPU. Instead, we will only structure some skeletons that can help us understand the concepts and principles. We hope the readers can gain some basic knowledge of hardware design and the Clash language from this book.
+
+\tableofcontents
+
+\mainmatter
+\chapter{Preparation}
+\lettrine{R}{ight} before our journey of implementing the MIPS CPU using Clash language, we need to get out equipment ready.
+\section{Prerequisites of this Book}
+Reading this book, you are expected to have some basic knowledge of Verilog HDL and the Haskell language. However, if you happen to have little experience on these two languages, do not worry too much; they are just the language tools that we are going to use to express the logic and thoughts. The expressions should be easy to understand and we are going to provide some detailed descriptions on those critical lines.   
+
+It is also a good idea to acquire some basic knowledge about Digital Logic Circuits. You'd better grab the concepts of clock, combinatorial logic and sequential logic.
+\section{Install iVerilog}
+iVerilog is a tool to synthesis Verilog sources and generate simulation executables. We are going to use it as our default Verilog compiler. It is available to GNU/Linux, Mac OS and Windows.
+
+Windows users can follow \href{http://bleyer.org/icarus/}{this link} (\mintinline{text}{http://bleyer.org/icarus/}) to download it.
+
+Mac users can follow \href{https://blog.csdn.net/zach_z/article/details/78787509}{this tutorial}
+
+(\mintinline{text}{https://blog.csdn.net/zach_z/article/details/78787509}) to download it.
+
+As for GNU/Linux users, I believe you have already found a way to get it work.
+
+\section{Prepare Haskell Environment}
+We are using stack for the projects. It should be easy to install, just go through \href{https://docs.haskellstack.org}{this document} (\mintinline{text}{https://docs.haskellstack.org}) to get all the requirements settled. 
+
+As for Clash, there are several ways to install it. It is ready for Nix build system, Snapcraft and it is also doable to compile from the source. You are recommended to visit \href{https://clash-lang.org}{its website} (\mintinline{text}{https://clash-lang.org}) before you start installing it.
+
+After all things are settled, you should be able to play with the template project at GitHub, under dramforever/clash-with-stack (Great thanks for \textbf{dramforever}).
+
+Its clash version is a little bit old, but it is enough for this book. feel free to upgrade the version to the latest ones (tested until 1.2.0).
+
+This template does not use \mintinline{yaml}{mtl} library that we needs (for the state monad), you may need to add it on you own at the \mintinline{text}{package.yaml}.
+\chapter{Essential Verilog}
+\lettrine{W}{e} would like to introduce some basic Verilog knowledge that will be used in this book. We will not go into details here, just showing some most common use cases. Let us first take a look at the final outcome of out project.
+\section{Module Interface}
+\begin{minted}[linenos, breaklines]{verilog}
+`timescale 100fs/100fs
+module CPU 
+    ( input  CLOCK // clock
+    , input  RESET // reset
+    , input  ENABLE
+    );
+    wire [32:0] BRANCH;
+    wire [30:0] PC_INSTRUCTION;
+    wire [31:0] PC_VALUE;
+    wire [37:0] WRITE_PAIR;
+    wire        STALL;
+    wire [5:0]  DM_WRITE;
+    wire [1:0]  DM_MEM;
+    //...
+
+    InstructionModule IM
+    ( // Inputs
+    .CLOCK(CLOCK), // clock
+    .RESET(RESET), // reset
+    .ENABLE(ENABLE),
+    .BRANCH(BRANCH),
+    .STALL(STALL),
+
+    // Outputs
+    .PC_INSTRUCTION(PC_INSTRUCTION),
+    .PC_VALUE(PC_VALUE)
+    );
+    // ...
+
+    assign AM_FW_0 = MMO_WRITE_PAIR;
+
+    assign AM_FW_1 = WB_WRITE_PAIR;
+
+    assign WRITE_PAIR = WB_WRITE_PAIR;
+
+    assign BRANCH  = WB_BRANCH;
+    
+endmodule
+\end{minted}
+These lines are extracted from the CPU source code. 
+\begin{enumerate}
+	\item The first line is a compiler derivative that defines the precision of timing;
+	\item Line 2 to line 6 defines the module interface of a CPU, with three input ports. As for outputs, you can add something like \mintinline{verilog}{output wire OUTPUT};
+	\item Line 7 to line 13 declare some wire variables. As you can see, you can point out the number of bits in the declaration. Wires are used to connect different components of the circuits, you can treat them as a renaming of the original port because the value of a wire is refresh as soon as the input side changes.
+	\item Apart from wires, another commonly used thing is \mintinline{verilog}{reg [31:0] REGISTER}; you can treat this as the variables in the common sense, which has its own state.
+	\item \mintinline{verilog}{InstructionModule IM (...)} declares a component named \mintinline{verilog}{IM} whose definition is in another module called \mintinline{verilog}{InstructionModule};
+	\item There are mainly two ways to interact with another module, one is to use it as what is listed in the code: use a syntax like \mintinline{verilog}{.PORT(SOME_WIRE)} to connect the inputs and outputs; the other way is commonly used in debugging: you can get the value of the components in another module via something like \mintinline{verilog}{IM.CLOCK};
+	\item Those \mintinline{verilog}{assign} statements are used to connect the wires.
+\end{enumerate}
+\section{Sequential Structures}
+The previous example is just about connecting wires, however, many circuits also to need to handle sequential events.
+\subsection{Assigning Sequential Values}
+There are several ways to assigning values in a sequential logic environment:
+\begin{minted}[breaklines, linenos]{verilog}
+module example();
+    reg A, B, C;
+    initial begin
+        A = 1;
+        B = A;
+        C = B;
+    end
+endmodule
+\end{minted}
+This example shows a way to assign the initial values of some registers within a \mintinline{verilog}{initial} block; Notice that \mintinline{verilog}{=} stands for the blocking assignment, which means the assignments will happen one by one.
+
+What if we want to handle the assignment at some specific time? We can then use a statement in the form of \mintinline{verilog}{always @( ...  sensitivity  list  ... ) begin}, the following example shows the assignments happening on each rising edge of the clock:
+\begin{minted}[breaklines, linenos]{verilog}
+always @(posedge CLOCK) begin
+    B <= A;
+    C <= B;
+    D <= C;
+end
+\end{minted}
+If you want to describe a combinatorial logic, you should use \mintinline{verilog}{always@( * )} (only blocking assignment should be used within the scope, otherwise it is likely to generate unexpected oscillations -- the circuit will never reach a stable state), the event within the block will be triggered as long as any of the inputs changes.
+\subsection{Test Bench}
+\begin{minted}[breaklines, linenos]{verilog}
+module TEST();
+    reg clk, reset, enable;
+    initial 
+        begin
+        clk = 0;
+        reset = 0;
+        enable = 1;
+    end
+
+    always
+       #1000 clk = !clk;
+
+
+    CPU cpu(clk, reset, enable);
+
+
+
+    initial begin
+$monitor(
+"==========================================\n",
+"TIME:                %-d\n",             $time, 
+"STALL:               %b\n",              cpu.STALL,
+"----------------- Instruction ------------\n",
+"PC/4 + 1:            %-d\n",             cpu.IM.PC_VALUE,
+"INSTRUCTION:         %b\n",              cpu.IM.result_1[31:0],
+"INSTRUCTION:         %b [inner form]\n", cpu.IM.PC_INSTRUCTION,
+"-------------------- Decode --------------\n",
+"RS:                  %-d\n",    cpu.DM_RS,
+"RS VALUE:            %b\n",     cpu.DM_RSV,
+"RT:                  %-d\n",    cpu.DM_RT,
+"RT VALUE:            %b\n",     cpu.DM_RTV,
+"MEM_OP:              %b\n",     cpu.DM_MEM,
+"REG_WRITE:           %b\n",     cpu.DM_WRITE,
+"ALU_CTL:             %b\n",     cpu.DM_ALU,
+"IMMEDIATE:           %b\n",     cpu.DM_IMM,
+"STAGE_PC/4 + 1:      %-d\n",    cpu.DM_COUNTER,
+"----------------- Arithmetic --------------\n",
+"REG_WRITE:           %b\n",     cpu.AM_WRITE_REG,
+"MEM_OP:              %b\n",     cpu.AM_MEM_OP,
+"ALU_RESULT:          %b\n",     cpu.AM_RESULT,
+"BRANCH_TARGET:       %b\n",     cpu.AM_BRANCH_TARGET,
+"--------------------Memory -----------------\n",
+"BRANCH_TARGET:       %b\n",     cpu.MMO_BRANCH,
+"WRITE_BACK:          %b\n",     cpu.MMO_WRITE_PAIR,
+"NEXT_FETCH_ADDRESS:  %-x\n",    cpu.MM.MainMemory_res.FETCH_ADDRESS,
+"FETCH_RESULT:        %-x\n",    cpu.MM.MainMemory_res.DATA,
+"WRITE_SERIAL:        %b\n",     cpu.MM.MainMemory_res.EDIT_SERIAL,
+"----------------- Write Back ---------------\n",
+"BRANCH_TARGET:       %b\n",     cpu.WB_BRANCH,
+"WRITE_BACK:          %b\n",     cpu.WB_WRITE_PAIR,
+"============================================\n"
+);
+    #100000 $finish();
+    end
+
+endmodule
+\end{minted}
+Here is the test bench that we are going to use. Those \mintinline{verilog}{#XXXX} statements mean delaying the given amount nanoseconds before the event happening. Hence,
+\begin{minted}{verilog}
+always
+    #1000 clk = !clk;
+\end{minted}
+actually defines a clock with period $2000$.
+There are several special functions we are going to use,
+\begin{itemize}
+	\item \mintinline{verilog}{$finish()} terminates the simulation
+	\item \mintinline{verilog}{$stop()} pauses the simulation 
+	\item \mintinline{verilog}{$display("format string", a, "format string", b)} displays the instant value of the variables; basic formats are:
+		\begin{itemize}
+			\item \mintinline{text}{%d}: digits
+			\item \mintinline{text}{%-d}: digits (left aligned)
+			\item \mintinline{text}{%b}: binary
+			\item \mintinline{text}{%x}: hexdecimal
+		\end{itemize}
+	\item \mintinline{verilog}{$monitor("format string", a, "format string", b)} used the same as display, but it will be triggered everytime a monitored variable updates
+	\item \mintinline{verilog}{$time} gets the current time
+	\item \mintinline{verilog}{$readmemb("file.bin",BLOCK);} initializes a large memory block with a file
+\end{itemize}
+\chapter{Journey to the Clash Language}
+\lettrine{C}{lash} will be our main language to write CPU. Clash supports most of Haskell syntax, but yet it cannot support some advanced features like GADT pattern matching. To see the full list of limitations, please check its \href{http://hackage.haskell.org/package/clash-prelude-1.2.0/docs/Clash-Tutorial.html}{official tutorial}
+
+(http://hackage.haskell.org/package/clash-prelude-1.2.0/docs/Clash-Tutorial.html). It will also be a great idea to go through the troubleshooting part if you face some difficulties later.
+
+\section{Define Circuits}
+You can simply write a circuit in the way of writing a Haskell function:
+\begin{minted}{Haskell}
+module Example where
+orGate :: Bool -> Bool -> Bool
+orGate = (||)
+\end{minted}
+How to generate a verilog module from the code? If your function is named as \mintinline{haskell}{topEntity}, just load the clash.clashi on your own or using stack and then input \mintinline{haskell}{:verilog Example} in the REPL, then the outputs are ready at the \mintinline{verilog}{verilog} subdirectory under your working directory. 
+
+However, in most cases, you need to write a special annotation for the function:
+\begin{minted}{Haskell}
+{-# ANN orGate
+    (Synthesize{
+        t_name = "OrGate",
+        t_inputs = [PortName "X", PortName "Y"],
+        t_output = PortName "RESULT" })#-}
+\end{minted}
+As you can see, you can customize the name for the ports and the whole module. There is another cool thing that you can also set a test bench for your circuits. As we are not going to use clash to generate test benches, it is up to you to investigate it on your own. Here is \href{http://hackage.haskell.org/package/clash-prelude-1.2.1/docs/Clash-Annotations-TopEntity.html#v:TestBench}{the link}:
+
+\begin{minted}[breaklines]{bash}
+http://hackage.haskell.org/package/clash-prelude-1.2.1/docs/
+Clash-Annotations-TopEntity.html#v:TestBench
+\end{minted}
+
+Here is another example to demonstrate how to handle product ports.
+\begin{minted}{Haskell}
+{-# ANN someGates
+  (Synthesize
+     {  t_name = "SomeGates"
+     ,  t_inputs = 
+        [  PortName "X"
+        ,  PortProduct "IN" 
+             [  PortName "Y"
+             ,  PortName "Z"
+             ]
+         ]
+     ,  t_output = PortProduct "OUT" 
+        [  PortName "0"
+        ,  PortName "1"
+        ,  PortName "2"
+        ]
+     }
+  )
+#-}
+\end{minted}
+This annotation can be used to handle functions in the form of 
+\begin{minted}{haskell}
+someGate :: x -> (y, z) -> (o0, o1, o2)
+\end{minted} 
+
+\section{Useful Types}
+\subsection{Bit and BitVector}
+
+
+\end{document}

@@ -1,0 +1,58 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{module} \PYG{n}{TEST}\PYG{p}{();}
+    \PYG{k+kt}{reg} \PYG{n}{clk}\PYG{p}{,} \PYG{n}{reset}\PYG{p}{,} \PYG{n}{enable}\PYG{p}{;}
+    \PYG{k}{initial}
+        \PYG{k}{begin}
+        \PYG{n}{clk} \PYG{o}{=} \PYG{l+m+mh}{0}\PYG{p}{;}
+        \PYG{n}{reset} \PYG{o}{=} \PYG{l+m+mh}{0}\PYG{p}{;}
+        \PYG{n}{enable} \PYG{o}{=} \PYG{l+m+mh}{1}\PYG{p}{;}
+    \PYG{k}{end}
+
+    \PYG{k}{always}
+       \PYG{p}{\PYGZsh{}}\PYG{l+m+mh}{1000} \PYG{n}{clk} \PYG{o}{=} \PYG{o}{!}\PYG{n}{clk}\PYG{p}{;}
+
+
+    \PYG{n}{CPU} \PYG{n}{cpu}\PYG{p}{(}\PYG{n}{clk}\PYG{p}{,} \PYG{n}{reset}\PYG{p}{,} \PYG{n}{enable}\PYG{p}{);}
+
+
+
+    \PYG{k}{initial} \PYG{k}{begin}
+\PYG{n+nb}{\PYGZdl{}monitor}\PYG{p}{(}
+\PYG{l+s}{\PYGZdq{}==========================================}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}TIME:                \PYGZpc{}\PYGZhy{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}             \PYG{n+nb}{\PYGZdl{}time}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}STALL:               \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}              \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{STALL}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Instruction \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}PC/4 + 1:            \PYGZpc{}\PYGZhy{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}             \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{IM}\PYG{p}{.}\PYG{n}{PC\PYGZus{}VALUE}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}INSTRUCTION:         \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}              \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{IM}\PYG{p}{.}\PYG{n}{result\PYGZus{}1}\PYG{p}{[}\PYG{l+m+mh}{31}\PYG{o}{:}\PYG{l+m+mh}{0}\PYG{p}{],}
+\PYG{l+s}{\PYGZdq{}INSTRUCTION:         \PYGZpc{}b [inner form]}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{IM}\PYG{p}{.}\PYG{n}{PC\PYGZus{}INSTRUCTION}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Decode \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}RS:                  \PYGZpc{}\PYGZhy{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}    \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}RS}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}RS VALUE:            \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}RSV}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}RT:                  \PYGZpc{}\PYGZhy{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}    \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}RT}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}RT VALUE:            \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}RTV}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}MEM\PYGZus{}OP:              \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}MEM}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}REG\PYGZus{}WRITE:           \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}WRITE}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}ALU\PYGZus{}CTL:             \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}ALU}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}IMMEDIATE:           \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}IMM}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}STAGE\PYGZus{}PC/4 + 1:      \PYGZpc{}\PYGZhy{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}    \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{DM\PYGZus{}COUNTER}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Arithmetic \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}REG\PYGZus{}WRITE:           \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{AM\PYGZus{}WRITE\PYGZus{}REG}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}MEM\PYGZus{}OP:              \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{AM\PYGZus{}MEM\PYGZus{}OP}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}ALU\PYGZus{}RESULT:          \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{AM\PYGZus{}RESULT}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}BRANCH\PYGZus{}TARGET:       \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{AM\PYGZus{}BRANCH\PYGZus{}TARGET}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Memory \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}BRANCH\PYGZus{}TARGET:       \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{MMO\PYGZus{}BRANCH}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}WRITE\PYGZus{}BACK:          \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{MMO\PYGZus{}WRITE\PYGZus{}PAIR}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}NEXT\PYGZus{}FETCH\PYGZus{}ADDRESS:  \PYGZpc{}\PYGZhy{}x}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}    \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{MM}\PYG{p}{.}\PYG{n}{MainMemory\PYGZus{}res}\PYG{p}{.}\PYG{n}{FETCH\PYGZus{}ADDRESS}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}FETCH\PYGZus{}RESULT:        \PYGZpc{}\PYGZhy{}x}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}    \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{MM}\PYG{p}{.}\PYG{n}{MainMemory\PYGZus{}res}\PYG{p}{.}\PYG{n}{DATA}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}WRITE\PYGZus{}SERIAL:        \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{MM}\PYG{p}{.}\PYG{n}{MainMemory\PYGZus{}res}\PYG{p}{.}\PYG{n}{EDIT\PYGZus{}SERIAL}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Write Back \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}BRANCH\PYGZus{}TARGET:       \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{WB\PYGZus{}BRANCH}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}WRITE\PYGZus{}BACK:          \PYGZpc{}b}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}     \PYG{n}{cpu}\PYG{p}{.}\PYG{n}{WB\PYGZus{}WRITE\PYGZus{}PAIR}\PYG{p}{,}
+\PYG{l+s}{\PYGZdq{}============================================}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}
+\PYG{p}{);}
+    \PYG{p}{\PYGZsh{}}\PYG{l+m+mh}{100000} \PYG{n+nb}{\PYGZdl{}finish}\PYG{p}{();}
+    \PYG{k}{end}
+
+\PYG{k}{endmodule}
+\end{Verbatim}
