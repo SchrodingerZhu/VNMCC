@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{type} \PYG{k+kt}{DecodeModuleState} \PYG{o+ow}{=} \PYG{p}{(}\PYG{k+kt}{Instruction}\PYG{p}{,} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)}
+
+\PYG{n+nf}{decodeModuleState}
+  \PYG{o+ow}{::} \PYG{p}{(}\PYG{k+kt}{Instruction}\PYG{p}{,} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{,} \PYG{k+kt}{Bool}\PYG{p}{)}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{State} \PYG{k+kt}{DecodeModuleState} \PYG{k+kt}{DecodeModuleState}
+\PYG{n+nf}{decodeModuleState} \PYG{p}{(}\PYG{n}{inst}\PYG{p}{,} \PYG{n}{pc}\PYG{p}{,} \PYG{n}{stall}\PYG{p}{)} \PYG{o+ow}{=} \PYG{k+kr}{do}
+  \PYG{k+kr}{case} \PYG{n}{stall} \PYG{k+kr}{of}
+    \PYG{k+kt}{False} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kr}{do}
+      \PYG{n}{state} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{get}
+      \PYG{n}{put} \PYG{p}{(}\PYG{n}{inst}\PYG{p}{,} \PYG{n}{pc}\PYG{p}{)}
+      \PYG{n}{return} \PYG{n}{state}
+    \PYG{k+kt}{True} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kr}{do}
+      \PYG{k+kr}{let} \PYG{n}{res} \PYG{o+ow}{=} \PYG{p}{(}\PYG{k+kt}{NOP}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+      \PYG{n}{put} \PYG{n}{res}
+      \PYG{n}{return} \PYG{n}{res}
+\end{Verbatim}

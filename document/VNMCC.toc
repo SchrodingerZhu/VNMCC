@@ -13,25 +13,34 @@
 \contentsline {section}{\numberline {3.2}Useful Types}{12}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Bit and BitVector}{12}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Sized Integers}{13}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Remarks on Haskell Types}{13}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.3}Sized Vector}{13}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Remarks on Haskell Types}{14}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3}Step into the Sequential Logic World}{14}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Function Utilities}{15}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}ROM and RAM}{15}{subsection.3.4.1}%
-\contentsline {subsubsection}{Asynchronous Memory}{15}{section*.4}%
+\contentsline {section}{\numberline {3.4}Function Utilities}{16}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}ROM and RAM}{16}{subsection.3.4.1}%
+\contentsline {subsubsection}{Asynchronous Memory}{16}{section*.4}%
 \contentsline {subsubsection}{Synchronous Memory}{16}{section*.5}%
-\contentsline {subsection}{\numberline {3.4.2}State Machine}{16}{subsection.3.4.2}%
-\contentsline {subsubsection}{Register}{16}{section*.6}%
-\contentsline {subsubsection}{Mealy}{17}{section*.7}%
-\contentsline {subsubsection}{Moore}{18}{section*.8}%
+\contentsline {subsection}{\numberline {3.4.2}State Machine}{17}{subsection.3.4.2}%
+\contentsline {subsubsection}{Register}{17}{section*.6}%
+\contentsline {subsubsection}{Mealy}{18}{section*.7}%
+\contentsline {subsubsection}{Moore}{19}{section*.8}%
 \contentsline {subsubsection}{State Monad}{19}{section*.9}%
-\contentsline {subsection}{\numberline {3.4.3}Bundle and Unbundle}{19}{subsection.3.4.3}%
-\contentsline {chapter}{\numberline {4}Writing the CPU}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}What is CPU}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Pipeline: Why and How}{22}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Control Hazards: Branch and Jump}{22}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Data Hazards}{23}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Special Changes}{24}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Implementation}{25}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Instruction Module}{25}{subsection.4.3.1}%
-\contentsline {subsubsection}{Instruction Set}{25}{section*.10}%
-\contentsline {subsubsection}{The Instruction RAM}{28}{section*.11}%
+\contentsline {subsection}{\numberline {3.4.3}Bundle and Unbundle}{20}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {4}Writing the CPU}{22}{chapter.4}%
+\contentsline {section}{\numberline {4.1}What is CPU}{22}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Pipeline: Why and How}{23}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Control Hazards: Branch and Jump}{23}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Data Hazards}{24}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Special Changes}{25}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Implementation}{26}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Instruction Module}{26}{subsection.4.3.1}%
+\contentsline {subsubsection}{Instruction Set}{26}{section*.10}%
+\contentsline {subsubsection}{The Instruction RAM}{29}{section*.11}%
+\contentsline {subsubsection}{Instruction Module Interface}{30}{section*.12}%
+\contentsline {subsection}{\numberline {4.3.2}Decode Module}{33}{subsection.4.3.2}%
+\contentsline {subsubsection}{Register File}{33}{section*.13}%
+\contentsline {subsubsection}{Control Unit}{35}{section*.14}%
+\contentsline {subsubsection}{Decode Module Interface}{42}{section*.15}%
+\contentsline {subsection}{\numberline {4.3.3}Arithmetic Module}{47}{subsection.4.3.3}%
+\contentsline {subsubsection}{Data Types}{47}{section*.16}%
+\contentsline {subsubsection}{ALU}{48}{section*.17}%

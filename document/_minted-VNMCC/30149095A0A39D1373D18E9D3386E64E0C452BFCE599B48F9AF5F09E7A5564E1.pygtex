@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{type} \PYG{k+kt}{ALUOutput}
+  \PYG{o+ow}{=} \PYG{p}{(} \PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{5}\PYG{p}{)}  \PYG{c+c1}{\PYGZhy{}\PYGZhy{} write register}
+    \PYG{p}{,} \PYG{k+kt}{MemoryOperation\PYGZsq{}}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} memory}
+    \PYG{p}{,} \PYG{k+kt}{BitVector} \PYG{l+m+mi}{32}        \PYG{c+c1}{\PYGZhy{}\PYGZhy{} ALU result}
+    \PYG{p}{,} \PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)} \PYG{c+c1}{\PYGZhy{}\PYGZhy{} branch target}
+    \PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{dispatch}
+  \PYG{o+ow}{::} \PYG{k+kt}{HiddenClockResetEnable} \PYG{n}{dom}
+  \PYG{o+ow}{=\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{k+kt}{Instruction}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{k+kt}{ALUOperation}
+\PYG{n+nf}{dispatch} \PYG{o+ow}{=} \PYG{n}{fmap} \PYG{n}{dispatch\PYGZsq{}}
+  \PYG{k+kr}{where}
+    \PYG{n}{dispatch\PYGZsq{}} \PYG{n}{inst} \PYG{o+ow}{=}
+      \PYG{k+kr}{case} \PYG{n}{inst} \PYG{k+kr}{of}
+        \PYG{k+kt}{ADD}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUAdd} \PYG{k+kt}{True}
+        \PYG{k+kt}{ADDI}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUAdd} \PYG{k+kt}{True}
+        \PYG{k+kt}{ADDU}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUAdd} \PYG{k+kt}{False}
+        \PYG{k+kt}{ADDIU} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUAdd} \PYG{k+kt}{False}
+        \PYG{k+kt}{SUB}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUSub} \PYG{k+kt}{True}
+        \PYG{k+kt}{SUBU}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUSub} \PYG{k+kt}{False}
+        \PYG{k+kt}{AND}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUAnd}
+        \PYG{k+kt}{ANDI}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUAnd}
+        \PYG{k+kt}{NOR}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUNor}
+        \PYG{k+kt}{OR}    \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUOr}
+        \PYG{k+kt}{ORI}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUOr}
+        \PYG{k+kt}{XOR}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUXor}
+        \PYG{k+kt}{XORI}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUXor}
+        \PYG{k+kt}{BEQ}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUXor}
+        \PYG{k+kt}{BNE}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUXor}
+        \PYG{k+kt}{SLT}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUSet} \PYG{k+kt}{True}
+        \PYG{k+kt}{SLTI}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUSet} \PYG{k+kt}{True}
+        \PYG{k+kt}{SLTU}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUSet} \PYG{k+kt}{False}
+        \PYG{k+kt}{SLTIU} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUSet} \PYG{k+kt}{False}
+        \PYG{k+kt}{LW}    \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUAdd} \PYG{k+kt}{True}
+        \PYG{k+kt}{SW}    \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUAdd} \PYG{k+kt}{True}
+        \PYG{k+kt}{SLL}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUShiftL}
+        \PYG{k+kt}{SLLV}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUShiftL}
+        \PYG{k+kt}{SRL}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUShiftR} \PYG{k+kt}{False}
+        \PYG{k+kt}{SRLV}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUShiftR} \PYG{k+kt}{False}
+        \PYG{k+kt}{SRA}   \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUShiftR} \PYG{k+kt}{True}
+        \PYG{k+kt}{SRAV}  \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{k+kr}{\PYGZus{}} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUShiftR} \PYG{k+kt}{False}
+        \PYG{k+kt}{JR}    \PYG{k+kr}{\PYGZus{}}     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUOr}
+        \PYG{k+kt}{J}     \PYG{k+kr}{\PYGZus{}}     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUOr}
+        \PYG{k+kt}{JAL}   \PYG{k+kr}{\PYGZus{}}     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUOr}
+        \PYG{k+kr}{\PYGZus{}}           \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{ALUNone}
+\end{Verbatim}

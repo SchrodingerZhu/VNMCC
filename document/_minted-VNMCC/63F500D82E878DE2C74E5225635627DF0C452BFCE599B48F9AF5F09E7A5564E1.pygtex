@@ -1,0 +1,63 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{\PYGZob{}\PYGZhy{}\PYGZsh{} ANN decodeModule}
+\PYG{c+cm}{    ( Synthesize}
+\PYG{c+cm}{      \PYGZob{} t\PYGZus{}name = \PYGZdq{}DecodeModule\PYGZdq{}}
+\PYG{c+cm}{      , t\PYGZus{}inputs =}
+\PYG{c+cm}{          [ PortName \PYGZdq{}CLOCK\PYGZdq{}}
+\PYG{c+cm}{          , PortName \PYGZdq{}RESET\PYGZdq{}}
+\PYG{c+cm}{          , PortName \PYGZdq{}ENABLE\PYGZdq{}}
+\PYG{c+cm}{          , PortName \PYGZdq{}WRITE\PYGZus{}REG\PYGZdq{}}
+\PYG{c+cm}{          , PortName \PYGZdq{}STALL\PYGZdq{}}
+\PYG{c+cm}{          , PortName \PYGZdq{}INSTRUCTION\PYGZdq{}}
+\PYG{c+cm}{          , PortName \PYGZdq{}COUNTER\PYGZdq{}}
+\PYG{c+cm}{          ]}
+\PYG{c+cm}{      , t\PYGZus{}output =}
+\PYG{c+cm}{          PortProduct \PYGZdq{}DM\PYGZdq{}}
+\PYG{c+cm}{            [ PortName \PYGZdq{}WRITE\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}MEM\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}BRANCH\PYGZus{}FLAG\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}ALU\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}IMM\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}RS\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}RSV\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}RT\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}RTV\PYGZdq{}}
+\PYG{c+cm}{            , PortName \PYGZdq{}COUNTER\PYGZdq{}}
+\PYG{c+cm}{            ]}
+\PYG{c+cm}{       \PYGZcb{}}
+\PYG{c+cm}{    )}
+\PYG{c+cm}{\PYGZsh{}\PYGZhy{}\PYGZcb{}}
+\PYG{n+nf}{decodeModule}
+  \PYG{o+ow}{::} \PYG{k+kt}{Clock} \PYG{k+kt}{System}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Reset} \PYG{k+kt}{System}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Enable} \PYG{k+kt}{System}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{p}{(} \PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{RegNo}\PYG{p}{,} \PYG{k+kt}{Reg}\PYG{p}{)} \PYG{p}{)}   \PYG{c+c1}{\PYGZhy{}\PYGZhy{} write data}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{Bool}                     \PYG{c+c1}{\PYGZhy{}\PYGZhy{} stall}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{Instruction}              \PYG{c+c1}{\PYGZhy{}\PYGZhy{} instruction}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{p}{(} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32} \PYG{p}{)}          \PYG{c+c1}{\PYGZhy{}\PYGZhy{} counter}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{p}{(} \PYG{k+kt}{Maybe} \PYG{p}{(} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{5} \PYG{p}{)}   \PYG{c+c1}{\PYGZhy{}\PYGZhy{} write register}
+                   \PYG{p}{,} \PYG{k+kt}{MemoryOperation}        \PYG{c+c1}{\PYGZhy{}\PYGZhy{} memory}
+                   \PYG{p}{,} \PYG{k+kt}{BranchFlag}             \PYG{c+c1}{\PYGZhy{}\PYGZhy{} branch flag}
+                   \PYG{p}{,} \PYG{k+kt}{ALUOperation}           \PYG{c+c1}{\PYGZhy{}\PYGZhy{} ALU control}
+                   \PYG{p}{,} \PYG{k+kt}{Maybe} \PYG{p}{(} \PYG{k+kt}{BitVector} \PYG{l+m+mi}{32} \PYG{p}{)} \PYG{c+c1}{\PYGZhy{}\PYGZhy{} immediate value}
+                   \PYG{p}{,} \PYG{k+kt}{RegNo}                  \PYG{c+c1}{\PYGZhy{}\PYGZhy{} rs}
+                   \PYG{p}{,} \PYG{k+kt}{BitVector} \PYG{l+m+mi}{32}           \PYG{c+c1}{\PYGZhy{}\PYGZhy{} rs value}
+                   \PYG{p}{,} \PYG{k+kt}{RegNo}                  \PYG{c+c1}{\PYGZhy{}\PYGZhy{} rd}
+                   \PYG{p}{,} \PYG{k+kt}{BitVector} \PYG{l+m+mi}{32}           \PYG{c+c1}{\PYGZhy{}\PYGZhy{} rd value}
+                   \PYG{p}{,} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}            \PYG{c+c1}{\PYGZhy{}\PYGZhy{} output counter}
+                   \PYG{p}{)}
+\PYG{n+nf}{decodeModule} \PYG{n}{clk} \PYG{n}{rst} \PYG{n}{enable} \PYG{n}{wdata} \PYG{n}{stall} \PYG{n}{inst} \PYG{n}{counter} \PYG{o+ow}{=}
+  \PYG{k+kr}{let} \PYG{n}{stateMachine}    \PYG{o+ow}{=}
+        \PYG{n}{exposeClockResetEnable} \PYG{o}{\PYGZdl{}} \PYG{n}{asStateM} \PYG{n}{decodeModuleState} \PYG{p}{(}\PYG{k+kt}{NOP}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+      \PYG{p}{(}\PYG{n}{rinst}\PYG{p}{,} \PYG{n}{pc}\PYG{p}{)}     \PYG{o+ow}{=}
+        \PYG{n}{unbundle} \PYG{p}{(}\PYG{n}{stateMachine} \PYG{n}{clk} \PYG{n}{rst} \PYG{n}{enable} \PYG{o}{\PYGZdl{}} \PYG{n}{bundle} \PYG{p}{(}\PYG{n}{inst}\PYG{p}{,} \PYG{n}{counter}\PYG{p}{,} \PYG{n}{stall}\PYG{p}{))}
+      \PYG{n}{regDecoder}      \PYG{o+ow}{=}
+        \PYG{n}{exposeClockResetEnable} \PYG{n}{registerPair}
+      \PYG{p}{(}\PYG{n}{rs}\PYG{p}{,} \PYG{n}{rt}\PYG{p}{)}        \PYG{o+ow}{=}
+        \PYG{n}{unbundle} \PYG{o}{\PYGZdl{}} \PYG{n}{regDecoder} \PYG{n}{clk} \PYG{n}{rst} \PYG{n}{enable} \PYG{n}{rinst}
+      \PYG{p}{(}\PYG{n}{w}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{i}\PYG{p}{)} \PYG{o+ow}{=}
+        \PYG{n}{controlUnit} \PYG{n}{clk} \PYG{n}{rst} \PYG{n}{enable} \PYG{n}{rinst}
+      \PYG{p}{(}\PYG{n}{rsv}\PYG{p}{,} \PYG{n}{rtv}\PYG{p}{)}      \PYG{o+ow}{=}
+        \PYG{n}{unbundle} \PYG{p}{(}\PYG{n}{registerFile} \PYG{n}{clk} \PYG{n}{rst} \PYG{n}{enable} \PYG{o}{\PYGZdl{}} \PYG{n}{bundle} \PYG{p}{(}\PYG{n}{rs}\PYG{p}{,} \PYG{n}{rt}\PYG{p}{,} \PYG{n}{wdata}\PYG{p}{))}
+  \PYG{k+kr}{in}  \PYG{n}{bundle} \PYG{p}{(}\PYG{n}{w}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{i}\PYG{p}{,} \PYG{n}{rs}\PYG{p}{,} \PYG{n}{rsv}\PYG{p}{,} \PYG{n}{rt}\PYG{p}{,} \PYG{n}{rtv}\PYG{p}{,} \PYG{n}{pc}\PYG{p}{)}
+\end{Verbatim}

@@ -4,7 +4,7 @@
   \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)}
   \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}
 \PYG{n+nf}{counterT} \PYG{n}{state} \PYG{k+kt}{Nothing}  \PYG{o+ow}{=} \PYG{n}{state} \PYG{o}{+} \PYG{l+m+mi}{1}
-\PYG{n+nf}{counterT} \PYG{k+kr}{\PYGZus{}}     \PYG{p}{(}\PYG{k+kt}{Just} \PYG{n}{x}\PYG{p}{)} \PYG{o+ow}{=} \PYG{n}{x} \PYG{o}{+} \PYG{l+m+mi}{1}
+\PYG{n+nf}{counterT} \PYG{k+kr}{\PYGZus{}}     \PYG{p}{(}\PYG{k+kt}{Just} \PYG{n}{x}\PYG{p}{)} \PYG{o+ow}{=} \PYG{n}{x}
 
 \PYG{n+nf}{counter}
   \PYG{o+ow}{::} \PYG{k+kt}{HiddenClockResetEnable} \PYG{n}{dom}

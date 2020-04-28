@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{Vec} \PYG{o+ow}{::} \PYG{k+kt}{Nat} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{o}{*} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{o}{*}
+\end{Verbatim}

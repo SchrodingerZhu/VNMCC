@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{arithmeticUnit\PYGZsq{}} \PYG{p}{(}\PYG{k+kt}{ALUAdd} \PYG{n}{flag}\PYG{p}{)} \PYG{o+ow}{=}
+  \PYG{k+kr}{let} \PYG{p}{(}\PYG{n}{res}\PYG{p}{,} \PYG{n}{overflow}\PYG{p}{)} \PYG{o+ow}{=} \PYG{n}{addOverflow} \PYG{n}{opr0} \PYG{n}{opr1}
+  \PYG{k+kr}{in} \PYG{p}{(}\PYG{n}{res}\PYG{p}{,} \PYG{n}{overflow} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{flag}\PYG{p}{,} \PYG{n}{bitToBool} \PYG{o}{\PYGZdl{}} \PYG{n}{res} \PYG{o}{!} \PYG{l+m+mi}{31}\PYG{p}{)}
+\PYG{n+nf}{arithmeticUnit\PYGZsq{}} \PYG{p}{(}\PYG{k+kt}{ALUSub} \PYG{n}{flag}\PYG{p}{)} \PYG{o+ow}{=}
+  \PYG{k+kr}{let} \PYG{p}{(}\PYG{n}{res}\PYG{p}{,} \PYG{n}{overflow}\PYG{p}{)} \PYG{o+ow}{=} \PYG{n}{subOverflow} \PYG{n}{opr0} \PYG{n}{opr1}
+  \PYG{k+kr}{in} \PYG{p}{(}\PYG{n}{res}\PYG{p}{,} \PYG{n}{overflow} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{flag}\PYG{p}{,} \PYG{n}{bitToBool} \PYG{o}{\PYGZdl{}} \PYG{n}{res} \PYG{o}{!} \PYG{l+m+mi}{31}\PYG{p}{)}
+\end{Verbatim}

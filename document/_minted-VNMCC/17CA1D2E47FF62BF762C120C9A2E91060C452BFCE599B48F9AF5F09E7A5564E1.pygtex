@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{data} \PYG{k+kt}{MemoryOperation\PYGZsq{}}
+  \PYG{o+ow}{=} \PYG{k+kt}{MemNone\PYGZsq{}}
+  \PYG{o}{|} \PYG{k+kt}{MemLoad\PYGZsq{}}
+  \PYG{o}{|} \PYG{k+kt}{MemWrite\PYGZsq{}} \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{32}\PYG{p}{)}
+\PYG{k+kr}{deriving} \PYG{p}{(}\PYG{k+kt}{Generic}\PYG{p}{)}
+\PYG{k+kr}{deriving} \PYG{p}{(}\PYG{k+kt}{NFDataX}\PYG{p}{)}
+\PYG{k+kr}{deriving} \PYG{p}{(}\PYG{k+kt}{Show}\PYG{p}{)}
+\end{Verbatim}

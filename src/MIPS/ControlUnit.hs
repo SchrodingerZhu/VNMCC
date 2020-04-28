@@ -108,6 +108,7 @@ dispatch = fmap dispatch'
       case inst of
         ADD _ _ _ -> ALUAdd True
         ADDI _ _ _ -> ALUAdd True
+        ADDIU _ _ _ -> ALUAdd False
         ADDU _ _ _ -> ALUAdd False
         SUB _ _ _ -> ALUSub True
         SUBU _ _ _ -> ALUSub False

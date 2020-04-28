@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{ADDI} \PYG{n}{rs} \PYG{n}{rt} \PYG{n}{imm}
+\end{Verbatim}

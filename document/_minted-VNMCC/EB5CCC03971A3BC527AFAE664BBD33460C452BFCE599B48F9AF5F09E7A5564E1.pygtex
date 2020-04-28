@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{arithmeticUnit\PYGZsq{}} \PYG{p}{(}\PYG{k+kt}{ALUSet} \PYG{n}{flag}\PYG{p}{)} \PYG{o+ow}{=}
+  \PYG{k+kr}{let} \PYG{n}{result} \PYG{o+ow}{=}
+    \PYG{n}{boolToBV} \PYG{o}{\PYGZdl{}}
+      \PYG{k+kr}{if} \PYG{n}{flag}
+      \PYG{k+kr}{then} \PYG{p}{(}\PYG{n}{unpack} \PYG{n}{opr0} \PYG{o+ow}{::} \PYG{k+kt}{Signed} \PYG{l+m+mi}{32}\PYG{p}{)}   \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{unpack} \PYG{n}{opr1} \PYG{o+ow}{::} \PYG{k+kt}{Signed} \PYG{l+m+mi}{32}\PYG{p}{)}
+      \PYG{k+kr}{else} \PYG{p}{(}\PYG{n}{unpack} \PYG{n}{opr0} \PYG{o+ow}{::} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{unpack} \PYG{n}{opr1} \PYG{o+ow}{::} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)}
+  \PYG{k+kr}{in} \PYG{p}{(}\PYG{n}{result}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{)}
+\end{Verbatim}

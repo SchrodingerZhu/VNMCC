@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{data} \PYG{k+kt}{MemoryOperation}
+  \PYG{o+ow}{=} \PYG{k+kt}{MemNone}
+  \PYG{o}{|} \PYG{k+kt}{MemLoad}
+  \PYG{o}{|} \PYG{k+kt}{MemWrite}
+\PYG{k+kr}{deriving} \PYG{p}{(}\PYG{k+kt}{Generic}\PYG{p}{)}
+\PYG{k+kr}{deriving} \PYG{p}{(}\PYG{k+kt}{NFDataX}\PYG{p}{)}
+\PYG{k+kr}{deriving} \PYG{p}{(}\PYG{k+kt}{Show}\PYG{p}{)}
+\end{Verbatim}

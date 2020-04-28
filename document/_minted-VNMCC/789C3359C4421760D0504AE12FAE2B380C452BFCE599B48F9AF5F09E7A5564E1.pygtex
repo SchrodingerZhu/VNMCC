@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{\PYGZob{}\PYGZhy{}\PYGZsh{} ANN pcModule}
+\PYG{c+cm}{    (Synthesize\PYGZob{}t\PYGZus{}name = \PYGZdq{}InstructionModule\PYGZdq{},}
+\PYG{c+cm}{        t\PYGZus{}inputs =}
+\PYG{c+cm}{          [PortName \PYGZdq{}CLOCK\PYGZdq{}, PortName \PYGZdq{}RESET\PYGZdq{}, PortName \PYGZdq{}ENABLE\PYGZdq{}, PortName \PYGZdq{}STALL\PYGZdq{}, PortName \PYGZdq{}BRANCH\PYGZdq{}],}
+\PYG{c+cm}{        t\PYGZus{}output =}
+\PYG{c+cm}{          PortProduct \PYGZdq{}PC\PYGZdq{} [PortName \PYGZdq{}INSTRUCTION\PYGZdq{}, PortName \PYGZdq{}VALUE\PYGZdq{}]\PYGZcb{})}
+\PYG{c+cm}{    \PYGZsh{}\PYGZhy{}\PYGZcb{}}
+
+\PYG{n+nf}{pcModule}
+  \PYG{o+ow}{::} \PYG{k+kt}{Clock} \PYG{k+kt}{System}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Reset} \PYG{k+kt}{System}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Enable} \PYG{k+kt}{System}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{Bool}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{p}{(}\PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{))}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{p}{(}\PYG{k+kt}{Instruction}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{))}
+\PYG{n+nf}{pcModule} \PYG{n}{clk} \PYG{n}{rst} \PYG{n}{enable} \PYG{n}{stall} \PYG{n}{br} \PYG{o+ow}{=} \PYG{n}{bundle} \PYG{p}{(}\PYG{n}{instr}\PYG{p}{,} \PYG{n}{next}\PYG{p}{)}
+  \PYG{k+kr}{where}
+    \PYG{n}{programCounter\PYGZsq{}} \PYG{o+ow}{=} \PYG{p}{(}\PYG{n}{exposeClockResetEnable} \PYG{n}{programCounter}\PYG{p}{)} \PYG{n}{clk} \PYG{n}{rst} \PYG{n}{enable}
+    \PYG{n}{next} \PYG{o+ow}{=} \PYG{n}{programCounter\PYGZsq{}} \PYG{o}{\PYGZdl{}} \PYG{n}{br}
+    \PYG{n}{ram} \PYG{o+ow}{=} \PYG{n}{instrRAM} \PYG{n}{clk} \PYG{n}{rst} \PYG{n}{enable} \PYG{n}{next}
+    \PYG{n}{ram\PYGZsq{}} \PYG{o+ow}{=} \PYG{n}{decodeTyped} \PYG{o}{.} \PYG{n}{decodeFormat} \PYG{o}{\PYGZlt{}\PYGZdl{}\PYGZgt{}} \PYG{n}{ram}
+    \PYG{n}{instr\PYGZsq{}} \PYG{n}{op} \PYG{n}{ram} \PYG{o+ow}{=}
+      \PYG{k+kr}{case} \PYG{n}{op} \PYG{k+kr}{of}
+        \PYG{k+kt}{False} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ram}
+        \PYG{k+kt}{True} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{NOP}
+    \PYG{n}{instr} \PYG{o+ow}{=} \PYG{n}{instr\PYGZsq{}} \PYG{o}{\PYGZlt{}\PYGZdl{}\PYGZgt{}} \PYG{n}{stall} \PYG{o}{\PYGZlt{}*\PYGZgt{}} \PYG{n}{ram\PYGZsq{}}
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{asStateM}
+  \PYG{o+ow}{::} \PYG{p}{(}\PYG{k+kt}{HiddenClockResetEnable} \PYG{n}{dom}\PYG{p}{,} \PYG{k+kt}{NFDataX} \PYG{n}{s}\PYG{p}{)}
+  \PYG{o+ow}{=\PYGZgt{}} \PYG{p}{(}\PYG{n}{i} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{State} \PYG{n}{s} \PYG{n}{o}\PYG{p}{)}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{s}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{p}{(}\PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{n}{i} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{n}{o}\PYG{p}{)}
+\PYG{n+nf}{asStateM} \PYG{n}{f} \PYG{n}{i} \PYG{o+ow}{=} \PYG{n}{mealy} \PYG{n}{g} \PYG{n}{i}
+  \PYG{k+kr}{where}
+    \PYG{n}{g} \PYG{n}{s} \PYG{n}{x} \PYG{o+ow}{=}
+      \PYG{k+kr}{let} \PYG{p}{(}\PYG{n}{o}\PYG{p}{,} \PYG{n}{s\PYGZsq{}}\PYG{p}{)} \PYG{o+ow}{=} \PYG{n}{runState} \PYG{p}{(}\PYG{n}{f} \PYG{n}{x}\PYG{p}{)} \PYG{n}{s}
+      \PYG{k+kr}{in} \PYG{p}{(}\PYG{n}{s\PYGZsq{}}\PYG{p}{,} \PYG{n}{o}\PYG{p}{)}
+\end{Verbatim}
