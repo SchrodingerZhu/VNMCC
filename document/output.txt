@@ -1,0 +1,1685 @@
+WARNING: verilog/MIPS/InstructionModule/InstructionModule.v:231: $readmemb(instructions.bin): Not enough words in the file for the requested range [0:511].
+VCD info: dumpfile test.vcd opened for output.
+=======================================================================================
+TIME:                0                   
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            0         
+INSTRUCTION:         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+INSTRUCTION:         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             1001x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      0         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        xxxxxxxx
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                1000                
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            1         
+INSTRUCTION:         10001100000010000000000000000100
+INSTRUCTION:         1010000000010000000000000000100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             0100x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      0         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                3000                
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            2         
+INSTRUCTION:         00100001000010000000000000000001
+INSTRUCTION:         0001001000010000000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              01
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000100
+STAGE_PC/4 + 1:      1         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                5000                
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            3         
+INSTRUCTION:         10001100000010010000000000001000
+INSTRUCTION:         1010000000010010000000000001000 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      2         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                7000                
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            4         
+INSTRUCTION:         00100001001010010000000000000001
+INSTRUCTION:         0001001001010010000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              01
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000001000
+STAGE_PC/4 + 1:      3         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000001
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                9000                
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            5         
+INSTRUCTION:         10101100000010000000000000000100
+INSTRUCTION:         1010100000010000000000000000100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      4         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000001000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000001
+NEXT_FETCH_ADDRESS:  00000002
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+=======================================================================================
+
+=======================================================================================
+TIME:                11000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            6         
+INSTRUCTION:         10101100000010010000000000001000
+INSTRUCTION:         1010100000010010000000000001000 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  8 
+RT VALUE:            00000000000000000000000000000001
+MEM_OP:              10
+REG_WRITE:           0xxxxx
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000100
+STAGE_PC/4 + 1:      5         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000001
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000001
+=======================================================================================
+
+=======================================================================================
+TIME:                13000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            7         
+INSTRUCTION:         00000001000010000100000000100010
+INSTRUCTION:         00101010000100001000xxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  9 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              10
+REG_WRITE:           0xxxxx
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000001000
+STAGE_PC/4 + 1:      6         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              1000000000000000000000000000000001
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000001
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        10000000000000000000000000000000100000000000000000000000000000001
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+=======================================================================================
+
+=======================================================================================
+TIME:                15000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            8         
+INSTRUCTION:         00000001001010010100100000100110
+INSTRUCTION:         01100010010100101001xxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000001
+RT:                  8 
+RT VALUE:            00000000000000000000000000000001
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00011
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      7         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              1000000000000000000000000000000001
+ALU_RESULT:          00000000000000000000000000001000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000002
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        10000000000000000000000000000001000000000000000000000000000000001
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000001
+=======================================================================================
+
+=======================================================================================
+TIME:                17000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            9         
+INSTRUCTION:         00010000000000001111111111110111
+INSTRUCTION:         0111000000000001111111111110111 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000001
+RT:                  9 
+RT VALUE:            00000000000000000000000000000001
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             0101x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      8         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                19000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            10        
+INSTRUCTION:         00100001000010000000000000000001
+INSTRUCTION:         0001001000010000000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             0101x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      9         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                21000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            11        
+INSTRUCTION:         00100001001010010000000000000001
+INSTRUCTION:         0001001001010010000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      10        
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       100000000000000000000000000000000
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+=======================================================================================
+
+=======================================================================================
+TIME:                23000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            12        
+INSTRUCTION:         00001000000000000110111111010100
+INSTRUCTION:         1110000000000000110111111010100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      11        
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000001
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       100000000000000000000000000000000
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+=======================================================================================
+
+=======================================================================================
+TIME:                25000               
+STALL:               1
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            0         
+INSTRUCTION:         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+INSTRUCTION:         00000xxxxxxxxxxxxxxxxxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             1001x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      0         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       100000000000000000000000000000000
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                27000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            1         
+INSTRUCTION:         10001100000010000000000000000100
+INSTRUCTION:         1010000000010000000000000000100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             1001x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      0         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                29000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            2         
+INSTRUCTION:         00100001000010000000000000000001
+INSTRUCTION:         0001001000010000000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              01
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000100
+STAGE_PC/4 + 1:      1         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                31000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            3         
+INSTRUCTION:         10001100000010010000000000001000
+INSTRUCTION:         1010000000010010000000000001000 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      2         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                33000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            4         
+INSTRUCTION:         00100001001010010000000000000001
+INSTRUCTION:         0001001001010010000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              01
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000001000
+STAGE_PC/4 + 1:      3         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000010
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000001
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000001
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                35000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            5         
+INSTRUCTION:         10101100000010000000000000000100
+INSTRUCTION:         1010100000010000000000000000100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      4         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000001000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000010
+NEXT_FETCH_ADDRESS:  00000002
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000001
+=======================================================================================
+
+=======================================================================================
+TIME:                37000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            6         
+INSTRUCTION:         10101100000010010000000000001000
+INSTRUCTION:         1010100000010010000000000001000 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  8 
+RT VALUE:            00000000000000000000000000000010
+MEM_OP:              10
+REG_WRITE:           0xxxxx
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000100
+STAGE_PC/4 + 1:      5         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000010
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000001
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000001
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000010
+=======================================================================================
+
+=======================================================================================
+TIME:                39000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            7         
+INSTRUCTION:         00000001000010000100000000100010
+INSTRUCTION:         00101010000100001000xxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  9 
+RT VALUE:            00000000000000000000000000000001
+MEM_OP:              10
+REG_WRITE:           0xxxxx
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000001000
+STAGE_PC/4 + 1:      6         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              1000000000000000000000000000000010
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000010
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        10000000000000000000000000000000100000000000000000000000000000010
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000001
+=======================================================================================
+
+=======================================================================================
+TIME:                41000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            8         
+INSTRUCTION:         00000001001010010100100000100110
+INSTRUCTION:         01100010010100101001xxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000010
+RT:                  8 
+RT VALUE:            00000000000000000000000000000010
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00011
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      7         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              1000000000000000000000000000000010
+ALU_RESULT:          00000000000000000000000000001000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000002
+FETCH_RESULT:        00000001
+WRITE_SERIAL:        10000000000000000000000000000001000000000000000000000000000000010
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000010
+=======================================================================================
+
+=======================================================================================
+TIME:                43000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            9         
+INSTRUCTION:         00010000000000001111111111110111
+INSTRUCTION:         0111000000000001111111111110111 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000010
+RT:                  9 
+RT VALUE:            00000000000000000000000000000010
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             0101x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      8         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000001
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                45000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            10        
+INSTRUCTION:         00100001000010000000000000000001
+INSTRUCTION:         0001001000010000000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             0101x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      9         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                47000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            11        
+INSTRUCTION:         00100001001010010000000000000001
+INSTRUCTION:         0001001001010010000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      10        
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       100000000000000000000000000000000
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+=======================================================================================
+
+=======================================================================================
+TIME:                49000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            12        
+INSTRUCTION:         00001000000000000110111111010100
+INSTRUCTION:         1110000000000000110111111010100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      11        
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000001
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       100000000000000000000000000000000
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+=======================================================================================
+
+=======================================================================================
+TIME:                51000               
+STALL:               1
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            0         
+INSTRUCTION:         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+INSTRUCTION:         00000xxxxxxxxxxxxxxxxxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             1001x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      0         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       100000000000000000000000000000000
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                53000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            1         
+INSTRUCTION:         10001100000010000000000000000100
+INSTRUCTION:         1010000000010000000000000000100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             1001x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      0         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                55000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            2         
+INSTRUCTION:         00100001000010000000000000000001
+INSTRUCTION:         0001001000010000000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              01
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000100
+STAGE_PC/4 + 1:      1         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                57000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            3         
+INSTRUCTION:         10001100000010010000000000001000
+INSTRUCTION:         1010000000010010000000000001000 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      2         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                59000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            4         
+INSTRUCTION:         00100001001010010000000000000001
+INSTRUCTION:         0001001001010010000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              01
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000001000
+STAGE_PC/4 + 1:      3         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000011
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000010
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000002
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                61000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            5         
+INSTRUCTION:         10101100000010000000000000000100
+INSTRUCTION:         1010100000010000000000000000100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      4         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000001000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000011
+NEXT_FETCH_ADDRESS:  00000002
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000010
+=======================================================================================
+
+=======================================================================================
+TIME:                63000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            6         
+INSTRUCTION:         10101100000010010000000000001000
+INSTRUCTION:         1010100000010010000000000001000 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  8 
+RT VALUE:            00000000000000000000000000000011
+MEM_OP:              10
+REG_WRITE:           0xxxxx
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000100
+STAGE_PC/4 + 1:      5         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000011
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000010
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000002
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000011
+=======================================================================================
+
+=======================================================================================
+TIME:                65000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            7         
+INSTRUCTION:         00000001000010000100000000100010
+INSTRUCTION:         00101010000100001000xxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  9 
+RT VALUE:            00000000000000000000000000000010
+MEM_OP:              10
+REG_WRITE:           0xxxxx
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000001000
+STAGE_PC/4 + 1:      6         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              1000000000000000000000000000000011
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000011
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        10000000000000000000000000000000100000000000000000000000000000011
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000010
+=======================================================================================
+
+=======================================================================================
+TIME:                67000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            8         
+INSTRUCTION:         00000001001010010100100000100110
+INSTRUCTION:         01100010010100101001xxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000011
+RT:                  8 
+RT VALUE:            00000000000000000000000000000011
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00011
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      7         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              1000000000000000000000000000000011
+ALU_RESULT:          00000000000000000000000000001000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000002
+FETCH_RESULT:        00000002
+WRITE_SERIAL:        10000000000000000000000000000001000000000000000000000000000000011
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000011
+=======================================================================================
+
+=======================================================================================
+TIME:                69000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            9         
+INSTRUCTION:         00010000000000001111111111110111
+INSTRUCTION:         0111000000000001111111111110111 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000011
+RT:                  9 
+RT VALUE:            00000000000000000000000000000011
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             0101x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      8         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000002
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                71000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            10        
+INSTRUCTION:         00100001000010000000000000000001
+INSTRUCTION:         0001001000010000000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             0101x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      9         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                73000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            11        
+INSTRUCTION:         00100001001010010000000000000001
+INSTRUCTION:         0001001001010010000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      10        
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       100000000000000000000000000000000
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+=======================================================================================
+
+=======================================================================================
+TIME:                75000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            12        
+INSTRUCTION:         00001000000000000110111111010100
+INSTRUCTION:         1110000000000000110111111010100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      11        
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000001
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       100000000000000000000000000000000
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+=======================================================================================
+
+=======================================================================================
+TIME:                77000               
+STALL:               1
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            0         
+INSTRUCTION:         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+INSTRUCTION:         00000xxxxxxxxxxxxxxxxxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             1001x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      0         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       100000000000000000000000000000000
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                79000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            1         
+INSTRUCTION:         10001100000010000000000000000100
+INSTRUCTION:         1010000000010000000000000000100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             1001x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      0         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                81000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            2         
+INSTRUCTION:         00100001000010000000000000000001
+INSTRUCTION:         0001001000010000000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              01
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000100
+STAGE_PC/4 + 1:      1         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                83000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            3         
+INSTRUCTION:         10001100000010010000000000001000
+INSTRUCTION:         1010000000010010000000000001000 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      2         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                85000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            4         
+INSTRUCTION:         00100001001010010000000000000001
+INSTRUCTION:         0001001001010010000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              01
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000001000
+STAGE_PC/4 + 1:      3         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000011
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000003
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                87000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            5         
+INSTRUCTION:         10101100000010000000000000000100
+INSTRUCTION:         1010100000010000000000000000100 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      4         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000001000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000100
+NEXT_FETCH_ADDRESS:  00000002
+FETCH_RESULT:        00000003
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000011
+=======================================================================================
+
+=======================================================================================
+TIME:                89000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            6         
+INSTRUCTION:         10101100000010010000000000001000
+INSTRUCTION:         1010100000010010000000000001000 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  8 
+RT VALUE:            00000000000000000000000000000100
+MEM_OP:              10
+REG_WRITE:           0xxxxx
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000100
+STAGE_PC/4 + 1:      5         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000011
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000003
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000100
+=======================================================================================
+
+=======================================================================================
+TIME:                91000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            7         
+INSTRUCTION:         00000001000010000100000000100010
+INSTRUCTION:         00101010000100001000xxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  9 
+RT VALUE:            00000000000000000000000000000011
+MEM_OP:              10
+REG_WRITE:           0xxxxx
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000001000
+STAGE_PC/4 + 1:      6         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              1000000000000000000000000000000100
+ALU_RESULT:          00000000000000000000000000000100
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000100
+NEXT_FETCH_ADDRESS:  00000001
+FETCH_RESULT:        00000003
+WRITE_SERIAL:        10000000000000000000000000000000100000000000000000000000000000100
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000011
+=======================================================================================
+
+=======================================================================================
+TIME:                93000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            8         
+INSTRUCTION:         00000001001010010100100000100110
+INSTRUCTION:         01100010010100101001xxxxxxxxxxx [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000100
+RT:                  8 
+RT VALUE:            00000000000000000000000000000100
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00011
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      7         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              1000000000000000000000000000000100
+ALU_RESULT:          00000000000000000000000000001000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000002
+FETCH_RESULT:        00000003
+WRITE_SERIAL:        10000000000000000000000000000001000000000000000000000000000000100
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000100
+=======================================================================================
+
+=======================================================================================
+TIME:                95000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            9         
+INSTRUCTION:         00010000000000001111111111110111
+INSTRUCTION:         0111000000000001111111111110111 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  9 
+RS VALUE:            00000000000000000000000000000100
+RT:                  9 
+RT VALUE:            00000000000000000000000000000100
+MEM_OP:              00
+REG_WRITE:           101001
+ALU_CTL:             0101x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      8         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101000
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000003
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                97000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            10        
+INSTRUCTION:         00100001000010000000000000000001
+INSTRUCTION:         0001001000010000000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  0 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           0xxxxx
+ALU_CTL:             0101x
+IMMEDIATE:           0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STAGE_PC/4 + 1:      9         
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           101001
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+=======================================================================================
+
+=======================================================================================
+TIME:                99000               
+STALL:               0
+------------------------------- Instruction -------------------------------------------
+PC/4 + 1:            11        
+INSTRUCTION:         00100001001010010000000000000001
+INSTRUCTION:         0001001001010010000000000000001 [inner form]
+---------------------------------- Decode ---------------------------------------------
+RS:                  8 
+RS VALUE:            00000000000000000000000000000000
+RT:                  0 
+RT VALUE:            00000000000000000000000000000000
+MEM_OP:              00
+REG_WRITE:           101000
+ALU_CTL:             00001
+IMMEDIATE:           100000000000000000000000000000001
+STAGE_PC/4 + 1:      10        
+--------------------------------- Arithmetic ------------------------------------------
+REG_WRITE:           0xxxxx
+MEM_OP:              00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ALU_RESULT:          00000000000000000000000000000000
+BRANCH_TARGET:       100000000000000000000000000000000
+----------------------------------- Memory --------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100100000000000000000000000000000000
+NEXT_FETCH_ADDRESS:  00000000
+FETCH_RESULT:        00000000
+WRITE_SERIAL:        0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--------------------------------- Write Back ------------------------------------------
+BRANCH_TARGET:       0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRITE_BACK:          10100000000000000000000000000000000000
+=======================================================================================
+

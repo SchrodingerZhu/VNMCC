@@ -8,4 +8,4 @@ vhdl/
 .ninja_log
 test
 *.hi
-*.vcd
+test.vcd
