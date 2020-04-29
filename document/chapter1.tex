@@ -1,0 +1,28 @@
+\chapter{Preparation}
+\lettrine{R}{ight} before our journey of implementing an MIPS CPU using Clash language, we need to get our equipment ready.
+\section{Prerequisites of this Book}
+Reading this book, you are expected to have some basic knowledge of Verilog HDL and Haskell. However, if you happen to have little experience on these two languages, do not worry too much; they are just the language tools that we are going to use to express the logic and thoughts. The expressions should be easy to understand and we are going to provide some detailed descriptions on those critical lines.   
+
+It is also a good idea to acquire some basic knowledge about Digital Logic Circuits. You'd better grab the concepts of clock, combinatorial logic and sequential logic.
+\section{Install Icarus Verilog}
+Icarus Verilog is a tool to synthesis Verilog sources and generate simulation executables. We are going to use it as our default Verilog compiler. It is available to GNU/Linux, Mac OS and Windows.
+
+Windows users can follow \href{http://bleyer.org/icarus/}{this link} (\mintinline{text}{http://bleyer.org/icarus/}) to download it.
+
+Mac users can follow \href{https://blog.csdn.net/zach_z/article/details/78787509}{this tutorial}
+
+(\mintinline{text}{https://blog.csdn.net/zach_z/article/details/78787509}) to download it.
+
+As for GNU/Linux users, your distributions likely provide Icarus Verilog via their repositories.
+
+The recommended warning flags are \mintinline{text}{-Wall -Winfloop}.
+\section{Prepare Haskell Environment}
+We are gosing to use stack for the projects. It should be easy to install -- just go through \href{https://docs.haskellstack.org}{this document} (\mintinline{text}{https://docs.haskellstack.org}) to get all the requirements settled. 
+
+As for Clash, there are several ways to install it. The binaries are ready at Nikpkgs and Snapcraft. It is also doable to compile the tools from source. You are recommended to visit \href{https://clash-lang.org}{its website} (\mintinline{text}{https://clash-lang.org}) before installing it.
+
+After all things are settled, you should be able to play with the template project at GitHub, under dramforever/clash-with-stack (Great thanks for \textbf{dramforever}).
+
+Dramforever also mentioned some interesting tricks to reduce code redundancy in Clash, they are not applied here, see the Advanced Topics at our appendix or visit the repository.
+
+This template does not use \mintinline{yaml}{mtl} library that we needs (for the state monad), you may need to add it by yourself to the \mintinline{text}{package.yaml}.

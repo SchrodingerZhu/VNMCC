@@ -1,7 +1,7 @@
 \BOOKMARK [0][-]{chapter*.2}{Introduction}{}% 1
 \BOOKMARK [0][-]{chapter.1}{Preparation}{}% 2
 \BOOKMARK [1][-]{section.1.1}{Prerequisites\040of\040this\040Book}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Install\040iVerilog}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Install\040Icarus\040Verilog}{chapter.1}% 4
 \BOOKMARK [1][-]{section.1.3}{Prepare\040Haskell\040Environment}{chapter.1}% 5
 \BOOKMARK [0][-]{chapter.2}{Essential\040Verilog}{}% 6
 \BOOKMARK [1][-]{section.2.1}{Module\040Interface}{chapter.2}% 7
@@ -18,7 +18,7 @@
 \BOOKMARK [1][-]{section.3.3}{Step\040into\040the\040Sequential\040Logic\040World}{chapter.3}% 18
 \BOOKMARK [1][-]{section.3.4}{Function\040Utilities}{chapter.3}% 19
 \BOOKMARK [2][-]{subsection.3.4.1}{ROM\040and\040RAM}{section.3.4}% 20
-\BOOKMARK [2][-]{subsection.3.4.2}{State\040Machine}{section.3.4}% 21
+\BOOKMARK [2][-]{subsection.3.4.2}{Stateful\040Procedures}{section.3.4}% 21
 \BOOKMARK [2][-]{subsection.3.4.3}{Bundle\040and\040Unbundle}{section.3.4}% 22
 \BOOKMARK [0][-]{chapter.4}{Writing\040the\040CPU}{}% 23
 \BOOKMARK [1][-]{section.4.1}{What\040is\040CPU}{chapter.4}% 24
@@ -30,3 +30,9 @@
 \BOOKMARK [2][-]{subsection.4.3.1}{Instruction\040Module}{section.4.3}% 30
 \BOOKMARK [2][-]{subsection.4.3.2}{Decode\040Module}{section.4.3}% 31
 \BOOKMARK [2][-]{subsection.4.3.3}{Arithmetic\040Module}{section.4.3}% 32
+\BOOKMARK [2][-]{subsection.4.3.4}{Memory\040Module}{section.4.3}% 33
+\BOOKMARK [2][-]{subsection.4.3.5}{Write-Back\040Module}{section.4.3}% 34
+\BOOKMARK [0][-]{appendix*.26}{Advanced\040Topics}{}% 35
+\BOOKMARK [0][-]{appendix*.30}{GtkWave}{}% 36
+\BOOKMARK [0][-]{appendix*.31}{Sample\040Output}{}% 37
+\BOOKMARK [0][-]{appendix*.32}{Acknowledgments}{}% 38

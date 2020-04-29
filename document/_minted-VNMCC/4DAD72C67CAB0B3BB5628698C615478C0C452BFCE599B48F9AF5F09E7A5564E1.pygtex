@@ -9,18 +9,19 @@
      \PYG{p}{,} \PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{RegNo}\PYG{p}{,} \PYG{k+kt}{Reg}\PYG{p}{)} \PYG{c+c1}{\PYGZhy{}\PYGZhy{} write register}
      \PYG{p}{)}
   \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{State} \PYG{p}{(}\PYG{k+kt}{Vec} \PYG{l+m+mi}{32} \PYG{k+kt}{Reg}\PYG{p}{)} \PYG{p}{(}\PYG{k+kt}{Reg}\PYG{p}{,} \PYG{k+kt}{Reg}\PYG{p}{)}
-\PYG{n+nf}{registerFileS} \PYG{p}{(}\PYG{n}{reg0}\PYG{p}{,} \PYG{n}{reg1}\PYG{p}{,} \PYG{n}{writePair}\PYG{p}{)} \PYG{o+ow}{=} \PYG{k+kr}{do}
-    \PYG{n}{regs} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{get}
-    \PYG{k+kr}{let} \PYG{n}{res0} \PYG{o+ow}{=} \PYG{n}{regs} \PYG{o}{!!} \PYG{n}{reg0}
-        \PYG{n}{res1} \PYG{o+ow}{=} \PYG{n}{regs} \PYG{o}{!!} \PYG{n}{reg1}
-        \PYG{n}{newS} \PYG{o+ow}{=} \PYG{k+kr}{case} \PYG{n}{writePair} \PYG{k+kr}{of}
-            \PYG{k+kt}{Nothing} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{regs}
-            \PYG{k+kt}{Just} \PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}}
-                \PYG{k+kr}{if} \PYG{n}{a} \PYG{o}{/=} \PYG{l+m+mi}{0}
-                \PYG{k+kr}{then} \PYG{n}{replace} \PYG{n}{a} \PYG{n}{b} \PYG{n}{regs}
-                \PYG{k+kr}{else} \PYG{n}{regs}
-    \PYG{n}{put} \PYG{n}{newS}
-    \PYG{n}{return} \PYG{p}{(}\PYG{n}{res0}\PYG{p}{,} \PYG{n}{res1}\PYG{p}{)}
+\PYG{n+nf}{registerFileS} \PYG{p}{(}\PYG{n}{reg0}\PYG{p}{,} \PYG{n}{reg1}\PYG{p}{,} \PYG{n}{writePair}\PYG{p}{)}  \PYG{o+ow}{=} \PYG{k+kr}{do}
+  \PYG{n}{regs} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{get}
+  \PYG{k+kr}{let} \PYG{n}{newS} \PYG{o+ow}{=}
+        \PYG{k+kr}{case} \PYG{n}{writePair} \PYG{k+kr}{of}
+          \PYG{k+kt}{Nothing} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{regs}
+          \PYG{k+kt}{Just} \PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}}
+            \PYG{k+kr}{if} \PYG{n}{a} \PYG{o}{/=} \PYG{l+m+mi}{0}
+            \PYG{k+kr}{then} \PYG{n}{replace} \PYG{n}{a} \PYG{n}{b} \PYG{n}{regs}
+            \PYG{k+kr}{else} \PYG{n}{regs}
+      \PYG{n}{res0} \PYG{o+ow}{=} \PYG{n}{newS} \PYG{o}{!!} \PYG{n}{reg0}
+      \PYG{n}{res1} \PYG{o+ow}{=} \PYG{n}{newS} \PYG{o}{!!} \PYG{n}{reg1}
+  \PYG{n}{put} \PYG{n}{newS}
+  \PYG{n}{return} \PYG{p}{(}\PYG{n}{res0}\PYG{p}{,} \PYG{n}{res1}\PYG{p}{)}
 
 \PYG{c+cm}{\PYGZob{}\PYGZhy{}\PYGZsh{} ANN registerFile}
 \PYG{c+cm}{    (Synthesize}

@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{test} \PYG{o+ow}{::} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{Bool}
+     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{Bool}
+     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{k+kt}{Bool}
+     \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{k+kt}{System} \PYG{p}{(}\PYG{k+kt}{Bool}\PYG{p}{,} \PYG{k+kt}{Bool}\PYG{p}{)}
+\PYG{n+nf}{test} \PYG{n}{signalA} \PYG{n}{signalB} \PYG{n}{signalC} \PYG{o+ow}{=} \PYG{k+kr}{do}
+  \PYG{n}{a} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{signalA}
+  \PYG{n}{b} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{signalB}
+  \PYG{n}{c} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{signalC}
+  \PYG{n}{return} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{b}\PYG{p}{,} \PYG{n}{b} \PYG{o}{||} \PYG{n}{c}\PYG{p}{)}
+\end{Verbatim}

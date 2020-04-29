@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{memState\PYGZsq{}} \PYG{o+ow}{::} \PYG{p}{(}\PYG{k+kt}{ALUOutput}\PYG{p}{,} \PYG{k+kt}{Bool}\PYG{p}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{State} \PYG{k+kt}{ALUOutput} \PYG{k+kt}{ALUOutput}
+\PYG{n+nf}{memState\PYGZsq{}} \PYG{p}{(}\PYG{k+kr}{\PYGZus{}}\PYG{p}{,} \PYG{k+kt}{True}\PYG{p}{)} \PYG{o+ow}{=} \PYG{k+kr}{do}
+  \PYG{k+kr}{let} \PYG{n}{res} \PYG{o+ow}{=} \PYG{p}{(}\PYG{k+kt}{Nothing}\PYG{p}{,} \PYG{k+kt}{MemNone\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k+kt}{Nothing}\PYG{p}{)}
+  \PYG{n}{put} \PYG{n}{res}
+  \PYG{n}{return} \PYG{n}{res}
+\PYG{n+nf}{memState\PYGZsq{}} \PYG{p}{(}\PYG{n}{state}\PYG{p}{,} \PYG{k+kr}{\PYGZus{}}\PYG{p}{)} \PYG{o+ow}{=} \PYG{k+kr}{do}
+  \PYG{n}{res} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{get}
+  \PYG{n}{put} \PYG{n}{state}
+  \PYG{n}{return} \PYG{n}{res}
+
+\PYG{n+nf}{memState}
+  \PYG{o+ow}{::} \PYG{k+kt}{HiddenClockResetEnable} \PYG{n}{dom}
+  \PYG{o+ow}{=\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{p}{(}\PYG{k+kt}{ALUOutput}\PYG{p}{,} \PYG{k+kt}{Bool}\PYG{p}{)}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{k+kt}{ALUOutput}
+\PYG{n+nf}{memState} \PYG{o+ow}{=} \PYG{n}{asStateM} \PYG{n}{memState\PYGZsq{}} \PYG{p}{(}\PYG{k+kt}{Nothing}\PYG{p}{,} \PYG{k+kt}{MemNone\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k+kt}{Nothing}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{\PYGZob{}\PYGZhy{}\PYGZsh{} ANN f Synthesize}
+\PYG{c+cm}{    \PYGZob{} t\PYGZus{}name   = \PYGZdq{}f\PYGZdq{}}
+\PYG{c+cm}{        , t\PYGZus{}inputs = [ \PYGZdq{}a\PYGZdq{}, [ \PYGZdq{}b\PYGZdq{}, \PYGZdq{}c\PYGZdq{} ] ]}
+\PYG{c+cm}{        , t\PYGZus{}output = PortProduct \PYGZdq{}res\PYGZdq{} [ \PYGZdq{}q\PYGZdq{} ]}
+\PYG{c+cm}{    \PYGZcb{} \PYGZsh{}\PYGZhy{}\PYGZcb{}}
+\end{Verbatim}

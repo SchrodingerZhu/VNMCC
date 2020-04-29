@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{arithmeticModuleState\PYGZsq{}} \PYG{o+ow}{::} \PYG{p}{(}\PYG{k+kt}{ALUState}\PYG{p}{,} \PYG{k+kt}{Bool}\PYG{p}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{State} \PYG{k+kt}{ALUState} \PYG{k+kt}{ALUState}
+\PYG{n+nf}{arithmeticModuleState\PYGZsq{}} \PYG{p}{(}\PYG{k+kr}{\PYGZus{}}\PYG{p}{,} \PYG{k+kt}{True}\PYG{p}{)} \PYG{o+ow}{=} \PYG{k+kr}{do}
+  \PYG{k+kr}{let} \PYG{n}{res}
+    \PYG{o+ow}{=} \PYG{p}{(}\PYG{k+kt}{Nothing}\PYG{p}{,} \PYG{k+kt}{MemNone}\PYG{p}{,} \PYG{k+kt}{NoBranch}\PYG{p}{,} \PYG{k+kt}{ALUNone}\PYG{p}{,} \PYG{k+kt}{Nothing}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+  \PYG{n}{put} \PYG{n}{res}
+  \PYG{n}{return} \PYG{n}{res}
+\PYG{n+nf}{arithmeticModuleState\PYGZsq{}} \PYG{p}{(}\PYG{n}{state}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{)} \PYG{o+ow}{=} \PYG{k+kr}{do}
+  \PYG{n}{res} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{get}
+  \PYG{n}{put} \PYG{n}{state}
+  \PYG{n}{return} \PYG{n}{res}
+
+\PYG{n+nf}{arithmeticModuleState}
+  \PYG{o+ow}{::} \PYG{k+kt}{HiddenClockResetEnable} \PYG{n}{dom}
+  \PYG{o+ow}{=\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{p}{(}\PYG{k+kt}{ALUState}\PYG{p}{,} \PYG{k+kt}{Bool}\PYG{p}{)}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{k+kt}{ALUState}
+\PYG{n+nf}{arithmeticModuleState} \PYG{o+ow}{=}
+  \PYG{n}{asStateM} \PYG{n}{arithmeticModuleState\PYGZsq{}}
+    \PYG{p}{(}\PYG{k+kt}{Nothing}\PYG{p}{,} \PYG{k+kt}{MemNone}\PYG{p}{,} \PYG{k+kt}{NoBranch}\PYG{p}{,} \PYG{k+kt}{ALUNone}\PYG{p}{,} \PYG{k+kt}{Nothing}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+\end{Verbatim}

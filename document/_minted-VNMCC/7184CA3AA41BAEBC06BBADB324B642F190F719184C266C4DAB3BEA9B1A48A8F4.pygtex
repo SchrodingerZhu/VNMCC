@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{lw} \PYG{n+no}{\PYGZdl{}t0}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{(}\PYG{n+no}{\PYGZdl{}zero}\PYG{p}{)}
+\PYG{n+nf}{addi} \PYG{n+no}{\PYGZdl{}t0}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}t0}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n+nf}{lw} \PYG{n+no}{\PYGZdl{}t1}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{(}\PYG{n+no}{\PYGZdl{}zero}\PYG{p}{)}
+\PYG{n+nf}{addi} \PYG{n+no}{\PYGZdl{}t1}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}t1}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n+nf}{sw}   \PYG{n+no}{\PYGZdl{}t0}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{(}\PYG{n+no}{\PYGZdl{}zero}\PYG{p}{)}
+\PYG{n+nf}{sw}   \PYG{n+no}{\PYGZdl{}t1}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{(}\PYG{n+no}{\PYGZdl{}zero}\PYG{p}{)}
+\PYG{n+nf}{sub}  \PYG{n+no}{\PYGZdl{}t0}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}t0}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}t0}
+\PYG{n+nf}{xor}  \PYG{n+no}{\PYGZdl{}t1}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}t1}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}t1}
+\PYG{n+nf}{beq}  \PYG{n+no}{\PYGZdl{}zero}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}zero}\PYG{p}{,} \PYG{l+m+mi}{0}
+\PYG{n+nf}{addi} \PYG{n+no}{\PYGZdl{}t0}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}t0}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n+nf}{addi} \PYG{n+no}{\PYGZdl{}t1}\PYG{p}{,} \PYG{n+no}{\PYGZdl{}t1}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n+nf}{j} \PYG{l+m+mi}{114514}
+\end{Verbatim}

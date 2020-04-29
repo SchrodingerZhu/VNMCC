@@ -1,0 +1,160 @@
+\chapter{Essential Verilog}
+\lettrine{W}{e} would like to introduce some basic Verilog knowledge that will be used in this book. We will not go into details here, just showing some most common cases. Let us first take a look at the final outcome of our project.
+\section{Module Interface}
+\begin{minted}[linenos, breaklines]{verilog}
+`timescale 100fs/100fs
+module CPU 
+    ( input  CLOCK // clock
+    , input  RESET // reset
+    , input  ENABLE
+    );
+    wire [32:0] BRANCH;
+    wire [30:0] PC_INSTRUCTION;
+    wire [31:0] PC_VALUE;
+    wire [37:0] WRITE_PAIR;
+    wire        STALL;
+    wire [5:0]  DM_WRITE;
+    wire [1:0]  DM_MEM;
+    //...
+
+    InstructionModule IM
+    ( // Inputs
+    .CLOCK(CLOCK), // clock
+    .RESET(RESET), // reset
+    .ENABLE(ENABLE),
+    .BRANCH(BRANCH),
+    .STALL(STALL),
+
+    // Outputs
+    .PC_INSTRUCTION(PC_INSTRUCTION),
+    .PC_VALUE(PC_VALUE)
+    );
+    // ...
+
+    assign AM_FW_0 = MMO_WRITE_PAIR;
+
+    assign AM_FW_1 = WB_WRITE_PAIR;
+
+    assign WRITE_PAIR = WB_WRITE_PAIR;
+
+    assign BRANCH  = WB_BRANCH;
+    
+endmodule
+\end{minted}
+These lines are extracted from the CPU source code. 
+\begin{enumerate}
+	\item The first line is a compiler derivative that defines the precision of timing;
+	\item Line 2 to line 6 define the module interface of a CPU, with three input ports. As for outputs, you can add something like \mintinline{verilog}{output wire OUTPUT};
+	\item Line 7 to line 13 declare some wire variables. As you can see, the number of bits in the declaration can be customized. Wires are used to connect different components of the circuits, you can treat them as alias of the original port because the value of a wire is refreshed as soon as its input side changes.
+	\item Apart from wires, another commonly used thing is register (\mintinline{verilog}{reg [31:0] REGISTER}); you can treat them as the variables in the common sense, which has its own state.
+	\item \mintinline{verilog}{InstructionModule IM (...)} declares a component named \mintinline{verilog}{IM} whose definition is in another module called \mintinline{verilog}{InstructionModule};
+	\item There are mainly two ways to interact with another module, one is to use it as what is shown in the code: use a syntax like \mintinline{verilog}{.PORT(SOME_WIRE)} to connect the inputs and outputs; the other way is commonly used in debugging: you can get the value of the components in another module via something like \mintinline{verilog}{IM.CLOCK};
+	\item Those \mintinline{verilog}{assign} statements are used to connect the wires.
+\end{enumerate}
+\section{Sequential Structures}
+The previous example is just about connecting wires, however, many circuits also need to handle sequential events.
+\subsection{Assigning Sequential Values}
+There are several ways to assigning values in a sequential logic environment:
+\begin{minted}[breaklines, linenos]{verilog}
+module example();
+    reg A, B, C;
+    initial begin
+        A = 1;
+        B = A;
+        C = B;
+    end
+endmodule
+\end{minted}
+This example shows a way to assign the initial values of some registers within an \mintinline{verilog}{initial} block; Notice that operatior \mintinline{verilog}{=} stands for the blocking assignment, which means the assignments will happen one by one.
+
+What if we want to handle the assignment at some specific time? We can then use a statement in the form of \mintinline{verilog}{always @( ...  sensitivity  list  ... ) begin}, the following example shows the non-blocking assignments happening on each rising edge of the clock:
+\begin{minted}[breaklines, linenos]{verilog}
+always @(posedge CLOCK) begin
+    B <= A;
+    C <= B;
+    D <= C;
+end
+\end{minted}
+If you want to describe a combinatorial logic, you should use \mintinline{verilog}{always@( * )} (only blocking assignment should be used within the scope, otherwise it is likely to generate unexpected oscillations -- the circuit will never reach a stable state). The event within the block will be triggered as long as any of the inputs changes.
+\subsection{Test Bench}
+\begin{minted}[breaklines, linenos]{verilog}
+module TEST();
+    reg clk, reset, enable;
+    initial 
+        begin
+        clk = 0;
+        reset = 0;
+        enable = 1;
+    end
+
+    always
+       #1000 clk = !clk;
+
+
+    CPU cpu(clk, reset, enable);
+
+
+
+    initial begin
+$monitor(
+"==========================================\n",
+"TIME:                %-d\n",             $time, 
+"STALL:               %b\n",              cpu.STALL,
+"----------------- Instruction ------------\n",
+"PC/4 + 1:            %-d\n",             cpu.IM.PC_VALUE,
+"INSTRUCTION:         %b\n",              cpu.IM.result_1[31:0],
+"INSTRUCTION:         %b [inner form]\n", cpu.IM.PC_INSTRUCTION,
+"-------------------- Decode --------------\n",
+"RS:                  %-d\n",    cpu.DM_RS,
+"RS VALUE:            %b\n",     cpu.DM_RSV,
+"RT:                  %-d\n",    cpu.DM_RT,
+"RT VALUE:            %b\n",     cpu.DM_RTV,
+"MEM_OP:              %b\n",     cpu.DM_MEM,
+"REG_WRITE:           %b\n",     cpu.DM_WRITE,
+"ALU_CTL:             %b\n",     cpu.DM_ALU,
+"IMMEDIATE:           %b\n",     cpu.DM_IMM,
+"STAGE_PC/4 + 1:      %-d\n",    cpu.DM_COUNTER,
+"----------------- Arithmetic --------------\n",
+"REG_WRITE:           %b\n",     cpu.AM_WRITE_REG,
+"MEM_OP:              %b\n",     cpu.AM_MEM_OP,
+"ALU_RESULT:          %b\n",     cpu.AM_RESULT,
+"BRANCH_TARGET:       %b\n",     cpu.AM_BRANCH_TARGET,
+"--------------------Memory -----------------\n",
+"BRANCH_TARGET:       %b\n",     cpu.MMO_BRANCH,
+"WRITE_BACK:          %b\n",     cpu.MMO_WRITE_PAIR,
+"NEXT_FETCH_ADDRESS:  %-x\n",    cpu.MM.MainMemory_res.FETCH_ADDRESS,
+"FETCH_RESULT:        %-x\n",    cpu.MM.MainMemory_res.DATA,
+"WRITE_SERIAL:        %b\n",     cpu.MM.MainMemory_res.EDIT_SERIAL,
+"----------------- Write Back ---------------\n",
+"BRANCH_TARGET:       %b\n",     cpu.WB_BRANCH,
+"WRITE_BACK:          %b\n",     cpu.WB_WRITE_PAIR,
+"============================================\n"
+);
+    #100000 $finish();
+    end
+
+endmodule
+\end{minted}
+Here is the test bench that we are going to use. Those \mintinline{verilog}{#XXXX} statements mean delaying for the given amount of time before the event. Hence,
+\begin{minted}{verilog}
+always
+    #1000 clk = !clk;
+\end{minted}
+actually defines a clock with period $2000$.
+There are several special functions we are going to use,
+\begin{itemize}
+	\item \mintinline{verilog}{$finish()} terminates the simulation
+	\item \mintinline{verilog}{$stop()} pauses the simulation 
+	\item \mintinline{verilog}{$display("format string", a, "format string", b)} displays the instant value of the variables; basic formats are:
+		\begin{itemize}
+			\item \mintinline{text}{%d}: digits
+			\item \mintinline{text}{%-d}: digits (left aligned)
+			\item \mintinline{text}{%b}: binary
+			\item \mintinline{text}{%x}: hexdecimal
+		\end{itemize}
+	\item \mintinline{verilog}{$monitor("format string", a, "format string", b)} used the same as display, but it will be triggered everytime a monitored variable updates
+	\item \mintinline{verilog}{$time} gets the current time
+	\item \mintinline{verilog}{$readmemb("file.bin",BLOCK);} initializes a large memory block with a file
+	\item \mintinline{verilog}{$dumpfile("file.vcd")} dumps IEEE standard vcd files. These files can be visualized by some softwares like GtkWave to provide a handy way to debug.
+	\item \mintinline{verilog}{$dumpvars(0, cpu)} sets the value and module to dump; level 0 will automatically dumps the variables in the module recursively while level 1 will only dumps those manually listed variables.
+\end{itemize}

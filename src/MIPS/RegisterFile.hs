@@ -16,15 +16,15 @@ registerFileS ::
   -> State (Vec 32 Reg) (Reg, Reg)
 registerFileS (reg0, reg1, writePair) = do
   regs <- get
-  let res0 = regs !! reg0
-      res1 = regs !! reg1
-      newS =
+  let newS =
         case writePair of
           Nothing -> regs
           Just (a, b) ->
             if a /= 0
               then replace a b regs
               else regs
+      res0 = newS !! reg0
+      res1 = newS !! reg1
   put newS
   return (res0, res1)
 
