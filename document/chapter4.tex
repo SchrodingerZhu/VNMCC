@@ -71,24 +71,24 @@ sw   $zero, 4($sp)
 We will only implement a very small set of MIPS instructions. Let's first write some functions to help us decode the instruction:
 \begin{minted}{haskell}
 
--- | The Format of MIPS Instructions
+-- The Format of MIPS Instructions
 data Format            
-  = NoType             -- ^ NoType (Specialized for NOP Instruction)
-  | RType              -- ^ R-Type Instruction Format
-      (BitVector 6)    -- ^ Operation Code
-      (BitVector 5)    -- ^ Register S
-      (BitVector 5)    -- ^ Register T
-      (BitVector 5)    -- ^ Register D
-      (BitVector 5)    -- ^ Extra Infomation for Shifting Amount
-      (BitVector 6)    -- ^ Function Code
-  | IType              -- ^ I-Type Instruction Format
-      (BitVector 6)    -- ^ Operation Code
-      (BitVector 5)    -- ^ Register S
-      (BitVector 5)    -- ^ Register T
-      (BitVector 16)   -- ^ Immediate Value
-  | JType              -- ^ J-Type Instruction Format 
-      (BitVector 6)    -- ^ Operation Code
-      (BitVector 26)   -- ^ Jump Target
+  = NoType             -- NoType (Specialized for NOP Instruction)
+  | RType              -- R-Type Instruction Format
+      (BitVector 6)    -- Operation Code
+      (BitVector 5)    -- Register S
+      (BitVector 5)    -- Register T
+      (BitVector 5)    -- Register D
+      (BitVector 5)    -- Extra Infomation for Shifting Amount
+      (BitVector 6)    -- Function Code
+  | IType              -- I-Type Instruction Format
+      (BitVector 6)    -- Operation Code
+      (BitVector 5)    -- Register S
+      (BitVector 5)    -- Register T
+      (BitVector 16)   -- Immediate Value
+  | JType              -- J-Type Instruction Format 
+      (BitVector 6)    -- Operation Code
+      (BitVector 26)   -- Jump Target
   deriving Show
 \end{minted}
 We will first recognize the instruction format and then transform it into each recognized instruction.
@@ -99,22 +99,22 @@ decodeFormat vec =
     let opcode = slice d31 d26 vec
     in case opcode of
        0 ->
-           pure RType 
-               <*> (slice d31 d26)
-               <*> (slice d25 d21) 
-               <*> (slice d20 d16) 
-               <*> (slice d15 d11) 
-               <*> (slice d10 d6) 
-               <*> (slice d5 d0) 
-                $  vec
-      code | code == 0b000010 || code == 0b000011 ->
-           pure JType 
-               <*> (slice d31 d26) 
+           RType 
+             <$> (slice d31 d26)
+             <*> (slice d25 d21) 
+             <*> (slice d20 d16) 
+             <*> (slice d15 d11) 
+             <*> (slice d10 d6) 
+             <*> (slice d5 d0) 
+              $  vec
+      code -> 
+        if code == 0b000010 || code == 0b000011
+        then JType 
+               <$> (slice d31 d26) 
                <*> (slice d25 d0) 
                 $ vec
-      _ ->
-           pure IType 
-               <*> (slice d31 d26) 
+        else IType 
+               <$> (slice d31 d26) 
                <*> (slice d25 d21) 
                <*> (slice d20 d16) 
                <*> (slice d15 d0) 
@@ -174,7 +174,7 @@ Just mention a small trick: to reduce code repetition, you can use the Applicati
 t1 (x, _, _) = x
 t2 (_, y, _) = y
 t3 (_, _, z) = z
-makeType func = pure func <*> unpack . t1 <*> unpack . t2 <*> unpack . t3
+makeType func = func <$> unpack . t1 <*> unpack . t2 <*> unpack . t3
 -- then you can just write something like:
 case fn of
     0b100000 -> (makeType ADD) (rs, rt, rd)
@@ -272,6 +272,7 @@ Now we can happily generate the Verilog code for this module, try it!
 \subsubsection{Register File}
 Decode Module contains the Register File which is in charge of maintaining the register value. Let us first take a look at these definitions.
 As the logic relation is a little bit complicated, we can use State Monad to construct the state machine for the Register File.
+Notice that we require \mintinline{haskell}{LambdaCase} extension in some of the following code.
 \begin{minted}[breaklines, linenos]{haskell}
 type Reg = BitVector 32
 
@@ -380,36 +381,34 @@ writeRegister
   :: HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom (Maybe (Unsigned 5))
-writeRegister = fmap writeRegister'
-  where
-    writeRegister' inst =
-      case inst of
-        ADD   _  _  rd -> Just rd
-        ADDI  _  rt _  -> Just rt
-        ADDU  _  _  rd -> Just rd
-        ADDIU _  rt _  -> Just rt
-        SUB   _  _  rd -> Just rd
-        SUBU  _  _  rd -> Just rd
-        AND   _  _  rd -> Just rd
-        ANDI  _  rt _  -> Just rt
-        NOR   _  _  rd -> Just rd
-        OR    _  _  rd -> Just rd
-        ORI   _  rt _  -> Just rt
-        XOR   _  _  rd -> Just rd
-        XORI  _  rt _  -> Just rt
-        SLT   _  _  rd -> Just rd
-        SLTI  _  rt _  -> Just rt
-        SLTU  _  _  rd -> Just rd
-        SLTIU _  rt _  -> Just rt
-        SLL   rd _  _  -> Just rd
-        SRL   rd _  _  -> Just rd
-        SRA   rd _  _  -> Just rd
-        SLLV  _  _  rd -> Just rd
-        SRLV  _  _  rd -> Just rd
-        SRAV  _  _  rd -> Just rd
-        LW    _  rt _  -> Just rt
-        JAL   _        -> Just 31
-        _              -> Nothing
+writeRegister = fmap $ 
+  \case
+     ADD   _  _  rd -> Just rd
+     ADDI  _  rt _  -> Just rt
+     ADDU  _  _  rd -> Just rd
+     ADDIU _  rt _  -> Just rt
+     SUB   _  _  rd -> Just rd
+     SUBU  _  _  rd -> Just rd
+     AND   _  _  rd -> Just rd
+     ANDI  _  rt _  -> Just rt
+     NOR   _  _  rd -> Just rd
+     OR    _  _  rd -> Just rd
+     ORI   _  rt _  -> Just rt
+     XOR   _  _  rd -> Just rd
+     XORI  _  rt _  -> Just rt
+     SLT   _  _  rd -> Just rd
+     SLTI  _  rt _  -> Just rt
+     SLTU  _  _  rd -> Just rd
+     SLTIU _  rt _  -> Just rt
+     SLL   rd _  _  -> Just rd
+     SRL   rd _  _  -> Just rd
+     SRA   rd _  _  -> Just rd
+     SLLV  _  _  rd -> Just rd
+     SRLV  _  _  rd -> Just rd
+     SRAV  _  _  rd -> Just rd
+     LW    _  rt _  -> Just rt
+     JAL   _        -> Just 31
+     _              -> Nothing
 \end{minted}
 Then, we can also check the requirement of memory operation, branching and immediate value. Here we must pay attention to the order of extend and pack to make sure that sign information is kept correctly.
 \begin{minted}[breaklines]{haskell}
@@ -417,52 +416,46 @@ memoryOperation
   :: HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom MemoryOperation
-memoryOperation = fmap memoryOperation'
-  where
-    memoryOperation' inst =
-      case inst of
-        LW _ _ _ -> MemLoad
-        SW _ _ _ -> MemWrite
-        _        -> MemNone
+memoryOperation = fmap $ 
+  \case
+     LW _ _ _ -> MemLoad
+     SW _ _ _ -> MemWrite
+     _        -> MemNone
 
 branchFlag 
   :: HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom BranchFlag
-branchFlag = fmap branchFlag'
-  where
-    branchFlag' inst =
-      case inst of
-        BEQ _ _ x -> BranchEQ (pack $ extend x)
-        BNE _ _ x -> BranchNE (pack $ extend x)
-        JR  _     -> Jump
-        J   _     -> Jump
-        JAL _     -> Jump
-        _         -> NoBranch
+branchFlag = fmap $
+  \case 
+     BEQ _ _ x -> BranchEQ (pack $ extend x)
+     BNE _ _ x -> BranchNE (pack $ extend x)
+     JR  _     -> Jump
+     J   _     -> Jump
+     JAL _     -> Jump
+     _         -> NoBranch
 
 immediateValue 
   :: HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom (Maybe (BitVector 32))
-immediateValue = fmap immediateValue'
-  where
-    immediateValue' inst =
-      case inst of
-        ADDI  _ _ x -> Just (pack $ extend x)
-        ADDIU _ _ x -> Just (pack $ extend x)
-        ANDI  _ _ x -> Just (extend x)
-        ORI   _ _ x -> Just (extend x)
-        XORI  _ _ x -> Just (extend x)
-        SLTI  _ _ x -> Just (pack $ extend x)
-        SLTIU _ _ x -> Just (pack $ extend x)
-        LW    _ _ x -> Just (pack $ extend x)
-        SW    _ _ x -> Just (pack $ extend x)
-        SLL   _ _ x -> Just (pack $ extend x)
-        SRL   _ _ x -> Just (pack $ extend x)
-        SRA   _ _ x -> Just (pack $ extend x)
-        JAL   x     -> Just (pack $ extend x)
-        J     x     -> Just (pack $ extend x)
-        _           -> Nothing
+immediateValue = fmap $
+  \case 
+     ADDI  _ _ x -> Just (pack $ extend x)
+     ADDIU _ _ x -> Just (pack $ extend x)
+     ANDI  _ _ x -> Just (extend x)
+     ORI   _ _ x -> Just (extend x)
+     XORI  _ _ x -> Just (extend x)
+     SLTI  _ _ x -> Just (pack $ extend x)
+     SLTIU _ _ x -> Just (pack $ extend x)
+     LW    _ _ x -> Just (pack $ extend x)
+     SW    _ _ x -> Just (pack $ extend x)
+     SLL   _ _ x -> Just (pack $ extend x)
+     SRL   _ _ x -> Just (pack $ extend x)
+     SRA   _ _ x -> Just (pack $ extend x)
+     JAL   x     -> Just (pack $ extend x)
+     J     x     -> Just (pack $ extend x)
+     _           -> Nothing
 \end{minted}
 The next part is little bit tricky: dispatching the ALU operation. Basic arithmetic operations can be dispatched directly. Notwithstanding, there are some special cases. For example, BEQ and BNE are dispatched to XOR because we want to use the zero flag of the xor result to check whether two operands are equal. Those memory related operations are dispatched to addition, because we want to add up the immediate value and the value of RS to get the target address. As for jump operations, we will pass the jump target via immediate value so we just use the OR operation (another operand will be 0).  
 \begin{minted}[breaklines]{haskell}
@@ -470,40 +463,38 @@ dispatch
   :: HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom ALUOperation
-dispatch = fmap dispatch'
-  where
-    dispatch' inst =
-      case inst of
-        ADD   _ _ _ -> ALUAdd True
-        ADDI  _ _ _ -> ALUAdd True
-        ADDU  _ _ _ -> ALUAdd False
-        ADDIU _ _ _ -> ALUAdd False
-        SUB   _ _ _ -> ALUSub True
-        SUBU  _ _ _ -> ALUSub False
-        AND   _ _ _ -> ALUAnd
-        ANDI  _ _ _ -> ALUAnd
-        NOR   _ _ _ -> ALUNor
-        OR    _ _ _ -> ALUOr
-        ORI   _ _ _ -> ALUOr
-        XOR   _ _ _ -> ALUXor
-        XORI  _ _ _ -> ALUXor
-        BEQ   _ _ _ -> ALUXor
-        BNE   _ _ _ -> ALUXor
-        SLT   _ _ _ -> ALUSet True
-        SLTI  _ _ _ -> ALUSet True
-        SLTU  _ _ _ -> ALUSet False
-        SLTIU _ _ _ -> ALUSet False
-        LW    _ _ _ -> ALUAdd True
-        SW    _ _ _ -> ALUAdd True
-        SLL   _ _ _ -> ALUShiftL
-        SLLV  _ _ _ -> ALUShiftL
-        SRL   _ _ _ -> ALUShiftR False
-        SRLV  _ _ _ -> ALUShiftR False
-        SRA   _ _ _ -> ALUShiftR True
-        SRAV  _ _ _ -> ALUShiftR False
-        JR    _     -> ALUOr
-        J     _     -> ALUOr
-        JAL   _     -> ALUOr
+dispatch = fmap $
+  \case 
+     ADD   _ _ _ -> ALUAdd True
+     ADDI  _ _ _ -> ALUAdd True
+     ADDU  _ _ _ -> ALUAdd False
+     ADDIU _ _ _ -> ALUAdd False
+     SUB   _ _ _ -> ALUSub True
+     SUBU  _ _ _ -> ALUSub False
+     AND   _ _ _ -> ALUAnd
+     ANDI  _ _ _ -> ALUAnd
+     NOR   _ _ _ -> ALUNor
+     OR    _ _ _ -> ALUOr
+     ORI   _ _ _ -> ALUOr
+     XOR   _ _ _ -> ALUXor
+     XORI  _ _ _ -> ALUXor
+     BEQ   _ _ _ -> ALUXor
+     BNE   _ _ _ -> ALUXor
+     SLT   _ _ _ -> ALUSet True
+     SLTI  _ _ _ -> ALUSet True
+     SLTU  _ _ _ -> ALUSet False
+     SLTIU _ _ _ -> ALUSet False
+     LW    _ _ _ -> ALUAdd True
+     SW    _ _ _ -> ALUAdd True
+     SLL   _ _ _ -> ALUShiftL
+     SLLV  _ _ _ -> ALUShiftL
+     SRL   _ _ _ -> ALUShiftR False
+     SRLV  _ _ _ -> ALUShiftR False
+     SRA   _ _ _ -> ALUShiftR True
+     SRAV  _ _ _ -> ALUShiftR False
+     JR    _     -> ALUOr
+     J     _     -> ALUOr
+     JAL   _     -> ALUOr
         _           -> ALUNone
 \end{minted}
 
@@ -544,8 +535,8 @@ controlUnit
      )
 controlUnit =
   exposeClockResetEnable $
-    pure (,,,,) 
-      <*> writeRegister 
+    (,,,,) 
+      <$> writeRegister 
       <*> memoryOperation 
       <*> branchFlag 
       <*> dispatch 
@@ -559,41 +550,39 @@ registerPair
   :: HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom (RegNo, RegNo)
-registerPair = fmap registerPair'
-  where
-    registerPair' inst =
-      case inst of
-        ADD   x y _ -> (x, y)
-        ADDI  x _ _ -> (x, 0)
-        ADDU  x y _ -> (x, y)
-        ADDIU x _ _ -> (x, 0)
-        SUB   x y _ -> (x, y)
-        SUBU  x y _ -> (x, y)
-        AND   x y _ -> (x, y)
-        ANDI  x _ _ -> (x, 0)
-        NOR   x y _ -> (x, y)
-        OR    x y _ -> (x, y)
-        ORI   x _ _ -> (x, 0)
-        XOR   x y _ -> (x, y)
-        XORI  x _ _ -> (x, 0)
-        BEQ   x y _ -> (x, y)
-        BNE   x y _ -> (x, y)
-        SLT   x y _ -> (x, y)
-        SLTI  x _ _ -> (x, 0)
-        SLTU  x y _ -> (x, y)
-        SLTIU x _ _ -> (x, 0)
-        LW    x _ _ -> (x, 0)
-        SW    x y _ -> (x, y)
-        SLL   _ x _ -> (x, 0)
-        SRL   _ x _ -> (x, 0)
-        SRA   _ x _ -> (x, 0)
-        SLLV  x y _ -> (y, x)
-        SRLV  x y _ -> (y, x)
-        SRAV  x y _ -> (y, x)
-        NOP         -> (0, 0)
-        J     _     -> (0, 0)
-        JAL   _     -> (0, 0)
-        JR    x     -> (x, 0)
+registerPair = fmap $
+  \case
+    ADD   x y _ -> (x, y)
+    ADDI  x _ _ -> (x, 0)
+    ADDU  x y _ -> (x, y)
+    ADDIU x _ _ -> (x, 0)
+    SUB   x y _ -> (x, y)
+    SUBU  x y _ -> (x, y)
+    AND   x y _ -> (x, y)
+    ANDI  x _ _ -> (x, 0)
+    NOR   x y _ -> (x, y)
+    OR    x y _ -> (x, y)
+    ORI   x _ _ -> (x, 0)
+    XOR   x y _ -> (x, y)
+    XORI  x _ _ -> (x, 0)
+    BEQ   x y _ -> (x, y)
+    BNE   x y _ -> (x, y)
+    SLT   x y _ -> (x, y)
+    SLTI  x _ _ -> (x, 0)
+    SLTU  x y _ -> (x, y)
+    SLTIU x _ _ -> (x, 0)
+    LW    x _ _ -> (x, 0)
+    SW    x y _ -> (x, y)
+    SLL   _ x _ -> (x, 0)
+    SRL   _ x _ -> (x, 0)
+    SRA   _ x _ -> (x, 0)
+    SLLV  x y _ -> (y, x)
+    SRLV  x y _ -> (y, x)
+    SRAV  x y _ -> (y, x)
+    NOP         -> (0, 0)
+    J     _     -> (0, 0)
+    JAL   _     -> (0, 0)
+    JR    x     -> (x, 0)
 \end{minted}
 For those who requires immediate values, we just set the second register to zero and it will not be used. The first register of jump operations' will also be set to zero to make sure that OR operation will preserve the immediate value.
 Next, let us write a function to handle the state transition of the decode module: at the rising edge of the clock, this module will store the output as the new state and handle the decoding of the previous state.

@@ -66,9 +66,9 @@ decodeTyped (F.RType 0 rs rt rd sa fn) =
     0b000111 -> (makeType SRAV) (rs, rt, rd)
     0b001000 -> JR (unpack rs)
   where
-    makeType func = pure func <*> unpack . t1 <*> unpack . t2 <*> unpack . t3
-    makeType' func = pure func <*> unpack . t1 <*> unpack . t2 <*> unpack . t3
-    makeType2 func = pure func <*> unpack . fst <*> unpack . snd
+    makeType func = func <$> unpack . t1 <*> unpack . t2 <*> unpack . t3
+    makeType' func = func <$> unpack . t1 <*> unpack . t2 <*> unpack . t3
+    makeType2 func = func <$> unpack . fst <*> unpack . snd
     t1 (x, _, _) = x
     t2 (_, y, _) = y
     t3 (_, _, z) = z
@@ -86,7 +86,7 @@ decodeTyped (F.IType op rs rt imm) =
     0b100011 -> (makeType LW) (rs, rt, imm)
     0b101011 -> (makeType SW) (rs, rt, imm)
   where
-    makeType func = pure func <*> unpack . t1 <*> unpack . t2 <*> unpack . t3
+    makeType func = func <$> unpack . t1 <*> unpack . t2 <*> unpack . t3
     t1 (x, _, _) = x
     t2 (_, y, _) = y
     t3 (_, _, z) = z

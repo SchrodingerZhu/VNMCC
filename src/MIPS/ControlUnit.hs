@@ -1,3 +1,4 @@
+{-# LANGUAGE LambdaCase #-}
 module MIPS.ControlUnit where
 
 import Clash.Prelude
@@ -40,10 +41,7 @@ writeRegister ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom (Maybe (Unsigned 5))
-writeRegister = fmap writeRegister'
-  where
-    writeRegister' inst =
-      case inst of
+writeRegister = fmap $ \case
         ADD _ _ rd -> Just rd
         ADDI _ rt _ -> Just rt
         ADDU _ _ rd -> Just rd
@@ -75,10 +73,7 @@ memoryOperation ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom MemoryOperation
-memoryOperation = fmap memoryOperation'
-  where
-    memoryOperation' inst =
-      case inst of
+memoryOperation = fmap $ \case
         LW _ _ _ -> MemLoad
         SW _ _ _ -> MemWrite
         _ -> MemNone
@@ -87,10 +82,7 @@ branchFlag ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom BranchFlag
-branchFlag = fmap branchFlag'
-  where
-    branchFlag' inst =
-      case inst of
+branchFlag = fmap $ \case
         BEQ _ _ x -> BranchEQ (pack $ extend x)
         BNE _ _ x -> BranchNE (pack $ extend x)
         JR _ -> Jump
@@ -102,10 +94,7 @@ dispatch ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom ALUOperation
-dispatch = fmap dispatch'
-  where
-    dispatch' inst =
-      case inst of
+dispatch = fmap $ \case
         ADD _ _ _ -> ALUAdd True
         ADDI _ _ _ -> ALUAdd True
         ADDIU _ _ _ -> ALUAdd False
@@ -142,10 +131,7 @@ immediateValue ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom (Maybe (BitVector 32))
-immediateValue = fmap immediateValue'
-  where
-    immediateValue' inst =
-      case inst of
+immediateValue = fmap $ \case
         ADDI _ _ x -> Just (pack $ extend x)
         ADDIU _ _ x -> Just (pack $ extend x)
         ANDI _ _ x -> Just (extend x)
@@ -186,5 +172,5 @@ controlUnit ::
       )
 controlUnit =
   exposeClockResetEnable $
-  pure (,,,,) <*> writeRegister <*> memoryOperation <*> branchFlag <*> dispatch <*>
-  immediateValue
+    (,,,,) <$> writeRegister <*> memoryOperation <*> branchFlag <*> dispatch <*>
+      immediateValue

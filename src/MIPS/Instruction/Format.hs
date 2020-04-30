@@ -42,15 +42,20 @@ decodeFormat vec =
   let opcode = slice d31 d26 vec
    in case opcode of
         0 ->
-          pure RType <*> (slice d31 d26) <*> (slice d25 d21) <*> (slice d20 d16) <*>
-          (slice d15 d11) <*>
-          (slice d10 d6) <*>
-          (slice d5 d0) $
-          vec
-        code
-          | code == 0b000010 || code == 0b000011 ->
-            pure JType <*> (slice d31 d26) <*> (slice d25 d0) $ vec
-        _ ->
-          pure IType <*> (slice d31 d26) <*> (slice d25 d21) <*> (slice d20 d16) <*>
-          (slice d15 d0) $
-          vec
+          RType <$> (slice d31 d26) <*> (slice d25 d21) <*> (slice d20 d16) <*>
+            (slice d15 d11) <*>
+            (slice d10 d6) <*>
+            (slice d5 d0) $
+            vec
+        code ->
+          if code == 0b000010 || code == 0b000011
+          then JType 
+                <$> (slice d31 d26) 
+                <*> (slice d25 d0) 
+                 $ vec
+          else IType 
+                <$> (slice d31 d26) 
+                <*> (slice d25 d21) 
+                <*> (slice d20 d16) 
+                <*> (slice d15 d0) 
+                 $  vec

@@ -1,0 +1,34 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{writeRegister}
+  \PYG{o+ow}{::} \PYG{k+kt}{HiddenClockResetEnable} \PYG{n}{dom}
+  \PYG{o+ow}{=\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{k+kt}{Instruction}
+  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Signal} \PYG{n}{dom} \PYG{p}{(}\PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{5}\PYG{p}{))}
+\PYG{n+nf}{writeRegister} \PYG{o+ow}{=} \PYG{n}{fmap} \PYG{o}{\PYGZdl{}}
+  \PYG{n+nf}{\PYGZbs{}}\PYG{k+kr}{case}
+     \PYG{k+kt}{ADD}   \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{ADDI}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rt} \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rt}
+     \PYG{k+kt}{ADDU}  \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{ADDIU} \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rt} \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rt}
+     \PYG{k+kt}{SUB}   \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{SUBU}  \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{AND}   \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{ANDI}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rt} \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rt}
+     \PYG{k+kt}{NOR}   \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{OR}    \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{ORI}   \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rt} \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rt}
+     \PYG{k+kt}{XOR}   \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{XORI}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rt} \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rt}
+     \PYG{k+kt}{SLT}   \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{SLTI}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rt} \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rt}
+     \PYG{k+kt}{SLTU}  \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{SLTIU} \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rt} \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rt}
+     \PYG{k+kt}{SLL}   \PYG{n}{rd} \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{SRL}   \PYG{n}{rd} \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{SRA}   \PYG{n}{rd} \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{SLLV}  \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{SRLV}  \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{SRAV}  \PYG{k+kr}{\PYGZus{}}  \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rd} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rd}
+     \PYG{k+kt}{LW}    \PYG{k+kr}{\PYGZus{}}  \PYG{n}{rt} \PYG{k+kr}{\PYGZus{}}  \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{n}{rt}
+     \PYG{k+kt}{JAL}   \PYG{k+kr}{\PYGZus{}}        \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Just} \PYG{l+m+mi}{31}
+     \PYG{k+kr}{\PYGZus{}}              \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Nothing}
+\end{Verbatim}

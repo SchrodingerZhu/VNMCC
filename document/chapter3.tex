@@ -254,7 +254,7 @@ counterT
   -> Maybe (Unsigned 32) 
   -> (Unsigned 32, Unsigned 32)
 counterT state Nothing  = (state + 1, state)
-counterT state (Just x) = (x    , state)
+counterT state (Just x) = (x        , state)
 \end{minted}
 To transform \mintinline{haskell}{counterT} into a state machine, just apply the \mintinline{haskell}{mealy} function together with an initial value to it
 \begin{minted}[breaklines]{haskell}
@@ -299,10 +299,7 @@ counterS
     -> State (Unsigned 32) (Unsigned 32)
 counterS input = do
     state <- get
-    let next = case input of
-            Just x  -> x
-            Nothing -> state + 1
-    put next
+    put $ maybe (state + 1) id input
     return state
 \end{minted}
 However, we need to write a function to transform our state monad into a synthesizable state machine:

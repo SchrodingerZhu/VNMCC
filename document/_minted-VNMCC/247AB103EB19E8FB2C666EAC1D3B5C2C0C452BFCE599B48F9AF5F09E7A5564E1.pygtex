@@ -4,5 +4,5 @@
   \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)}
   \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{,} \PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)}
 \PYG{n+nf}{counterT} \PYG{n}{state} \PYG{k+kt}{Nothing}  \PYG{o+ow}{=} \PYG{p}{(}\PYG{n}{state} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{state}\PYG{p}{)}
-\PYG{n+nf}{counterT} \PYG{n}{state} \PYG{p}{(}\PYG{k+kt}{Just} \PYG{n}{x}\PYG{p}{)} \PYG{o+ow}{=} \PYG{p}{(}\PYG{n}{x}    \PYG{p}{,} \PYG{n}{state}\PYG{p}{)}
+\PYG{n+nf}{counterT} \PYG{n}{state} \PYG{p}{(}\PYG{k+kt}{Just} \PYG{n}{x}\PYG{p}{)} \PYG{o+ow}{=} \PYG{p}{(}\PYG{n}{x}        \PYG{p}{,} \PYG{n}{state}\PYG{p}{)}
 \end{Verbatim}

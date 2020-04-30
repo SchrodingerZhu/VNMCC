@@ -43,10 +43,10 @@
 \contentsline {subsubsection}{Decode Module Interface}{42}{section*.15}%
 \contentsline {subsection}{\numberline {4.3.3}Arithmetic Module}{47}{subsection.4.3.3}%
 \contentsline {subsubsection}{Data Types}{47}{section*.16}%
-\contentsline {subsubsection}{ALU}{48}{section*.17}%
-\contentsline {subsubsection}{Forward Unit}{51}{section*.18}%
+\contentsline {subsubsection}{ALU}{47}{section*.17}%
+\contentsline {subsubsection}{Forward Unit}{50}{section*.18}%
 \contentsline {subsubsection}{State Machine}{53}{section*.19}%
-\contentsline {subsubsection}{Arithmetic Module Interface}{54}{section*.20}%
+\contentsline {subsubsection}{Arithmetic Module Interface}{53}{section*.20}%
 \contentsline {subsection}{\numberline {4.3.4}Memory Module}{57}{subsection.4.3.4}%
 \contentsline {subsubsection}{Main Memory Block}{57}{section*.21}%
 \contentsline {subsubsection}{Memory State}{58}{section*.22}%

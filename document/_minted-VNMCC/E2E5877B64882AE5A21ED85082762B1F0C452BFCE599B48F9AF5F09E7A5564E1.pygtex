@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The Format of MIPS Instructions}
+\PYG{k+kr}{data} \PYG{k+kt}{Format}
+  \PYG{o+ow}{=} \PYG{k+kt}{NoType}             \PYG{c+c1}{\PYGZhy{}\PYGZhy{} NoType (Specialized for NOP Instruction)}
+  \PYG{o}{|} \PYG{k+kt}{RType}              \PYG{c+c1}{\PYGZhy{}\PYGZhy{} R\PYGZhy{}Type Instruction Format}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{6}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Operation Code}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{5}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Register S}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{5}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Register T}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{5}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Register D}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{5}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Extra Infomation for Shifting Amount}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{6}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Function Code}
+  \PYG{o}{|} \PYG{k+kt}{IType}              \PYG{c+c1}{\PYGZhy{}\PYGZhy{} I\PYGZhy{}Type Instruction Format}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{6}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Operation Code}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{5}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Register S}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{5}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Register T}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{16}\PYG{p}{)}   \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Immediate Value}
+  \PYG{o}{|} \PYG{k+kt}{JType}              \PYG{c+c1}{\PYGZhy{}\PYGZhy{} J\PYGZhy{}Type Instruction Format}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{6}\PYG{p}{)}    \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Operation Code}
+      \PYG{p}{(}\PYG{k+kt}{BitVector} \PYG{l+m+mi}{26}\PYG{p}{)}   \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Jump Target}
+  \PYG{k+kr}{deriving} \PYG{k+kt}{Show}
+\end{Verbatim}

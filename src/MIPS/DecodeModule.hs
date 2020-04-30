@@ -1,3 +1,4 @@
+{-# LANGUAGE LambdaCase #-}
 module MIPS.DecodeModule where
 
 import Clash.Prelude
@@ -12,10 +13,7 @@ registerPair ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom (RegNo, RegNo)
-registerPair = fmap registerPair'
-  where
-    registerPair' inst =
-      case inst of
+registerPair = fmap $ \case
         ADD x y _ -> (x, y)
         ADDI x _ _ -> (x, 0)
         ADDU x y _ -> (x, y)
