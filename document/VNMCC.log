@@ -1,86 +1,75 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2020.5.2)  5 MAY 2020 08:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.5.2)  5 MAY 2020 09:17
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**VNMCC.tex
-(./VNMCC.tex
+**/home/schrodinger/Documents/code/mips/document/VNMCC.tex
+(/home/schrodinger/Documents/code/mips/document/VNMCC.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06>
-(/usr/share/texmf-dist/tex/latex/base/book.cls
+L3 programming layer <2020-03-06> (/usr/share/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/bk12.clo
 File: bk12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count163
-\c@chapter=\count164
-\c@section=\count165
-\c@subsection=\count166
-\c@subsubsection=\count167
-\c@paragraph=\count168
-\c@subparagraph=\count169
-\c@figure=\count170
-\c@table=\count171
+\c@part=\count167
+\c@chapter=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
-)
-(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+ (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
-)
-(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+) (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+ (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 105.
-
-(/usr/share/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+Package graphics Info: Driver file: pdftex.def on input line 105.
+ (/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
-)
-(/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
+) (/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip49
 \bibsep=\skip50
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count172
-)
-(/usr/share/texmf-dist/tex/latex/float/float.sty
+\c@NAT@ctr=\count176
+) (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count173
+\c@float@type=\count177
 \float@exts=\toks16
 \float@box=\box45
 \@float@everytoks=\toks17
 \@floatcapt=\box46
-)
-(/usr/share/texmf-dist/tex/latex/lettrine/lettrine.sty
+) (/usr/share/texmf-dist/tex/latex/lettrine/lettrine.sty
 File: lettrine.sty 2020-03-14 v2.23 (Daniel Flipo)
-
-(/usr/share/texmf-dist/tex/generic/minifp/minifp.sty
-Package: minifp 2013/12/30 v0.96. Macros for real number operations and a stack
--based programing language.
-\MFP@loopctr=\count174
+ (/usr/share/texmf-dist/tex/generic/minifp/minifp.sty
+Package: minifp 2013/12/30 v0.96. Macros for real number operations and a stack-based programing language.
+\MFP@loopctr=\count178
 )
-\c@DefaultLines=\count175
-\c@DefaultDepth=\count176
+\c@DefaultLines=\count179
+\c@DefaultDepth=\count180
 \DefaultFindent=\dimen137
 \DefaultNindent=\dimen138
 \DefaultSlope=\dimen139
 \DiscardVskip=\dimen140
 \L@lbox=\box47
 \L@tbox=\box48
-\c@L@lines=\count177
-\c@L@depth=\count178
+\c@L@lines=\count181
+\c@L@depth=\count182
 \L@Pindent=\dimen141
 \L@Findent=\dimen142
 \L@Nindent=\dimen143
@@ -99,62 +88,48 @@ Package: minifp 2013/12/30 v0.96. Macros for real number operations and a stack
 \Llist@everypar=\toks18
 
 Loading lettrine.cfg
-(/usr/share/texmf-dist/tex/latex/lettrine/lettrine.cfg))
-(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-dist/tex/latex/lettrine/lettrine.cfg)) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
-
-(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+ (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
-)
-(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
+) (/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
-)
-(/usr/share/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+) (/usr/share/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
-)
-(/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-)
-(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+) (/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-)
-(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty
+) (/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-)
-(/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+) (/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-)
-(/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+) (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen156
-\Hy@linkcounter=\count179
-\Hy@pagecounter=\count180
-
-(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
+\Hy@linkcounter=\count183
+\Hy@pagecounter=\count184
+ (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
-)
-(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-)
-(/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+) (/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count181
+\Hy@SavedSpaceFactor=\count185
 Package hyperref Info: Hyper figures OFF on input line 4547.
 Package hyperref Info: Link nesting OFF on input line 4552.
 Package hyperref Info: Hyper index ON on input line 4555.
@@ -162,23 +137,19 @@ Package hyperref Info: Plain pages OFF on input line 4562.
 Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4800.
-\c@Hy@tempcnt=\count182
-
-(/usr/share/texmf-dist/tex/latex/url/url.sty
+\c@Hy@tempcnt=\count186
+ (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5159.
 \XeTeXLinkMargin=\dimen157
-
-(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+ (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-
-(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
-)
+ (/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count183
+\Fld@menulength=\count187
 \Field@Width=\dimen158
 \Fld@charsize=\dimen159
 Package hyperref Info: Hyper figures OFF on input line 6430.
@@ -190,294 +161,121 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6455.
 Package hyperref Info: PDF/A mode OFF on input line 6460.
 LaTeX Info: Redefining \ref on input line 6500.
 LaTeX Info: Redefining \pageref on input line 6504.
-
-(/usr/share/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+ (/usr/share/texmf-dist/tex/generic/atbegshi/atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count184
-\c@Item=\count185
-\c@Hfootnote=\count186
+\Hy@abspage=\count188
+\c@Item=\count189
+\c@Hfootnote=\count190
 )
-Package hyperref Info: Driver (autodetected): hxetex.
-
-(/usr/share/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
-
-(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
-)
-(/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
-)
-)
-\pdfm@box=\box49
-\c@Hy@AnnotLevel=\count187
-\HyField@AnnotCount=\count188
-\Fld@listcount=\count189
-\c@bookmark@seq@number=\count190
-
-(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
-
-(/usr/share/texmf-dist/tex/latex/atveryend/atveryend.sty
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+ (/usr/share/texmf-dist/tex/latex/atveryend/atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
-(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+\Fld@listcount=\count191
+\c@bookmark@seq@number=\count192
+ (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+ (/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-86.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip51
-)
-(/usr/share/texmf-dist/tex/latex/minted/minted.sty
+) (/usr/share/texmf-dist/tex/latex/minted/minted.sty
 Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
-
-(/usr/share/texmf-dist/tex/latex/fvextra/fvextra.sty
+ (/usr/share/texmf-dist/tex/latex/fvextra/fvextra.sty
 Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
-
-(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+ (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+) (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count191
-)
-(/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+\etb@tempcnta=\count193
+) (/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2020/01/13 v3.5 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count192
+\FV@CodeLineNo=\count194
 \FV@InFile=\read2
-\FV@TabBox=\box50
-\c@FancyVerbLine=\count193
-\FV@StepNumber=\count194
+\FV@TabBox=\box49
+\c@FancyVerbLine=\count195
+\FV@StepNumber=\count196
 \FV@OutFile=\write3
-)
-(/usr/share/texmf-dist/tex/latex/upquote/upquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
-
-(/usr/share/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-))
-(/usr/share/texmf-dist/tex/latex/lineno/lineno.sty
+) (/usr/share/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+) (/usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-\linenopenalty=\count195
+\linenopenalty=\count197
 \output=\toks19
-\linenoprevgraf=\count196
+\linenoprevgraf=\count198
 \linenumbersep=\dimen160
 \linenumberwidth=\dimen161
-\c@linenumber=\count197
-\c@pagewiselinenumber=\count198
-\c@LN@truepage=\count199
-\c@internallinenumber=\count266
-\c@internallinenumbers=\count267
+\c@linenumber=\count199
+\c@pagewiselinenumber=\count266
+\c@LN@truepage=\count267
+\c@internallinenumber=\count268
+\c@internallinenumbers=\count269
 \quotelinenumbersep=\dimen162
 \bframerule=\dimen163
 \bframesep=\dimen164
-\bframebox=\box51
+\bframebox=\box50
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count268
-\c@FV@TrueTabCounter=\count269
-\FV@TabBox@Group=\box52
+\c@FV@TrueTabGroupLevel=\count270
+\c@FV@TrueTabCounter=\count271
+\FV@TabBox@Group=\box51
 \FV@TmpLength=\skip52
-\c@FV@HighlightLinesStart=\count270
-\c@FV@HighlightLinesStop=\count271
-\FV@LoopCount=\count272
-\FV@NCharsBox=\box53
+\c@FV@HighlightLinesStart=\count272
+\c@FV@HighlightLinesStop=\count273
+\FV@LoopCount=\count274
+\FV@NCharsBox=\box52
 \FV@BreakIndent=\dimen165
-\FV@BreakIndentNChars=\count273
+\FV@BreakIndentNChars=\count275
 \FV@BreakSymbolSepLeft=\dimen166
-\FV@BreakSymbolSepLeftNChars=\count274
+\FV@BreakSymbolSepLeftNChars=\count276
 \FV@BreakSymbolSepRight=\dimen167
-\FV@BreakSymbolSepRightNChars=\count275
+\FV@BreakSymbolSepRightNChars=\count277
 \FV@BreakSymbolIndentLeft=\dimen168
-\FV@BreakSymbolIndentLeftNChars=\count276
+\FV@BreakSymbolIndentLeftNChars=\count278
 \FV@BreakSymbolIndentRight=\dimen169
-\FV@BreakSymbolIndentRightNChars=\count277
-\c@FancyVerbLineBreakLast=\count278
-\FV@LineBox=\box54
-\FV@LineIndentBox=\box55
+\FV@BreakSymbolIndentRightNChars=\count279
+\c@FancyVerbLineBreakLast=\count280
+\FV@LineBox=\box53
+\FV@LineIndentBox=\box54
 \FV@LineWidth=\dimen170
-)
-(/usr/share/texmf-dist/tex/latex/tools/calc.sty
+) (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count279
-\calc@Bcount=\count280
+\calc@Acount=\count281
+\calc@Bcount=\count282
 \calc@Adimen=\dimen171
 \calc@Bdimen=\dimen172
 \calc@Askip=\skip53
 \calc@Bskip=\skip54
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count281
+\calc@Ccount=\count283
 \calc@Cskip=\skip55
-)
-(/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
+) (/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 75.
-)
-(/usr/share/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+) (/usr/share/texmf-dist/tex/latex/ifplatform/ifplatform.sty
 Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
-
-(/usr/share/texmf-dist/tex/generic/catchfile/catchfile.sty
+ (/usr/share/texmf-dist/tex/generic/catchfile/catchfile.sty
 Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
-)
-(/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty
+) (/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "VNMCC.w18")...executed.
 
- (./VNMCC.w18)
-runsystem(rm -- "VNMCC.w18")...executed.
+Package ifplatform Warning: 
+    shell escape is disabled, so I can only detect \ifwindows.
 
-)
-(/usr/share/texmf-dist/tex/generic/xstring/xstring.sty
-(/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count282
-Invalid UTF-8 byte or sequence at line 35 replaced by U+FFFD.
-\decimalpart=\count283
-Invalid UTF-8 byte or sequence at line 79 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 79 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 83 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 86 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 102 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 114 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 120 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 125 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 183 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 184 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 189 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 189 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 190 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 190 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 193 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 221 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 221 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 266 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 284 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 295 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 300 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 300 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 302 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 303 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 333 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 406 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 406 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 409 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 428 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 434 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 457 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 457 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 464 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 464 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 466 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 466 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 586 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 586 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 588 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 588 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 595 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 597 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 599 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 602 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 605 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 605 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 610 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 615 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 632 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 632 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 633 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 635 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 637 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 647 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 653 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 678 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 700 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 705 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 719 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 732 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 732 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 741 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 741 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 742 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 742 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 762 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 773 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 773 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 797 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 797 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 810 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 824 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 824 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 831 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 838 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 838 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 846 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 846 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 861 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 862 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 864 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 864 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 908 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 909 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 909 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 934 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 934 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 936 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 936 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 940 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 940 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 962 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 962 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 964 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 965 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 1006 replaced by U+FFFD.
+) (/usr/share/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count284
+\decimalpart=\count285
 )
 Package: xstring 2019/02/06 v1.83 String manipulations (CT)
-)
-(/usr/share/texmf-dist/tex/latex/framed/framed.sty
+) (/usr/share/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip56
 \fb@frw=\dimen173
@@ -486,27 +284,33 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameSep=\dimen176
 )
 \minted@appexistsfile=\read3
-\minted@bgbox=\box56
+\minted@bgbox=\box55
 \minted@code=\write4
-\c@minted@FancyVerbLineTemp=\count284
-\c@minted@pygmentizecounter=\count285
+\c@minted@FancyVerbLineTemp=\count286
+\c@minted@pygmentizecounter=\count287
 \@float@every@listing=\toks20
-\c@listing=\count286
+\c@listing=\count288
 )
-runsystem(mkdir -p _minted-VNMCC)...executed.
+runsystem(mkdir -p _minted-VNMCC)...disabled (restricted).
 
 
-(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty
-(/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-(/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+
+/home/schrodinger/Documents/code/mips/document/VNMCC.tex:8: Package minted Error: You must invoke LaTeX with the -shell-escape flag.
+
+See the minted package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \usepackage
+               {fontspec}
+Pass the -shell-escape flag to LaTeX. Refer to the minted.sty documentation for more information.
+
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2020-03-06 L3 programming layer (loader) 
-
-(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-xdvipdfmx.def
-File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
-\g__graphics_track_int=\count287
-\l__pdf_internal_box=\box57
-\g__pdf_backend_object_int=\count288
-\g__pdf_backend_annotation_int=\count289
+ (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count289
+\l__pdf_internal_box=\box56
 ))
 Package: xparse 2020-03-06 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count290
@@ -516,849 +320,43 @@ Package: xparse 2020-03-06 L3 Experimental document command parser
 )
 Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
 
-(/usr/share/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTe
-X
-\l__fontspec_script_int=\count294
-\l__fontspec_language_int=\count295
-\l__fontspec_strnum_int=\count296
-\l__fontspec_tmp_int=\count297
-\l__fontspec_tmpa_int=\count298
-\l__fontspec_tmpb_int=\count299
-\l__fontspec_tmpc_int=\count300
-\l__fontspec_em_int=\count301
-\l__fontspec_emdef_int=\count302
-\l__fontspec_strong_int=\count303
-\l__fontspec_strongdef_int=\count304
-\l__fontspec_tmpa_dim=\dimen177
-\l__fontspec_tmpb_dim=\dimen178
-\l__fontspec_tmpc_dim=\dimen179
 
-(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
-)
-(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty:45: Fatal Package fontspec Error: The fontspec package requires either XeTeX or
+(fontspec)                      LuaTeX.
+(fontspec)                      
+(fontspec)                      You must change your typesetting engine to,
+(fontspec)                      e.g., "xelatex" or "lualatex"instead of
+(fontspec)                      "latex" or "pdflatex".
 
-Package fontspec Info: Font family 'EBGaramond(0)' created for font 'EB
-(fontspec)             Garamond' with options [Ligatures=TeX].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"EB
-(fontspec)             Garamond/OT:script=latn;language=dflt;mapping=tex-text;"
+Type <return> to continue.
+ ...                                              
+                                                  
+l.45 \msg_fatal:nn {fontspec} {cannot-use-pdftex}
+                                                 
 
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"EB
-(fontspec)             Garamond/OT:script=latn;language=dflt;+smcp;mapping=tex-
-text;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"EB
-(fontspec)             Garamond/B/OT:script=latn;language=dflt;mapping=tex-text
-;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"EB
-(fontspec)             Garamond/B/OT:script=latn;language=dflt;+smcp;mapping=te
-x-text;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"EB
-(fontspec)             Garamond/I/OT:script=latn;language=dflt;mapping=tex-text
-;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"EB
-(fontspec)             Garamond/I/OT:script=latn;language=dflt;+smcp;mapping=te
-x-text;"
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"EB
-(fontspec)             Garamond/BI/OT:script=latn;language=dflt;mapping=tex-tex
-t;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->"EB
-(fontspec)             Garamond/BI/OT:script=latn;language=dflt;+smcp;mapping=t
-ex-text;"
+LaTeX does not know anything more about this error, sorry.
 
+Try typing <return> to proceed.
+If that doesn't work, type X <return> to quit.
 
-(/usr/share/texmf-dist/tex/latex/inconsolata/inconsolata.fontspec)
+This is a fatal error: LaTeX will abort.
 
-Package fontspec Info: Font family 'inconsolata(0)' created for font
-(fontspec)             'inconsolata' with options
-(fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=Word
-Space,Extension
-(fontspec)             = .otf,UprightFont = Inconsolatazi4-Regular,BoldFont =
-(fontspec)             Inconsolatazi4-Bold].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[Inconsolatazi4-Regular.otf]/OT:script=latn;language
-=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
-(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
-(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"[Inconsolatazi4-Bold.otf]/OT:script=latn;language=df
-lt;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
-(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
-(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
 
 
-(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty:45: Emergency stop.
+<read *> 
+         
+l.45 \msg_fatal:nn {fontspec} {cannot-use-pdftex}
+                                                 
+*** (cannot \read from terminal in nonstop modes)
 
-(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: xetex.def on input line 225.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-)
-runsystem(which pygmentize && touch VNMCC.aex)...executed.
-
-runsystem(rm VNMCC.aex)...executed.
-
- (./VNMCC.aux
-(./chapter1.aux) (./chapter2.aux) (./chapter3.aux) (./chapter4.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-5.
-
-(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-\AtBeginShipoutBox=\box58
-Package hyperref Info: Link coloring OFF on input line 15.
-
-(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
-
-(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count305
-)
-LaTeX Info: Redefining \ref on input line 15.
-LaTeX Info: Redefining \pageref on input line 15.
-LaTeX Info: Redefining \nameref on input line 15.
-
-(./VNMCC.out) (./VNMCC.out)
-\@outlinefile=\write5
-
-Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
-(fontspec)             this).
-
-\symlegacymaths=\mathgroup4
-LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 15.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 15.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 15.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 15.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 15.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 15.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 15.
-LaTeX Font Info:    Redeclaring math accent \check on input line 15.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 15.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 15.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \colon on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 15.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 15.
-LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 15.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/EBGaramond(0)/m/n on input line 15.
-LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 15.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/EBGaramond(0)/m/n on input line 15.
-
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/EBGaramond(0)/m/n --> TU/EBGaramond(0)/m/n on input 
-line 15.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/EBGaramond(0)/m/it on input line 15
-.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/EBGaramond(0)/b/n on input line 15.
-
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 15.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/inconsolata(0)/m/n on input line 15
-.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/EBGaramond(0)/m/n --> TU/EBGaramond(0)/b/n on input 
-line 15.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/EBGaramond(0)/b/it on input line 1
-5.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 15.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/inconsolata(0)/b/n on input line 15
-.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 18.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 18.
-
-(/usr/share/texmf-dist/tex/generic/stringenc/se-ascii-print.def
-File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
-
-) [1
-
-
-
-]
-File: ./image/cquinn.jpg Graphic file (type bmp)
-<./image/cquinn.jpg>
- [1
-
-]
-[2
-
-] (./VNMCC.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
- [3
-
-])
-\tf@toc=\write6
-LaTeX Font Info:    Font shape `TU/EBGaramond(0)/m/sl' in size <12> not availab
-le
-(Font)              Font shape `TU/EBGaramond(0)/m/it' tried instead on input l
-ine 39.
- [4] (./chapter1.tex
-Chapter 1.
-Package lettrine.sty Info: Targeted height = 23.561pt
-(lettrine.sty)             (for loversize=0, accent excluded),
-(lettrine.sty)             Lettrine height = 22.3048pt (R);
-(lettrine.sty)             reported on input line 2.
-(./_minted-VNMCC/default-pyg-prefix.pygstyle) (./_minted-VNMCC/default.pygstyle
-)
-(./_minted-VNMCC/CF35A9E506D320D22D8BD86A0EB5F2EE67611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/2178CDC38292E3A3C51DD19CCD29889C67611EDE2838E2647A54D8A604CCE4
-5E.pygtex) [1
-
-
-
-]
-(./_minted-VNMCC/FC243F999377F25540830FDEB070CC7167611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/B8BE9B89AA95DA71BFD4953B9749968F67611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/CFD11662C20F9CC945D5FEBD6D27E5F567611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/8244B4EFEACBAF96D171AC1023413C59AE300DDB74CC1559314406852EFC52
-56.pygtex)
-(./_minted-VNMCC/5BF23E7A6B5385F3914D3816CA43F53967611EDE2838E2647A54D8A604CCE4
-5E.pygtex)) [2] (./chapter2.tex
-Chapter 2.
-Package lettrine.sty Info: Targeted height = 23.561pt
-(lettrine.sty)             (for loversize=0, accent excluded),
-(lettrine.sty)             Lettrine height = 22.169pt (W);
-(lettrine.sty)             reported on input line 2.
-
-(./_minted-VNMCC/BA9FFE52748C2F467841829D0EEDDD3BE1F81C7A9F542DE9D2B07EA2661689
-47.pygtex
-
-LaTeX Font Warning: Font shape `TU/inconsolata(0)/m/it' undefined
-(Font)              using `TU/inconsolata(0)/m/n' instead on input line 4.
-
-[3
-
-
-
-])
-(./_minted-VNMCC/23FD890BB7DEEAF60E9A6083769524F1E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/394CB150638A7AC16038D7A14B9258EAE1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-Overfull \hbox (25.93607pt too wide) in paragraph at lines 49--50
-[]\TU/EBGaramond(0)/m/n/12 Apart from wires, another commonly used thing is reg
-ister ([]);
- []
-
-[4]
-(./_minted-VNMCC/E60D2E8F3466E3ABDE9BA1E2D5929C19E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/1B14B6066C15AC8011FF8EDAF7D50A74E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/067B536CBE89AABE561582CB895D0BF5E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/4389C14C80F8DFF79D29F32646C0D64BE1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/F4C4BF190206512A6A1633F3567C7013E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/E83B65D87EA5B50F88EC4829FE61C6ACE1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/2C3F34460A8A7489EC71166264739D96E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/7B5088027E9209563FB557EEA0E73354E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/FDC7E1257006FEE05FC2BD4A3C913349E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-Overfull \hbox (2.6521pt too wide) in paragraph at lines 68--69
-\TU/EBGaramond(0)/m/n/12 This example shows a way to assign the initial values 
-of some registers within an []
- []
-
-
-(./_minted-VNMCC/51544E781ECA696D089A030A3A08A693E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/58095210DDA8CF18579A170FCBFC3739E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex [5])
-(./_minted-VNMCC/5228150ED7ACFD52E410048100B69971E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/76025AA6FCC76F0DD1E9DC7131ED3831E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex [6]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 46.
- [7])
-(./_minted-VNMCC/01BDB15C70196935154A2199DA7944B6E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/4AE2C344DF87283D1159A0F9C8CDED65E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/E055868B5C7D1506BB0F81C4E4F45B12E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/DB22252619FF9A7B9F91D70AE7730132E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/3A2FA85413D1F24EFA46B24BE21AEE84E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/3055B1F386B7C6D0817034102BB6F0DF67611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/AF356F81FEB17EFB6E64D1FCA06D687967611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/894FC788F9E695A4E9455B1A163FDDE267611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/9B2A5299C5D82902EB60FD2C8D4E4A2F67611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/64707C7C2B25A3859A829909E8868498E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-Overfull \hbox (1.20404pt too wide) in paragraph at lines 1--156
-[][] \TU/EBGaramond(0)/m/n/12 used the same as
- []
-
-
-(./_minted-VNMCC/97E55C69979FCEE55926072409D7F93FE1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/B96D54336E137FC33711BD2D94D1C134E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/194C5220E64DCD6D8ABD4CF3DEB28CF1E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-(./_minted-VNMCC/72E5CAE79A9ADB939A9412505BD0BD55E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex) [8]) [9] (./chapter3.tex
-Chapter 3.
-Package lettrine.sty Info: Targeted height = 23.561pt
-(lettrine.sty)             (for loversize=0, accent excluded),
-(lettrine.sty)             Lettrine height = 22.5085pt (C);
-(lettrine.sty)             reported on input line 2.
-
-Overfull \hbox (10.46399pt too wide) in paragraph at lines 4--5
-[]\TU/EBGaramond(0)/m/n/12 (http://hackage.haskell.org/package/clash-prelude-1.
-2.0/docs/Clash-Tutorial.html).
- []
-
-
-(./_minted-VNMCC/E8A9B0586C05CC7C23A0FDC2E0FC2DCFABF098667E3F3C397939F7FF02D3F2
-B5.pygtex)
-(./_minted-VNMCC/8B1B6F2D2208166185541BD037E77D7F0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/5E1018B258BD2C582D3FCC53DF5DF6540C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/AA13EE8A8390AB1830E306EC551E4428E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-Overfull \hbox (13.92142pt too wide) in paragraph at lines 13--14
-\TU/EBGaramond(0)/m/n/12 How to generate a verilog module from the code? If you
-r function is named as [],
- []
-
-
-Overfull \hbox (3.3281pt too wide) in paragraph at lines 13--14
-\TU/EBGaramond(0)/m/n/12 just load the clash.clashi on your own or using stack 
-and then input []
- []
-
-
-(./_minted-VNMCC/CC7E0C9065E702D6AA3F5C048FC0B6FBABF098667E3F3C397939F7FF02D3F2
-B5.pygtex [10
-
-
-
-])
-(./_minted-VNMCC/F5E7CE3848A83D6DCC5C59B17E8F273BF0F6EECDF0490D300073CE44AE22A2
-57.pygtex)
-(./_minted-VNMCC/CE930BB078ACFC9BA7752DB9068B5B92ABF098667E3F3C397939F7FF02D3F2
-B5.pygtex [11])
-(./_minted-VNMCC/E93928046ADC97B96B7EDB609F8F37050C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/DEE61E2C94044E185FA5C2A8F6BCBCDF0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/5F1589230E95F207FA53D14412849F800C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/C0499C80670841BC7E4BBCD6D4A9B4290C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/FECF3047E440101DFEB8EE4E4DED4AD00C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/CC2B57C5ECD9D889D9F3F835F93A33240C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex) [12]
-(./_minted-VNMCC/1863FA18DBB37AD29D3F9C2F0C097A900C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/0D0B9A59A558C42D543C7879F7ABF5AE0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/D3C7818C83425C8708F3DC117388B2710C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-Overfull \hbox (47.40404pt too wide) in paragraph at lines 101--103
-\TU/EBGaramond(0)/m/n/12 There are mainly two types of sized integers: [] and [
-].
- []
-
-
-(./_minted-VNMCC/F3CCC1F614942E6911BEEED5E5E7921D0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/B0B575B94D643BD24664F7C74BE231370C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/323F4E1108CCC7327D3BA2AEEB555D870C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/7E3527A124BFA6E569E0466C7CB35D7C0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/10839EA025AE751BC9BB8F87D45DEB2F0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex
-Overfull \hbox (56.31212pt too wide) in paragraph at lines 116--1
-\TU/EBGaramond(0)/m/n/12 ory blocks that we are going to use are just wrappers 
-around this type ([]).
- []
-
-[13])
-(./_minted-VNMCC/D9BC923D05CD2F0B5268302A5593F47C0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/3A544F34D1DEB63BA9C8928C63AE94E40C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/9C1CA64A32191EA1ABDFD601EA0049F00C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/5E61487A211BE2D421E97ACE07E1FF3E0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/8EDD11BE80BDF6AD44E6F7849CC4B82BABF098667E3F3C397939F7FF02D3F2
-B5.pygtex
-Overfull \hbox (24.1534pt too wide) in paragraph at lines 135--1
-\TU/EBGaramond(0)/m/n/12 Other Haskell types like [] can also be used without p
-roblem. For example, []
- []
-
-)
-(./_minted-VNMCC/22C11FF498201DA98B299F49093B557BABF098667E3F3C397939F7FF02D3F2
-B5.pygtex)
-(./_minted-VNMCC/2DC86FE40129A39A9D023C2DC048FC92ABF098667E3F3C397939F7FF02D3F2
-B5.pygtex)
-(./_minted-VNMCC/65772C70BFAA9A66B2F0088E0EDD028A0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/3F82B29F5C8223B296100D209BB630C20C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/B48C3588E6CF18B292CC7AF30B5E8F690C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-Overfull \hbox (24.22406pt too wide) in paragraph at lines 156--159
-[]\TU/EBGaramond(0)/m/n/12 In Clash, sequential logic things are wrapped into a
- type [].
- []
-
-[14]
-(./_minted-VNMCC/535B6A8C25A689651D283DDAA74FF58B0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/C9BCE574830D632412B19DF61EC16E410C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/EA5A277AB616CE9E0AC8F97F46D766A30C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/47EF9982E672037EAD8491611DBBBA830C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/64F0BE93EC5C6EA4DD938A1F8F9A30560C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/51689D4721EBFD124DAC47D63E5220990C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/677C7C506ED1101C937A1D3B36BC02210C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex
-Overfull \hbox (4.73209pt too wide) in paragraph at lines 167--1
-[]\TU/EBGaramond(0)/m/n/12 Usually, enable, clock and reset signals are require
-d everywhere within a synchronous
- []
-
-[15])
-(./_minted-VNMCC/DFA481693CBA2CDCF89F664CE56A3FEB0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/9E68E1C68D47820558EDEBA9907982190C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/B50B24CCB45757BF51EB81765E52DA370C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [16])
-(./_minted-VNMCC/F9593EAD326ED3BDD2A42DAF8EF8926F0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/836CA339104E578698BFD9C612E1E4D0E1F81C7A9F542DE9D2B07EA2661689
-47.pygtex)
-Overfull \hbox (13.51608pt too wide) in paragraph at lines 221--222
-\TU/EBGaramond(0)/m/n/12 tions like [], which will be translated into some Veri
-log code using []
- []
-
-
-(./_minted-VNMCC/6AB1E0BF4364368BC48248FF6D9DB00E0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/72252D899131E16AF8D299863310BDCA0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [17])
-(./_minted-VNMCC/6CAE40EFB270A03DD4C0A35173E57C900C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/247AB103EB19E8FB2C666EAC1D3B5C2C0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/DD97097808BEDB2F2E4852AD7F469E440C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/4D884F5B3927DE0DE09A49A6FB9CE6090C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/838AE6F92BCE4D1BE83621E840429D560C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [18])
-(./_minted-VNMCC/25D64A44808B72BE7A7975E1C3DE21150C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/0D793023E52B677F43B668D5799796FE0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/033346769BA7486D6360171B29045C620C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [19])
-(./_minted-VNMCC/750480D3292252C48D2A5F8F7B12E8BF0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/C264DD4E1705C0CF10862D0C589AB21E0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/E3B65D5F947F16F13964B2A3BF017A9C0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [20])
-(./_minted-VNMCC/5F1EC86EDE17C5B83A6B7A774EDF74380C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/660DD5DD3FE9279FA3880FBAB1CE9C570C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/71ABE97E2554D37F1D12C5BF4945297F0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/5F1EC86EDE17C5B83A6B7A774EDF74380C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/B220033A279021F015AE9A91715C0BF40C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)) [21] (./chapter4.tex
-Chapter 4.
-Package lettrine.sty Info: Targeted height = 23.561pt
-(lettrine.sty)             (for loversize=0, accent excluded),
-(lettrine.sty)             Lettrine height = 22.33875pt (N);
-(lettrine.sty)             reported on input line 2.
-
-Overfull \hbox (6.31204pt too wide) in paragraph at lines 12--13
-[]\TU/EBGaramond(0)/m/n/12 Write Back Module: Act as a transition module before
- register writing and branch-
- []
-
-[22
-
-
-
-]
-File: ./image/pipeline.png Graphic file (type bmp)
-<./image/pipeline.png>
-
-Overfull \hbox (6.19476pt too wide) in paragraph at lines 25--26
-\TU/EBGaramond(0)/m/n/12 model, if the branch condition fails, everything works
- fine; nevertheless, when the branch
- []
-
-[23]
-(./_minted-VNMCC/B2EAAD0E09F4865C728E2030F0BE515D90F719184C266C4DAB3BEA9B1A48A8
-F4.pygtex)
-(./_minted-VNMCC/65FDF4733075192AFB5419F28433FC9690F719184C266C4DAB3BEA9B1A48A8
-F4.pygtex)
-(./_minted-VNMCC/B790D52469EECD8DE1F191EC157C2CD490F719184C266C4DAB3BEA9B1A48A8
-F4.pygtex) [24]
-(./_minted-VNMCC/CEBB050DBF304232D1D626F65E58000F90F719184C266C4DAB3BEA9B1A48A8
-F4.pygtex)
-(./_minted-VNMCC/D4CA1806B81543BFB87797CA2131AFC990F719184C266C4DAB3BEA9B1A48A8
-F4.pygtex) [25]
-(./_minted-VNMCC/E2E5877B64882AE5A21ED85082762B1F0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/E824A70A951C728093E482742D3AEB390C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [26])
-Overfull \hbox (2.72012pt too wide) in paragraph at lines 130--131
-\TU/EBGaramond(0)/m/n/12 After the format is determined, we can then transform 
-instructions into our inner forms: 
- []
-
-
-(./_minted-VNMCC/5702B0CF16FE603A99C98DF36E9FFA3B0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [27] [28])
-(./_minted-VNMCC/1FC458E7F1AA77A01EAD2F28DF728D600C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/DD50063F43AE6D378662BAF28119B74D0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/D59168929D8CC19DFDCC6D7E8AB650220C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/F37C6B29C1E61BEB15E6045451B6C9E60C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/65D6ED453414891291E9CE0D8A5705870C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/F9593EAD326ED3BDD2A42DAF8EF8926F0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/B456215232EFE8C6315E022DFA8C78DA0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [29])
-File: ./image/im.png Graphic file (type bmp)
-<./image/im.png>
- [30]
-(./_minted-VNMCC/19428FA76717984B99A28367EB494CE10C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [31])
-(./_minted-VNMCC/789C3359C4421760D0504AE12FAE2B380C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/4919666BD2F09CDF64030F5D8B7B88120C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/6C01622ABEA7FF6C99A12F90C43F940B0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex) [32]
-(./_minted-VNMCC/0496B26637C1A21232D3A6E470B57E060C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/4DAD72C67CAB0B3BB5628698C615478C0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [33] [34])
-(./_minted-VNMCC/00F40656D8ABB9A29E8645120B4ED1B90C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/1840219A2C6D4E7BFB88BA33C99C0EB80C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/1D3A03143C3278C21EF5D1F3C33227810C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/89449E8DA4A48596CC83021BDDCAFC330C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [35])
-(./_minted-VNMCC/C2E63D72D358B3180A52EC98BBB7AE840C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/C9E64C11E183CA08D0A06B340565EC140C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/7C3169AD40B4A364DB236868A60AE0900C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [36])
-(./_minted-VNMCC/134A74B1AD9F27422D1C42E9ECEFB3F60C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [37] [38])
-(./_minted-VNMCC/B1A6B810B18E9171D4D7B54A163C53370C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [39])
-(./_minted-VNMCC/B09B972A69F2CE2E66C6735B1F466E1B0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [40] [41])
-(./_minted-VNMCC/BA3A3726DA449369DA4DC8BBF8D089850C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [42])
-(./_minted-VNMCC/503EBD4EEBCB831B23B557F9C2CDFA370C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [43])
-(./_minted-VNMCC/63F500D82E878DE2C74E5225635627DF0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [44] [45])
-File: ./image/dm.png Graphic file (type bmp)
-<./image/dm.png>
- [46]
-(./_minted-VNMCC/8CBDEBCE595DFAB014D85B12545DD81A0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/00F40656D8ABB9A29E8645120B4ED1B90C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/17CA1D2E47FF62BF762C120C9A2E91060C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/323AEF10A9199EDDDE5E6A85557A0F9F0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/51201FE4AF7EE5D8F99247DB9536E9410C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/30149095A0A39D1373D18E9D3386E64E0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex) [47]
-(./_minted-VNMCC/348FEFCD919789DE4D7A4A628DDAD9A60C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/0EFBEF249B1C6E70124D4BD1182E05980C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [48])
-(./_minted-VNMCC/332B4FD31341EEAE8E1F68C4779098F20C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/FD48B4E840D7252E56F3FB11BAC0F5060C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/EB5CCC03971A3BC527AFAE664BBD33460C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [49])
-(./_minted-VNMCC/E6F7517159DFA41D2DFAF5262442A68C0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/9BA4454A90BF585E73E688115AEA6E570C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/DB14D835503B4463E809DC31170912690C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [50] [51])
-(./_minted-VNMCC/EAF27420CADB81D6F50D502B8287B7280C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [52])
-(./_minted-VNMCC/4F2707A1B5EEC45E66948D3F7592466A0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [53] [54] [55])
-(./_minted-VNMCC/BF4CC2B735FE49EC9DA5E28CD68765BD0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/BFDC1E9C8B7B17767F32C08317F4C8940C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-File: ./image/am.png Graphic file (type bmp)
-<./image/am.png>
- [56]
-(./_minted-VNMCC/3B5FF8159E7039BF683E3CAB1F117BE20C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [57])
-(./_minted-VNMCC/86B552AF5542F5F9CB5DB098CF35F8FF0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [58])
-(./_minted-VNMCC/8BB59B9DC4D0289037811BD781EAEE380C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [59] [60])
-(./_minted-VNMCC/7790901E931513E6ECDCAA5A71D06E340C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/26C99D0215E567B6BF5D2B21A495B61C0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-File: ./image/mm.png Graphic file (type bmp)
-<./image/mm.png>
- [61]
-(./_minted-VNMCC/5CD43657B0EA3F320BACBD5451D89EF40C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/DBB5F7601DF0219876A6E6CAAD6501500C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [62])) [63]
-(./_minted-VNMCC/249EC2864A36DD8E4A9573D33B72F9ED0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/7FA44CB67E6D2ACCFA94370CB51F14D00C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/249EC2864A36DD8E4A9573D33B72F9ED0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/6362C09306B197C14CBDF8D5E9DAE51E0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/92520A5A9CF893220B9CD447F585F1440C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-Overfull \hbox (62.73335pt too wide) in paragraph at lines 50--51
-[]\TU/EBGaramond(0)/m/n/12 constraints? Just enable [] and []
- []
-
-
-(./_minted-VNMCC/A594E33F52D83C0AF7B00FFF0E5AE77A0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/49907B6BA4D9D1B483400B269CF5E0B20C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex) [64
-
-
-
-]
-(./_minted-VNMCC/8238535CD2FA80418367602739F3A1790C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/8958AAF2053FA9D5AB917FA519D81AA30C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/EA6F70EDD0D17870EBCE18FFAE0D1E920C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/A744B3F252F82A807D87C947D933B4BB0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-Overfull \hbox (57.15742pt too wide) in paragraph at lines 88--89
-[]\TU/EBGaramond(0)/m/n/12 And thought, maybe there’s a less verbose way. Well,
- look no further than []
- []
-
-
-(./_minted-VNMCC/96CB7E7D6C2F981DCD98EBA72F09D14B0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/A8E22E98D60FFA635349D2403B107E880C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-(./_minted-VNMCC/19F1050675582E38CABF63BC3FC1F3B00C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex)
-Overfull \hbox (65.4121pt too wide) in paragraph at lines 114--115
-[]\TU/EBGaramond(0)/m/n/12 Note that these are indeed orphans so you might want
- to put []
- []
-
-
-(./_minted-VNMCC/E8C2F103B6F8178A77E901013EA0406F0C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex [65])
-(./_minted-VNMCC/55554F4CEB424C5924AF285842D794200C452BFCE599B48F9AF5F09E7A5564
-E1.pygtex) [66]
-Overfull \hbox (3.08864pt too wide) in paragraph at lines 135--136
-\TU/EBGaramond(0)/m/n/12 In the test bench, we have already shown the functions
- to dump VCD files. The dumped
- []
-
-File: ./image/gtkwave0.png Graphic file (type bmp)
-<./image/gtkwave0.png>
-[67
-
-]
-File: ./image/gtkwave1.png Graphic file (type bmp)
-<./image/gtkwave1.png>
-
-(./_minted-VNMCC/03697FE9D2B1294E576732FAFA5D7BE367611EDE2838E2647A54D8A604CCE4
-5E.pygtex) [68]
-(./_minted-VNMCC/7184CA3AA41BAEBC06BBADB324B642F190F719184C266C4DAB3BEA9B1A48A8
-F4.pygtex)
-(./_minted-VNMCC/22F5BD9FB358D81479BB57A96034EAF667611EDE2838E2647A54D8A604CCE4
-5E.pygtex [69
-
-])
-(./_minted-VNMCC/892741A002C3CB8D512A5D8685D03C6F67611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/CC6255446F015786B960254CB506403767611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/59A15F8ECA572DC284FD0115A183156267611EDE2838E2647A54D8A604CCE4
-5E.pygtex)
-(./_minted-VNMCC/442F4E0CB6629FF5EC24EEC5A6D3A89067611EDE2838E2647A54D8A604CCE4
-5E.pygtex) [70]
-Overfull \hbox (0.80006pt too wide) in paragraph at lines 200--201
-[]\TU/EBGaramond(0)/m/n/12 Thanks \TU/EBGaramond(0)/b/n/12 dramforever \TU/EBGa
-ramond(0)/m/n/12 <dramforever@live.com> for the template repository and sev-
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 207.
-
-Overfull \hbox (6.57208pt too wide) in paragraph at lines 206--207
-[]\TU/EBGaramond(0)/m/n/12 Thanks \TU/EBGaramond(0)/b/n/12 ice1000 \TU/EBGaramo
-nd(0)/m/n/12 <ice1000kotlin@foxmail.com> for the suggestions on Haskell code-
- []
-
-[71
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 207.
- (./VNMCC.aux (./chapter1.aux) (./chapter2.aux) (./chapter3.aux)
-(./chapter4.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 207.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 207.
-Package rerunfilecheck Info: File `VNMCC.out' has not changed.
-(rerunfilecheck)             Checksum: F9A9323EF49D5B2110F99333A951DBDE;2644.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-runsystem(rm VNMCC.pyg)...executed.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 207.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 16264 strings out of 479418
- 367173 string characters out of 5890316
- 698256 words of memory out of 5000000
- 32972 multiletter control sequences out of 15000+600000
- 536651 words of font info for 75 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 44i,8n,82p,957b,603s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on VNMCC.pdf (76 pages).
+ 8628 strings out of 480608
+ 150969 string characters out of 5910021
+ 464691 words of memory out of 5000000
+ 24414 multiletter control sequences out of 15000+600000
+ 532636 words of font info for 25 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 44i,0n,44p,1004b,44s stack positions out of 5000i,500n,10000p,200000b,80000s
+/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty:45:  ==> Fatal error occurred, no output PDF file produced!
