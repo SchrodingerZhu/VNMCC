@@ -12,25 +12,24 @@ module MIPS.Instruction.Format where
 import Clash.Prelude
 
 -- | The Format of MIPS Instructions
-data Format            
-  = NoType             -- ^ NoType (Specialized for NOP Instruction)
-  | RType              -- ^ R-Type Instruction Format
-      (BitVector 6)    -- ^ Operation Code
-      (BitVector 5)    -- ^ Register S
-      (BitVector 5)    -- ^ Register T
-      (BitVector 5)    -- ^ Register D
-      (BitVector 5)    -- ^ Extra Infomation for Shifting Amount
-      (BitVector 6)    -- ^ Function Code
-  | IType              -- ^ I-Type Instruction Format
-      (BitVector 6)    -- ^ Operation Code
-      (BitVector 5)    -- ^ Register S
-      (BitVector 5)    -- ^ Register T
-      (BitVector 16)   -- ^ Immediate Value
-  | JType              -- ^ J-Type Instruction Format 
-      (BitVector 6)    -- ^ Operation Code
-      (BitVector 26)   -- ^ Jump Target
-  deriving Show
-
+data Format
+  = NoType -- ^ NoType (Specialized for NOP Instruction)
+  | RType
+      (BitVector 6) -- ^ Operation Code
+      (BitVector 5) -- ^ Register S
+      (BitVector 5) -- ^ Register T
+      (BitVector 5) -- ^ Register D
+      (BitVector 5) -- ^ Extra Infomation for Shifting Amount
+      (BitVector 6) -- ^ Function Code
+  | IType
+      (BitVector 6) -- ^ Operation Code
+      (BitVector 5) -- ^ Register S
+      (BitVector 5) -- ^ Register T
+      (BitVector 16) -- ^ Immediate Value
+  | JType
+      (BitVector 6) -- ^ Operation Code
+      (BitVector 26) -- ^ Jump Target
+  deriving (Show)
 
 {-|
   Transform raw instruction binary code into instruction format types.
@@ -43,19 +42,14 @@ decodeFormat vec =
    in case opcode of
         0 ->
           RType <$> (slice d31 d26) <*> (slice d25 d21) <*> (slice d20 d16) <*>
-            (slice d15 d11) <*>
-            (slice d10 d6) <*>
-            (slice d5 d0) $
-            vec
+          (slice d15 d11) <*>
+          (slice d10 d6) <*>
+          (slice d5 d0) $
+          vec
         code ->
           if code == 0b000010 || code == 0b000011
-          then JType 
-                <$> (slice d31 d26) 
-                <*> (slice d25 d0) 
-                 $ vec
-          else IType 
-                <$> (slice d31 d26) 
-                <*> (slice d25 d21) 
-                <*> (slice d20 d16) 
-                <*> (slice d15 d0) 
-                 $  vec
+            then JType <$> (slice d31 d26) <*> (slice d25 d0) $ vec
+            else IType <$> (slice d31 d26) <*> (slice d25 d21) <*>
+                 (slice d20 d16) <*>
+                 (slice d15 d0) $
+                 vec

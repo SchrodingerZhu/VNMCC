@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nf}{arithmeticUnit\PYGZsq{}} \PYG{k+kt}{ALUNone} \PYG{o+ow}{=} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{)}
-\end{Verbatim}

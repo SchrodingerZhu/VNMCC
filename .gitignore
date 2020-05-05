@@ -9,3 +9,4 @@ vhdl/
 test
 *.hi
 test.vcd
+_minted-*

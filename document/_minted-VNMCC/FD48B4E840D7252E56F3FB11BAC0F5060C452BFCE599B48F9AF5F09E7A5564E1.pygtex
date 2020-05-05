@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nf}{arithmeticUnit\PYGZsq{}} \PYG{k+kt}{ALUAnd} \PYG{o+ow}{=} \PYG{p}{(}\PYG{n}{opr0} \PYG{o}{.\PYGZam{}.} \PYG{n}{opr1}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{)}
-\PYG{n+nf}{arithmeticUnit\PYGZsq{}} \PYG{k+kt}{ALUNor} \PYG{o+ow}{=} \PYG{p}{(}\PYG{n}{complement} \PYG{o}{\PYGZdl{}} \PYG{n}{opr0} \PYG{o}{.|.} \PYG{n}{opr1}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{)}
-\PYG{n+nf}{arithmeticUnit\PYGZsq{}} \PYG{k+kt}{ALUOr}  \PYG{o+ow}{=} \PYG{p}{(}\PYG{n}{opr0} \PYG{o}{.|.} \PYG{n}{opr1}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{)}
-\PYG{n+nf}{arithmeticUnit\PYGZsq{}} \PYG{k+kt}{ALUXor} \PYG{o+ow}{=} \PYG{p}{(}\PYG{n}{opr0} \PYG{p}{`}\PYG{n}{xor}\PYG{p}{`} \PYG{n}{opr1}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{,} \PYG{k+kt}{False}\PYG{p}{)}
-\end{Verbatim}

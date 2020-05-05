@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kt}{Just} \PYG{k+kt}{True}  \PYG{o+ow}{=} \PYG{l+m+mi}{11}
-\PYG{k+kt}{Just} \PYG{k+kt}{False} \PYG{o+ow}{=} \PYG{l+m+mi}{10}
-\PYG{k+kt}{Nothong}    \PYG{o+ow}{=} \PYG{l+m+mi}{0}\PYG{n}{x}
-\end{Verbatim}

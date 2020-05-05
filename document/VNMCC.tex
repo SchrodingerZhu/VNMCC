@@ -132,9 +132,9 @@ This is transformed into the following thing:
 \end{minted}
 Be aware that Signal is not a Monad Instance. Even though you can use some basic logic structures, these do blocks are highly limited: you can not use let-binding or apply some complicated functions at the middle way.
 \chapter{GtkWave}
-In the test bench, we have already shows the functions to dump VCD files. The dumped results can be used in a software called GTKWave to provide visualization of the circuit state.
+In the test bench, we have already shown the functions to dump VCD files. The dumped data can be used in a software called GtkWave to provide visualization of the circuit state.
 
-Invoke Icarus Verilog generated simulation executable and you will get the monitor output together with a VCD file.
+Invoke Icarus Verilog simulation executable and you will get the monitor output together with a VCD file.
 
 You can open the file with GtkWave and get a screen like this:
 \begin{figure}[H]
@@ -151,7 +151,8 @@ Using the tree view on the left-hand side, you can choose the signals to display
 	\caption{GtkWave Display}
 \end{figure}
 
-If you want to use GtkWave to debug the circuits, it is recommended to store the configuration so that you do not need to select the signals to display each time you open the program.
+If you want to use GtkWave to debug the circuits, it is recommended to store the configuration so that you do not need to select the signals to display each time you open the program. In the command-line, you can invoke the program by something like this:
+\mint{text}{gtkwave test.vcd config.gtkw}
 
 \chapter{Sample Output}
 Let us create a nonsense assembly file which involves stalling and forwarding:
@@ -194,7 +195,7 @@ The output is shown in the following files:
 \chapter{Acknowledgments}
 This book cannot be finished without the help from some excellent people. We must give our acknowledgments to them.
 
-Thanks \textbf{Prof. Ye-Ching Chung} <ychung@cuhk.edu.cn> for his lectures and guidance on the microprocessor architectures and instruction sets.
+Thanks \textbf{Prof. Ye-Ching Chung} <ychung@cuhk.edu.cn> for his lectures and guidance on microprocessor architectures and instruction sets.
 
 Thanks \textbf{dramforever} <dramforever@live.com> for the template repository and several important corrections of our technical details, mainly on the installation part and the descriptions of several Clash functions.
 

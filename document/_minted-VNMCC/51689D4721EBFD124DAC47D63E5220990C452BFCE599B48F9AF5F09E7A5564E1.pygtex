@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nf}{simulate} \PYG{o}{@}\PYG{k+kt}{System} \PYG{n}{myInterface}
-\end{Verbatim}

@@ -1,4 +1,5 @@
 {-# LANGUAGE LambdaCase #-}
+
 module MIPS.ControlUnit where
 
 import Clash.Prelude
@@ -41,112 +42,117 @@ writeRegister ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom (Maybe (Unsigned 5))
-writeRegister = fmap $ \case
-        ADD _ _ rd -> Just rd
-        ADDI _ rt _ -> Just rt
-        ADDU _ _ rd -> Just rd
-        ADDIU _ rt _ -> Just rt
-        SUB _ _ rd -> Just rd
-        SUBU _ _ rd -> Just rd
-        AND _ _ rd -> Just rd
-        ANDI _ rt _ -> Just rt
-        NOR _ _ rd -> Just rd
-        OR _ _ rd -> Just rd
-        ORI _ rt _ -> Just rt
-        XOR _ _ rd -> Just rd
-        XORI _ rt _ -> Just rt
-        SLT _ _ rd -> Just rd
-        SLTI _ rt _ -> Just rt
-        SLTU _ _ rd -> Just rd
-        SLTIU _ rt _ -> Just rt
-        SLL rd _ _ -> Just rd
-        SRL rd _ _ -> Just rd
-        SRA rd _ _ -> Just rd
-        SLLV _ _ rd -> Just rd
-        SRLV _ _ rd -> Just rd
-        SRAV _ _ rd -> Just rd
-        LW _ rt _ -> Just rt
-        JAL _ -> Just 31
-        _ -> Nothing
+writeRegister =
+  fmap $ \case
+    ADD _ _ rd -> Just rd
+    ADDI _ rt _ -> Just rt
+    ADDU _ _ rd -> Just rd
+    ADDIU _ rt _ -> Just rt
+    SUB _ _ rd -> Just rd
+    SUBU _ _ rd -> Just rd
+    AND _ _ rd -> Just rd
+    ANDI _ rt _ -> Just rt
+    NOR _ _ rd -> Just rd
+    OR _ _ rd -> Just rd
+    ORI _ rt _ -> Just rt
+    XOR _ _ rd -> Just rd
+    XORI _ rt _ -> Just rt
+    SLT _ _ rd -> Just rd
+    SLTI _ rt _ -> Just rt
+    SLTU _ _ rd -> Just rd
+    SLTIU _ rt _ -> Just rt
+    SLL rd _ _ -> Just rd
+    SRL rd _ _ -> Just rd
+    SRA rd _ _ -> Just rd
+    SLLV _ _ rd -> Just rd
+    SRLV _ _ rd -> Just rd
+    SRAV _ _ rd -> Just rd
+    LW _ rt _ -> Just rt
+    JAL _ -> Just 31
+    _ -> Nothing
 
 memoryOperation ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom MemoryOperation
-memoryOperation = fmap $ \case
-        LW _ _ _ -> MemLoad
-        SW _ _ _ -> MemWrite
-        _ -> MemNone
+memoryOperation =
+  fmap $ \case
+    LW _ _ _ -> MemLoad
+    SW _ _ _ -> MemWrite
+    _ -> MemNone
 
 branchFlag ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom BranchFlag
-branchFlag = fmap $ \case
-        BEQ _ _ x -> BranchEQ (pack $ extend x)
-        BNE _ _ x -> BranchNE (pack $ extend x)
-        JR _ -> Jump
-        J _ -> Jump
-        JAL _ -> Jump
-        _ -> NoBranch
+branchFlag =
+  fmap $ \case
+    BEQ _ _ x -> BranchEQ (pack $ extend x)
+    BNE _ _ x -> BranchNE (pack $ extend x)
+    JR _ -> Jump
+    J _ -> Jump
+    JAL _ -> Jump
+    _ -> NoBranch
 
 dispatch ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom ALUOperation
-dispatch = fmap $ \case
-        ADD _ _ _ -> ALUAdd True
-        ADDI _ _ _ -> ALUAdd True
-        ADDIU _ _ _ -> ALUAdd False
-        ADDU _ _ _ -> ALUAdd False
-        SUB _ _ _ -> ALUSub True
-        SUBU _ _ _ -> ALUSub False
-        AND _ _ _ -> ALUAnd
-        ANDI _ _ _ -> ALUAnd
-        NOR _ _ _ -> ALUNor
-        OR _ _ _ -> ALUOr
-        ORI _ _ _ -> ALUOr
-        XOR _ _ _ -> ALUXor
-        XORI _ _ _ -> ALUXor
-        BEQ _ _ _ -> ALUXor
-        BNE _ _ _ -> ALUXor
-        SLT _ _ _ -> ALUSet True
-        SLTI _ _ _ -> ALUSet True
-        SLTU _ _ _ -> ALUSet False
-        SLTIU _ _ _ -> ALUSet False
-        LW _ _ _ -> ALUAdd True
-        SW _ _ _ -> ALUAdd True
-        SLL _ _ _ -> ALUShiftL
-        SLLV _ _ _ -> ALUShiftL
-        SRL _ _ _ -> ALUShiftR False
-        SRLV _ _ _ -> ALUShiftR False
-        SRA _ _ _ -> ALUShiftR True
-        SRAV _ _ _ -> ALUShiftR False
-        JR _ -> ALUOr
-        J _ -> ALUOr
-        JAL _ -> ALUOr
-        _ -> ALUNone
+dispatch =
+  fmap $ \case
+    ADD _ _ _ -> ALUAdd True
+    ADDI _ _ _ -> ALUAdd True
+    ADDIU _ _ _ -> ALUAdd False
+    ADDU _ _ _ -> ALUAdd False
+    SUB _ _ _ -> ALUSub True
+    SUBU _ _ _ -> ALUSub False
+    AND _ _ _ -> ALUAnd
+    ANDI _ _ _ -> ALUAnd
+    NOR _ _ _ -> ALUNor
+    OR _ _ _ -> ALUOr
+    ORI _ _ _ -> ALUOr
+    XOR _ _ _ -> ALUXor
+    XORI _ _ _ -> ALUXor
+    BEQ _ _ _ -> ALUXor
+    BNE _ _ _ -> ALUXor
+    SLT _ _ _ -> ALUSet True
+    SLTI _ _ _ -> ALUSet True
+    SLTU _ _ _ -> ALUSet False
+    SLTIU _ _ _ -> ALUSet False
+    LW _ _ _ -> ALUAdd True
+    SW _ _ _ -> ALUAdd True
+    SLL _ _ _ -> ALUShiftL
+    SLLV _ _ _ -> ALUShiftL
+    SRL _ _ _ -> ALUShiftR False
+    SRLV _ _ _ -> ALUShiftR False
+    SRA _ _ _ -> ALUShiftR True
+    SRAV _ _ _ -> ALUShiftR False
+    JR _ -> ALUOr
+    J _ -> ALUOr
+    JAL _ -> ALUOr
+    _ -> ALUNone
 
 immediateValue ::
      HiddenClockResetEnable dom
   => Signal dom Instruction
   -> Signal dom (Maybe (BitVector 32))
-immediateValue = fmap $ \case
-        ADDI _ _ x -> Just (pack $ extend x)
-        ADDIU _ _ x -> Just (pack $ extend x)
-        ANDI _ _ x -> Just (extend x)
-        ORI _ _ x -> Just (extend x)
-        XORI _ _ x -> Just (extend x)
-        SLTI _ _ x -> Just (pack $ extend x)
-        SLTIU _ _ x -> Just (pack $ extend x)
-        LW _ _ x -> Just (pack $ extend x)
-        SW _ _ x -> Just (pack $ extend x)
-        SLL _ _ x -> Just (pack $ extend x)
-        SRL _ _ x -> Just (pack $ extend x)
-        SRA _ _ x -> Just (pack $ extend x)
-        JAL x -> Just (pack $ extend x)
-        J x -> Just (pack $ extend x)
-        _ -> Nothing
+immediateValue =
+  fmap $ \case
+    ADDI _ _ x -> Just (pack $ extend x)
+    ADDIU _ _ x -> Just (pack $ extend x)
+    ANDI _ _ x -> Just (extend x)
+    ORI _ _ x -> Just (extend x)
+    XORI _ _ x -> Just (extend x)
+    SLTI _ _ x -> Just (pack $ extend x)
+    SLTIU _ _ x -> Just (pack $ extend x)
+    LW _ _ x -> Just (pack $ extend x)
+    SW _ _ x -> Just (pack $ extend x)
+    SLL _ _ x -> Just (pack $ extend x)
+    SRL _ _ x -> Just (pack $ extend x)
+    SRA _ _ x -> Just (pack $ extend x)
+    JAL x -> Just (pack $ extend x)
+    J x -> Just (pack $ extend x)
+    _ -> Nothing
 
 {-# ANN controlUnit
           (Synthesize{t_name = "ControlUnit",
@@ -172,5 +178,5 @@ controlUnit ::
       )
 controlUnit =
   exposeClockResetEnable $
-    (,,,,) <$> writeRegister <*> memoryOperation <*> branchFlag <*> dispatch <*>
-      immediateValue
+  (,,,,) <$> writeRegister <*> memoryOperation <*> branchFlag <*> dispatch <*>
+  immediateValue

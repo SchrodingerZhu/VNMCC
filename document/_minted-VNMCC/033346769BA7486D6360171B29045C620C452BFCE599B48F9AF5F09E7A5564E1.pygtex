@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nf}{counterS}
-    \PYG{o+ow}{::} \PYG{k+kt}{Maybe} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)}
-    \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{State} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)} \PYG{p}{(}\PYG{k+kt}{Unsigned} \PYG{l+m+mi}{32}\PYG{p}{)}
-\PYG{n+nf}{counterS} \PYG{n}{input} \PYG{o+ow}{=} \PYG{k+kr}{do}
-    \PYG{n}{state} \PYG{o+ow}{\PYGZlt{}\PYGZhy{}} \PYG{n}{get}
-    \PYG{n}{put} \PYG{o}{\PYGZdl{}} \PYG{n}{maybe} \PYG{p}{(}\PYG{n}{state} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{id} \PYG{n}{input}
-    \PYG{n}{return} \PYG{n}{state}
-\end{Verbatim}

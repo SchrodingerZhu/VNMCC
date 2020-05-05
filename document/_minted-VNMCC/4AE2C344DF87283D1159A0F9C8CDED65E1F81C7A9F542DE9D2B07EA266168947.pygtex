@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{always}
-    \PYG{p}{\PYGZsh{}}\PYG{l+m+mh}{1000} \PYG{n}{clk} \PYG{o}{=} \PYG{o}{!}\PYG{n}{clk}\PYG{p}{;}
-\end{Verbatim}

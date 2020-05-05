@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nf}{replace} \PYG{o+ow}{::} \PYG{p}{(}\PYG{k+kt}{KnownNat} \PYG{n}{n}\PYG{p}{,} \PYG{k+kt}{Enum} \PYG{n}{i}\PYG{p}{)} \PYG{o+ow}{=\PYGZgt{}} \PYG{n}{i} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{a} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Vec} \PYG{n}{n} \PYG{n}{a} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Vec} \PYG{n}{n} \PYG{n}{a}
-\end{Verbatim}

@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nf}{boolToBit} \PYG{o+ow}{::} \PYG{k+kt}{Bool} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Bit}
-\PYG{n+nf}{bitToBool} \PYG{o+ow}{::} \PYG{k+kt}{Bit} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Bool}
-\PYG{n+nf}{boolToBV} \PYG{o+ow}{::} \PYG{k+kt}{KnownNat} \PYG{n}{n} \PYG{o+ow}{=\PYGZgt{}} \PYG{k+kt}{Bool} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{BitVector} \PYG{p}{(}\PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
-\end{Verbatim}

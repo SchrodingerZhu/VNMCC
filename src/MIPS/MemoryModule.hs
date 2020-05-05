@@ -52,29 +52,21 @@ memoryModule ::
   -> Signal System MemOutput
 memoryModule clk rst enable aluOut stall =
   let stateMachine = (exposeClockResetEnable memState) clk rst enable
-      (writeReg,  memOpPrev, aluRes, br) =
+      (writeReg, memOpPrev, aluRes, br) =
         unbundle $ stateMachine $ bundle (aluOut, stall)
-
       writeInfoSolver _ _ True _ = Nothing
       writeInfoSolver address (MemWrite' v) _ Nothing = Just (unpack address, v)
       writeInfoSolver _ _ _ _ = Nothing
-
       thirdData (_, _, x, _) = x `unsafeShiftR` 2
       secondData (_, x, _, _) = x
-      
       aluRes' = thirdData <$> aluOut
-      memOp   = secondData <$> aluOut
-
+      memOp = secondData <$> aluOut
       writeInfo = writeInfoSolver <$> aluRes' <*> memOp <*> stall <*> br -- wrtie
-
       memData = mainRAM clk rst enable (unpack <$> aluRes') writeInfo
-
       writePair (Just no) _ MemLoad' res = Just (no, res)
       writePair (Just no) res _ _ = Just (no, res)
       writePair _ _ _ _ = Nothing
-
       writePair' = writePair <$> writeReg <*> aluRes <*> memOpPrev <*> memData
-
       check True _ = (Nothing, Nothing)
       check _ x = x
    in check <$> stall <*> bundle (br, writePair')
