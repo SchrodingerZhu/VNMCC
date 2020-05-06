@@ -21,4 +21,10 @@ Thanks **Outvi V** <i@outv.im> for providing some materials of GtkWave and good 
 
 Thanks **ice1000** <ice1000kotlin@foxmail.com> for the suggestions on Haskell code-style and logic structures.
 
+## License 
 
+The Book for Very Naive MIPS using Clash by Schrodinger ZHU is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0. (including all the LaTeX contents and related media files created in this repository).
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+
+Other components in this repository are under MIT license.
