@@ -25,4 +25,6 @@ Thanks **ice1000** <ice1000kotlin@foxmail.com> for the suggestions on Haskell co
 
 The Book for Very Naive MIPS using Clash by Schrodinger ZHU is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0. (including all the LaTex contents and related media files created in this repository).
 
+![CC-BY](https://search.creativecommons.org/static/img/cc-by_icon.svg)
+
 Other components in this repository are under MIT license.
