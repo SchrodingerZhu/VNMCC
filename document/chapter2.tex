@@ -65,7 +65,7 @@ module example();
     end
 endmodule
 \end{minted}
-This example shows a way to assign the initial values of some registers within an \mintinline{verilog}{initial} block; Notice that operatior \mintinline{verilog}{=} stands for the blocking assignment, which means the assignments will happen one by one.
+This example shows a way to assign the initial values of some registers within an \mintinline{verilog}{initial} block; Notice that operator \mintinline{verilog}{=} stands for the blocking assignment, which means the assignments will happen one by one.
 
 What if we want to handle the assignment at some specific time? We can then use a statement in the form of \mintinline{verilog}{always @( ...  sensitivity  list  ... ) begin}, the following example shows the non-blocking assignments happening on each rising edge of the clock:
 \begin{minted}[breaklines, linenos]{verilog}
@@ -150,7 +150,7 @@ There are several special functions we are going to use,
 			\item \mintinline{text}{%d}: digits
 			\item \mintinline{text}{%-d}: digits (left aligned)
 			\item \mintinline{text}{%b}: binary
-			\item \mintinline{text}{%x}: hexdecimal
+			\item \mintinline{text}{%x}: hexadecimal
 		\end{itemize}
 	\item \mintinline{verilog}{$monitor("format string", a, "format string", b)} used the same as display, but it will be triggered everytime a monitored variable updates
 	\item \mintinline{verilog}{$time} gets the current time

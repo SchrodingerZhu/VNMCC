@@ -27,7 +27,7 @@ However, in most cases, you need to write a special annotation for the function:
   )
 #-}
 \end{minted}
-You can customize the names of the ports or the whole module. There is another fantastic thing that you can also set a test bench for your circuits. As we are not going to use Clash to generate test benches, it is up to you to investigate. Here is \href{http://hackage.haskell.org/package/clash-prelude-1.2.1/docs/Clash-Annotations-TopEntity.html#v:TestBench}{the link}:
+You can customize the names of the ports or the whole module. Another fantastic thing you can do is to create a test bench for your circuits. As we are not going to use Clash to generate test benches, it is up to you to investigate. Here is \href{http://hackage.haskell.org/package/clash-prelude-1.2.1/docs/Clash-Annotations-TopEntity.html#v:TestBench}{the link}:
 
 \begin{minted}[breaklines]{bash}
 http://hackage.haskell.org/package/clash-prelude-1.2.1/docs/
@@ -136,7 +136,7 @@ Other Haskell types like \mintinline{haskell}{Maybe} can also be used without pr
 \begin{minted}{Haskell}
 Just True  = 11
 Just False = 10
-Nothong    = 0x
+Nothing    = 0x
 \end{minted}
 Clash will also find a way to represent your own defined sum types, for example,
 \begin{minted}{Haskell}

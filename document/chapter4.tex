@@ -1,6 +1,6 @@
 \chapter{Writing the CPU}
 \lettrine{N}{ow}, we are fully armed with our equipment. It is the time to get our hands dirty and start implementing a very naive MIPS CPU.
-\section{What is CPU}
+\section{What is a CPU}
 Central Process Unit, a.k.a. CPU, is the most important part of computers. It is in charge of the memory loading and storing, arithmetic operations and lots of other important stuffs. Most CPUs consist of a register called program counter, which record the current instruction position in the memory; in each cycle, the CPU fetches an instruction according to the program counter and start to handling a series of events encoded in the instruction.
 
 The CPU we are going to implement consists of five parts:
@@ -79,7 +79,7 @@ data Format
       (BitVector 5)    -- Register S
       (BitVector 5)    -- Register T
       (BitVector 5)    -- Register D
-      (BitVector 5)    -- Extra Infomation for Shifting Amount
+      (BitVector 5)    -- Extra Information for Shifting Amount
       (BitVector 6)    -- Function Code
   | IType              -- I-Type Instruction Format
       (BitVector 6)    -- Operation Code
