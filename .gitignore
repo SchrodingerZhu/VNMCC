@@ -10,3 +10,4 @@ test
 *.hi
 test.vcd
 _minted-*
+MIPS_CPU

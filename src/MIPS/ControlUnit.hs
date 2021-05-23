@@ -126,7 +126,7 @@ dispatch =
     SRL _ _ _ -> ALUShiftR False
     SRLV _ _ _ -> ALUShiftR False
     SRA _ _ _ -> ALUShiftR True
-    SRAV _ _ _ -> ALUShiftR False
+    SRAV _ _ _ -> ALUShiftR True
     JR _ -> ALUOr
     J _ -> ALUOr
     JAL _ -> ALUOr

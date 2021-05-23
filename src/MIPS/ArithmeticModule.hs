@@ -98,9 +98,13 @@ arithmeticModule clk rst enable last last' stall input =
       (res, _, z, _) =
         unbundle $
         arithmeticUnit <$> alu <*> (unwrap <$> rsv') <*> (unwrap <$> rtv')
-      check_branch True (BranchEQ delta) pc _ = Just (pc + unpack delta)
-      check_branch False (BranchNE delta) pc _ = Just (pc + unpack delta)
-      check_branch _ Jump _ (Just i) = Just (unpack i)
-      check_branch _ _ _ _ = Nothing
-      branch' = check_branch <$> z <*> branch <*> counter <*> imm
-   in bundle (write, mem', res, branch')
+      checkBranch True (BranchEQ delta) pc _ _ = Just (pc + unpack delta)
+      checkBranch False (BranchNE delta) pc _ _ = Just (pc + unpack delta)
+      checkBranch _ Jump _ (Just i) _ = Just (unpack i)
+      checkBranch _ Jump _ _ (Just i) = Just (unpack i `unsafeShiftR` 2)
+      checkBranch _ _ _ _ _ = Nothing
+      branch' = checkBranch <$> z <*> branch <*> counter <*> imm <*> rsv'
+      jumpRes Jump a b = pack b `unsafeShiftL` 2
+      jumpRes _ a b = a
+      res' = jumpRes <$> branch <*> res <*> counter -- workaround
+   in bundle (write, mem', res', branch')
